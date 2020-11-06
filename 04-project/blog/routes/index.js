@@ -3,35 +3,45 @@ const express = require('express')
 const router = express.Router()
 
 const Category = require('../models/category')
+const Article = require('../models/article')
 
 //获取共通数据
 const getCommonData = async ()=>{
     const categoriesPromise = Category.find({}, "name")
+    const topArticlesPromise = Article.find({},"title click").sort({click:-1}).limit(10)
     const categories = await categoriesPromise
+    const topArticles = await topArticlesPromise
     return {
-        categories
+        categories,
+        topArticles
     }
 }
-
 
 
 //显示首页
 router.get("/", async (req, res) => {
     //获取分类
-    const {categories} = await getCommonData()
+    const { categories, topArticles} = await getCommonData()
+    const result = await Article.findPaginationArticles(req)
     res.render('main/index', {
         userInfo:req.userInfo,
-        categories
+        categories,
+        topArticles,
+        articles: result.docs,
+        list: result.list,
+        pages: result.pages,
+        page: result.page,        
     })
 })
 //显示列表页面
 router.get("/list/:id", async (req, res) => {
     const { id } = req.params
-    const { categories } = await getCommonData()
+    const { categories, topArticles } = await getCommonData()
     res.render('main/list', {
         userInfo: req.userInfo,
         categories,
-        currentCategory:id
+        currentCategory:id,
+        topArticles
     })
 })
 

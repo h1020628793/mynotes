@@ -174,11 +174,9 @@
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item text-ellipsis">Dapibus ac facilisis in apibus ac
-                                    facilisis inapibus ac facilisis inapibus ac facilisis in</a>
-                                <a href="#" class="list-group-item text-ellipsis">Morbi leo risus</a>
-                                <a href="#" class="list-group-item text-ellipsis">Porta ac consectetur ac</a>
-                                <a href="#" class="list-group-item text-ellipsis">Vestibulum at eros</a>
+                                {% for article in topArticles %}
+                                <a href="/detail/{{article._id.toString()}}" target="_blank" class="list-group-item text-ellipsis">[{{article.click}}]{{article.title}}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
