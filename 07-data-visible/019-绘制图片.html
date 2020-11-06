@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保存环境和恢复</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 600
+    canvas.height = 800
+
+    var ctx = canvas.getContext('2d')
+    
+    var img = new Image()
+    
+    img.onload = function(){
+        ctx.drawImage(img,0,0, 600,800)
+    }
+
+    img.src = './img/g.jpg'
+
+</script>
+
+</html>

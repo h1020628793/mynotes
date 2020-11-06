@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>207-正则体验.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'good 12 345 hello 34 yes23';// [12,345,34,23]
+
+    var result = []
+    var temp = ''
+    for(var i = 0,len = str.length;i<len;i++){
+        if(!isNaN(parseInt(str.charAt(i)))){
+            temp = temp + str.charAt(i)
+        }else{
+            if(temp){
+                result.push(temp)
+                temp = ''
+            }
+        }
+    }
+    if(temp){
+        result.push(temp)
+    }
+
+    console.log(result)
+    
+    console.log(str.match(/\d+/g))
+
+</script>
+</html>

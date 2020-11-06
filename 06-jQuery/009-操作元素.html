@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="tom" test="test"> 
+    <input type="checkbox" name="amy" test="test" checked>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    /*
+    var $elems = $('input')
+    console.log($elems.attr('type'));
+    console.log($elems.prop('type'));
+  
+    $elems.attr('test','test')
+    $elems.attr('name','name')
+    */
+    /*
+    $elems.prop('test', 'test')
+    $elems.prop('name', 'name')
+    */
+    /*
+    $elems.removeAttr('test')
+    $elems.removeAttr('name')
+  
+    $elems.removeProp('test')
+    $elems.removeProp('name')
+    */
+    console.log($('[type="checkbox"]'))
+    var $elem = $('[type="checkbox"]')
+    /*
+    console.log($elem.attr('checked'));
+    console.log($elem.prop('checked'));    
+    */
+    // $elem.attr('checked','checked')
+    // $elem.prop('checked','checked')
+    // $elem.removeAttr('checked')
+    $elem.removeProp('checked')
+</script>
+</html>

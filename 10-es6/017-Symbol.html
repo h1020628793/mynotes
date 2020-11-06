@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // console.log(typeof Symbol);
+    // let s1 = Symbol('Tom')
+    // let s2 = Symbol('Tom')
+    // console.log(s1);
+    // console.log(s2);
+    // console.log(s1 == s2);
+    const s1 = Symbol()
+    const s2 = Symbol()
+
+    const obj = {
+        [s1]:'Tom',
+        [s2]:18,
+        city:'BJ'
+    }
+
+    /*
+    for(let key in obj){
+        console.log(key);
+    }
+    */
+    /*
+    let keys = Reflect.ownKeys(obj)
+    for(let key of keys){
+        console.log(obj[key]);
+    }
+    */
+    for(let key of Reflect.ownKeys(obj)){
+        console.log(key);
+    }
+
+</script>
+</html>

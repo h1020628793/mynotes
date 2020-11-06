@@ -1,0 +1,42 @@
+{% extends './layout.html' %}
+{% block title %}
+文章管理
+{% endblock %}
+
+{% block content %}
+<a href="/articles/add" class="btn btn-primary">新增</a>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>文章ID</th>
+                <th>文章名称</th>
+                <th>作者</th>
+                <th>分类</th>
+                <th>创建时间</th>
+                <th>点击量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article._id.toString() }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.user.username }}</td>
+                <td>{{ article.category.name }}</td>
+                <!-- <td>{{ article.createdAt | date('Y年m月d日 H:m:s',-8*60) }}</td> -->
+                <td>{{ article.createdTime }}</td>
+                <td>{{ article.click }}</td>
+                <td>
+                    <a  target="_blank" href="/detail/{{article._id.toString()}}">查看</a>
+                    <a href="/articles/edit/{{article._id.toString()}}">编辑</a>
+                    <a href="/articles/delete/{{article._id.toString()}}" class="del">删除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% include './pagination.html' %}
+{% endblock %}

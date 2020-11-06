@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>097-qq邮箱登录页面.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .link{
+            font-size: 12px;
+            color: #4572a7;
+            text-decoration: none;
+        }
+        .link:hover{
+            text-decoration: underline;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+            visibility: hidden;
+            height: 0;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+        .line{
+            font-size: 12px;
+            color: #ccc;
+            margin: 0 5px;
+        }
+        header{
+            height: 62px;
+            line-height: 62px;
+            background-color: #eff4fa;
+            border-bottom: 1px solid #d6dfea;
+        }
+        header .hd{
+            width: 1291px;
+            margin: 0 auto;
+        }
+        header .logo{
+            float: left;
+        }
+        header .logo a{
+            display: inline-block;
+            width: 182px;
+            height: 35px;
+            background-image: url(./resource/qq-mail/qqmail_logo.png);
+            background-repeat: no-repeat;
+            margin-top: 14px;
+        }
+        header nav{
+            float: right;
+        }
+        header nav li{
+            float: left;
+        }
+        section{
+            width: 915px;
+            margin: 72px auto 61px;
+        }
+        section .left-area{
+            width: 520px;
+            height: 390px;
+            float: left;
+            background-image: url(resource/qq-mail/qq_mail_bg.jpg);
+            background-repeat: no-repeat;
+            background-size: 520px 390px;
+        }
+        section .right-area{
+            width: 337px;
+            float: right;
+            border: 1px solid #96a5b4;
+            border-radius: 4px;
+            padding-bottom: 18px;
+        }
+        section .right-area .tab{
+            line-height: 50px;
+            height: 50px;
+            background-color: #f9fbfe;
+            padding: 0 28px;
+            box-sizing: border-box;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+        section .right-area .tab .btn{
+            padding: 0 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #9a9a9a;
+        }
+        section .right-area .tab .left-btn{
+            float: left;
+        }
+        section .right-area .tab .right-btn{
+            float: right;
+        }
+        section .right-area .tab .active{
+            color: #333;
+        }
+        section .right-area .form-box{
+            padding: 0 28px;
+            border-top: 1px solid #96a5b4;
+        }
+        .username,.password,.sub-btn{
+            width: 100%;
+            height: 36px;
+        }
+        .username,.password{
+            padding-left: 10px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+        .username:focus,.password:focus{
+            border-color: #00f;
+        }
+        .username{
+            margin-top: 36px;
+        }
+        .password{
+            margin-top: 10px;
+        }
+        .login-info{
+            margin-top: 24px;
+            font-size: 14px;
+            color: #333;
+        }
+        .login-info span{
+            position: relative;
+            bottom: 2px;
+            font-size: 12px;
+        }
+        .sub-btn{
+            margin-top: 16px;
+            height: 40px;
+            background-color: #5a98de;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .sub-btn:hover{
+            opacity: 0.8;
+        }
+        .switch{
+            margin-top: 20px;
+            text-align: center;
+            color: #225592;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .switch:before{
+            content: '';
+            vertical-align: middle;
+            margin-top: -3px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAKhJREFUKBVj/A8EDCQAltze7QzP336Ga5EU5mWYXOzJgEucIbhy5f8fv/6ALALTID4I4BJnAhnNzsrMEFK1CkzDrcIhDtbw8/dfhjVtYQwgGhlgE2cBuTm6fi1cHYgPArjEGUHuhasmgoEzlEB+QgcgZ6OE0vefv8GhA7IVF0AJJQ42FrihMBtANAyDJMEqYKEBjA+4BhgD7AwYB6QBV2jA1MBsAvFBmgGBlZ57TFwdMAAAAABJRU5ErkJggg==); 
+        }
+        .get-pwd{
+            margin-top: 40px;
+            float: right;
+        }        
+        footer{
+            position: fixed;
+            left:0;
+            bottom: 0;
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: #eff4fa;
+            border-top: 1px solid #d6dfea;
+        }
+        footer .copyright{
+            color: #868686;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hd">
+            <h1 class="logo">
+                <a href="#"></a>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="link" href="#">基本版</a><span class="line">|</span>
+                    </li>
+                    <li>
+                        <a class="link" href="#">English</a><span class="line">|</span>
+                    </li>
+                    <li>
+                        <a class="link" href="#">手机版</a><span class="line">|</span>
+                    </li>
+                    <li>
+                        <a class="link" href="#">企业邮箱</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="clearfix">
+        <div class="left-area"></div>
+        <div class="right-area">
+            <div class="tab">
+                <span class="left-btn btn">微信登录</span>
+                <span class="right-btn btn active">QQ登录</span>
+            </div>
+            <div class="form-box">
+                <form action="">
+                    <div>
+                        <input type="text" class="username" placeholder="支持QQ号/邮箱/手机登录">
+                    </div>
+                    <div>
+                        <input type="password" class="password" placeholder="QQ密码">
+                    </div>
+                    <div class="login-info">
+                        <input type="checkbox">
+                        <span>下次自动登录</span>
+                    </div>
+                    <div class="sub-btn">登录</div>
+                    <div class="switch">
+                        扫码快捷登录
+                    </div>
+                    <div class="get-pwd">
+                        <a class="link" href="#">忘了密码</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <a href="#" class="link">关于腾讯</a><span class="line">|</span>
+        <a href="#" class="link">服务条款</a><span class="line">|</span>
+        <a href="#" class="link">隐私政策</a><span class="line">|</span>
+        <a href="#" class="link">客服中心</a><span class="line">|</span>
+        <a href="#" class="link">联系我们</a><span class="line">|</span>
+        <a href="#" class="link">帮助中心</a><span class="line">|</span>
+        <span class="copyright">©1998 - 2020 Tencent Inc. All Rights Reserved.</span>
+    </footer>
+</body>
+</html>

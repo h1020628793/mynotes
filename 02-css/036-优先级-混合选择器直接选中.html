@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>036-优先级-混合选择器直接选中.html</title>
+    <style>
+        .son .box{
+            color: red;
+        }
+        #father #son p.box{
+            color: green;
+        }
+        #father div.son .box{
+            color: yellow;
+        }         
+        #father .son p.box{
+            color: purple;
+        }       
+    </style>
+</head>
+<body>
+    <div class="father" id="father">
+        <div class="son" id="son">
+            <p class="box" id="box">我是段落</p>
+        </div>
+    </div>
+</body>
+</html>

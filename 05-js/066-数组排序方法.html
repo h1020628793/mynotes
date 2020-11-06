@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>066-数组排序方法.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [11,8,22,7,50,33,9,22,343,565,343,33,443,234,3343,22]
+    console.log(arr)
+    arr.sort(function(n1,n2){
+        console.log('n1=',n1,'n2=',n2)
+        /*
+        if(n1 > n2){
+            return 10
+        }else if(n1 < n2){
+            return -10
+        }else{
+            return 0
+        }
+        */
+       return n1 - n2
+    })
+    console.log(arr)
+    //a->65->二进制 
+    var arr2 = [{username:'Tom',age:11},{username:'Amy',age:8}]
+
+    arr2.sort(function(obj1,obj2){
+        return obj1.age - obj2.age
+    })
+    console.log(arr2)
+
+
+
+
+
+
+</script>
+</html>

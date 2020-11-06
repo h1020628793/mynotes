@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>223-正则对象-搜索方法.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'a2020-08-18b'
+    var reg = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+    /*
+    console.log(/\d{4}-\d{2}-\d{2}/.exec(str))//["2020-08-18", index: 1, input: "a2020-08-18b", groups: undefined]
+    console.log(/(\d{4})-(\d{2})-(\d{2})/.exec(str))//["2020-08-18", "2020", "08", "18", index: 1, input: "a2020-08-18b", groups: undefined]
+    console.log(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec(str))
+    //["2020-08-18", "2020", "08", "18", index: 1, input: "a2020-08-18b",groups: {year: "2020", month: "08", day: "18"}]
+    var arr = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec(str)
+    */
+   console.log(reg.lastIndex)
+   console.log(reg.exec(str))
+   console.log(reg.lastIndex)
+   console.log(reg.exec(str))
+   console.log(reg.lastIndex)
+   console.log(reg.exec(str))
+
+
+</script>
+</html>

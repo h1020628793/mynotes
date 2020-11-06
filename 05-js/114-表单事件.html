@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>114-表单事件.html</title>
+</head>
+<body>
+    <form action="" id="form1">
+        <input type="text" id="username">
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+<script>
+    var formElem = document.getElementById('form1')
+    var username  = document.getElementById('username')
+    
+    formElem.addEventListener('submit',function(){
+        if(!username.value){
+            alert('请输入用户名')
+        }
+    },false)
+
+    formElem.addEventListener('reset',function(){
+        console.log('reset')
+    },false)
+
+</script>
+</html>

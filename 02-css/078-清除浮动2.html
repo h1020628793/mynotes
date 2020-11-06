@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>078-清除浮动2.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father1{
+            background-color: purple;
+            /*margin-bottom: 100px;*/
+        }
+        .father1 .box{
+            width: 100px;
+            background-color: skyblue;
+            float: left;
+            /*float: right;*/
+        }
+        .father2{
+            background-color: pink;
+            /*clear: left;*/
+            /*clear: right;*/
+            clear: both;
+            /*margin-top: 100px;*/
+        }
+        .father2 .box{
+            width: 100px;
+            background-color: tomato;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="father1">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <div class="father2">
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</body>
+</html>

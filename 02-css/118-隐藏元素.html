@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>118-隐藏元素.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        li{
+           list-style: none; 
+           width: 100px;
+           height: 100px;
+           border: 1px solid #000;
+        }
+        /*
+        .father1{
+            display: none;
+        }
+        .father1 li{
+            display: block;
+        }
+        */
+       .father2{
+         opacity: 0;
+       }
+       .father2 li{
+        opacity: 1;
+       }
+       .father3{
+        visibility: hidden;
+       }
+       .father3 li{
+        visibility: visible;
+       }
+    </style>
+</head>
+<body>
+    <ul class="father1" onclick="alert(1)">
+        <li>1</li>
+    </ul>
+    <ul class="father2" onclick="alert(2)">
+        <li>2</li>
+    </ul>
+    <ul class="father3" onclick="alert(3)">
+        <li>3</li>
+    </ul>
+    <ul>
+        <li>4</li>
+    </ul>
+</body>
+</html>

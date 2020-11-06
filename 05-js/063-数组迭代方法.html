@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>063-数组迭代方法.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [10,36,47,82,93,27,31,45]
+    /*
+    console.log(arr[0])
+    console.log(arr[1])
+    console.log(arr[2])
+    console.log(arr[3])
+    */
+    /*
+    var total = 0
+    for(var i = 0,len = arr.length;i < len;i++){
+        total += arr[i]
+    }
+    console.log(total)
+    */
+    /*
+    arr.forEach(function(value,index){
+        console.log('index='+index+";value="+value)
+    })
+    */
+    /*
+    function show(fn){//show 函数接收一个参数,这个参数是一个函数
+        fn('Tom');//在show中调用传递进来的函数
+    }
+    
+    show(function(arg){
+        console.log('hello,'+arg)
+    })//调用show,只是传递了一个函数,具体的执行在show中由fn('Tom')来执行
+    */
+    /*
+    arr.forEach(function(value,index){
+        console.log('index='+index+";value="+value)
+    })
+    */
+    /*
+    var newArr = arr.map(function(value,index){
+        console.log('index='+index+";value="+value)
+        return value + 10
+    })
+    console.log('newArr',newArr)
+    */
+    /*
+    var newArr = []
+    for(var i = 0,len = arr.length;i<len;i++){
+        if(arr[i]>=60){
+            newArr.push(arr[i])
+        }
+    }
+    console.log(newArr)
+    */
+    /*
+    var newArr = arr.filter(function(value,index){
+        console.log('index='+index+";value="+value)
+        return value >= 60
+    })
+    console.log(newArr)
+    */
+    /*
+    function getScore(arr){
+        for(var i = 0,len = arr.length;i<len;i++){
+            console.log('index='+i+";value="+arr[i])
+            if(arr[i]>=160){
+                return arr[i]
+            }
+        } 
+    }
+    var val = getScore(arr)
+    console.log(val)
+    */
+    /*
+    var val = arr.find(function(value,index){
+        console.log('index='+index+";value="+value)
+        return value >= 160
+    })
+    console.log('find data is',val)
+    */
+    /*
+    console.log(arr)
+    var sum = arr.reduce(function(accumulator,currentValue){
+        console.log('accumulator='+accumulator+";currentValue="+currentValue)
+        return accumulator + currentValue
+    })
+    console.log(sum)
+    */
+    /*
+    var isAllTrue = arr.every(function(value,index){
+        console.log('index='+index+";value="+value)
+        return value >= 0
+    })
+    console.log(isAllTrue)
+    */
+    var isHasTrue = arr.some(function(value,index){
+        console.log('index='+index+";value="+value)
+        return value >= 230
+    })
+    console.log(isHasTrue)   
+
+    var arr1 = [2,8,5,4]
+
+    var len = arr1.length
+    var minIndex,temp;
+    for(var i = 0;i<len -1;i++){
+        minIndex = i
+        for(j = i + 1;j<len;j++){
+            if(arr1[j]<arr1[minIndex]){
+                minIndex = j
+            }
+        }
+        var temp = arr1[i]
+        arr1[i] = arr1[minIndex]
+        arr1[minIndex] = temp
+    }
+    console.log(arr1)
+</script>
+</html>

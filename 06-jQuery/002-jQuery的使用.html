@@ -1,0 +1,48 @@
+<!--
+ * @Author: Tom
+ * @Date: 2020-09-05 16:48:28
+ * @LastEditTime: 2020-09-09 14:54:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    window.onload = function(){
+        console.log(1)
+    }
+    window.onload = function () {
+        console.log(2)
+    }
+    //console.log($ == jQuery) //true   
+ 
+$(function () {
+    console.log('do something1...')
+})
+$(function () {
+    console.log('do something2...')
+})
+ 
+    /*
+    $(document).ready(function(){
+        console.log('DOMContentLoaded1...')
+    })
+    $(document).ready(function () {
+        console.log('DOMContentLoaded2...')
+    }) 
+    */
+    $(function(){
+        console.log('DOMContentLoaded1...')
+    })  
+    $(function () {
+        console.log('DOMContentLoaded2...')
+    })            
+</script>
+</html>

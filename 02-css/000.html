@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top:10px;
+            background-color: pink;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: yellow;
+        }
+        .wrap1{
+            display: none;
+        }
+        .wrap1 li{
+            display: block;
+        }
+        .wrap2{
+            opacity: 0;
+        }
+        .wrap2 li{
+            opacity: 1;
+        }
+        .wrap3{
+            visibility: hidden;
+        }
+        .wrap3 li{
+            visibility: visible;
+        }          
+    </style>
+</head>
+<body>
+    <ul class="wrap1" onclick="alert(1)">
+        <li>1</li>
+    </ul>
+    <ul class="wrap2" onclick="alert(2)">
+        <li>2</li>
+    </ul>
+    <ul class="wrap3" onclick="alert(3)">
+        <li>3</li>
+    </ul>
+</body>
+</html>

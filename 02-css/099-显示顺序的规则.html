@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>099-显示顺序的规则.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: 1000;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: -20;
+        }
+        .box3{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: absolute;
+            left:0;
+            top:0;    
+            z-index: -10;        
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

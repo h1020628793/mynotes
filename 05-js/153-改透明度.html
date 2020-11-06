@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>153-改透明度.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">开始动画</button>
+    <div id="box"></div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+    var btn = document.getElementById('btn')
+    var timer = 0
+    var speed = 0
+
+    btn.onclick = function(){
+        clearInterval(timer)
+        timer = setInterval(function(){
+            var current = getComputedStyle(elem,false)['opacity']
+            current = Math.round(100 * current)
+
+            if(current > 10){
+                speed = -3
+            }else if(current < 10){
+                speed = 3
+            }
+
+            if(Math.abs(10 - current) < Math.abs(speed)){
+                elem.style.opacity = '0.1'
+                clearInterval(timer)
+            }else{
+                elem.style.opacity = (current + speed) / 100 
+            }
+        },30)        
+    }
+
+    
+
+
+</script>
+</html>

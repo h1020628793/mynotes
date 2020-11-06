@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>160-this的指向.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var tom = {
+        username:'Tom',
+        sayHi:function(){
+            console.log("hello, I am "+ this.username)
+        }
+    }
+
+    var amy = {
+        username:'Amy',
+        sayHi:function(){
+            var fn  = tom.sayHi
+            fn()
+        }
+    }
+    var username = 'Leo'
+    amy.sayHi()
+
+
+    /*
+    var amy = {
+        username:'Amy',
+        sayHi:tom.sayHi  
+    }
+
+    tom.sayHi()
+    amy.sayHi()
+    */
+
+    /*
+    function test(){
+        console.log("hello, I am "+ this.username)
+    }
+
+    
+    var username = 'Amy'
+    test()
+    */
+
+</script>
+</html>

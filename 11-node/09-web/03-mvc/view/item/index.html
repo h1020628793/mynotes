@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div class="avatar">
+                <img src="/static/images/avatar.png" alt="">
+                <form enctype="multipart/form-data" id="avatar-form">
+                    <input type="file" name="avatar" class="avatar-input">
+                </form>
+            </div>
+            <h1>ToDoList</h1>
+        </div>
+        <input type="text" autocomplete="off" class="todo-input">
+        <ul class="todo-wrap">
+            {% for item in data %}
+            <li class="todo-item" data-id="{{ item.id }}">{{ item.task }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+<script src="/static/js/jquery-1.12.4.min.js"></script>
+<script src="/static/js/index.js"></script>
+
+</html>

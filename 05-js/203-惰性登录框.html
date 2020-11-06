@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>惰性登录框</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        .login-wrap{
+            width: 300px;
+            height: 200px;
+            padding: 30px;
+            box-shadow: 1px 5px 5px rgba(0,0,0,0.3);
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);  
+            z-index: 999; 
+            background-color: #fff; 
+        }
+        .mask{
+            position: fixed;
+            top:0;
+            left:0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,.2);
+            z-index: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="go-login-btn">登录</button>
+</body>
+<script>
+var goLoginBtn = document.getElementById('go-login-btn')
+//利用闭包,该函数返回一个函数,这个返回函数的返回值就是由fn生成的单例对象
+function getSingle(fn){
+    var obj = null
+    return function(){
+        if(!obj){
+            obj = fn()
+        }
+        return obj
+    }
+}
+
+function createLoginLayer(){
+    var elem = document.createElement('div')
+    elem.className = 'login-wrap'
+    document.body.appendChild(elem)
+    return elem
+}
+function createMaskLayer(){
+    var elem = document.createElement('div')
+    elem.className = 'mask'
+    document.body.appendChild(elem)
+    return elem
+}
+
+var createSingleLoginLayer = getSingle(createLoginLayer);
+var createSingleMaskLayer = getSingle(createMaskLayer); 
+
+goLoginBtn.onclick = function(){
+    var loginLayer = createSingleLoginLayer()
+    var maskLayer = createSingleMaskLayer()
+    loginLayer.style.display = 'block'
+    maskLayer.style.display = 'block'
+    maskLayer.onclick = function(){
+        loginLayer.style.display = 'none'
+        maskLayer.style.display = 'none'
+    }
+}
+
+</script>
+</html>

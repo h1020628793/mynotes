@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>053-作用域分类.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    if(true){
+        console.log('true')
+        var a = 10
+        console.log(a)
+    }
+    console.log('after block:',a)
+    */
+    // console.log(a)
+    function fn(){
+        /*
+            var b;
+            console.log(b)
+         */
+        var b = 99// b = 99
+        console.log('fn::',b)
+
+        function fn1(){
+            console.log('fn1::',b)
+        }
+        fn1()
+
+    }
+    fn()
+    /*
+    var a = 10
+    console.log('after function:',b)
+    */
+</script>
+</html>

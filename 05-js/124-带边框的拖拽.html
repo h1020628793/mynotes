@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>124-带边框的拖拽.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top:100px;
+            left:100px;
+        }
+        .dashed-box{
+            border: 1px dashed #000;
+            box-sizing: border-box;
+        }
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+
+    elem.onmousedown = function(ev){
+        var disX = ev.pageX - elem.offsetLeft
+        var disY = ev.pageY - elem.offsetTop
+
+        var box = document.createElement('div')
+
+        box.style.width = elem.offsetWidth + 'px'
+        box.style.height = elem.offsetHeight + 'px'
+        box.style.position = 'absolute'
+        box.style.left = elem.offsetLeft + 'px'
+        box.style.top = elem.offsetTop + 'px'
+        box.className = 'dashed-box'
+
+        document.body.appendChild(box)
+
+        document.onmousemove = function(ev){
+            var l = ev.pageX - disX
+            var t = ev.pageY - disY
+
+            if(l < 0){
+                l = 0
+            }else if(l > window.innerWidth + window.pageXOffset - elem.offsetWidth){
+                l = window.innerWidth + window.pageXOffset - elem.offsetWidth
+            }
+
+            if(t < 0){
+                t = 0
+            }else if(t > window.innerHeight + window.pageYOffset - elem.offsetHeight){
+                t = window.innerHeight + window.pageYOffset - elem.offsetHeight
+            }
+
+            box.style.left = l + 'px'
+            box.style.top = t + 'px'
+        }
+
+        document.onmouseup = function(){
+            elem.style.left = box.offsetLeft + 'px'
+            elem.style.top = box.offsetTop + 'px'
+
+            document.body.removeChild(box)
+
+            document.onmousemove = null
+            document.onmouseup = null
+        }
+    }
+
+
+
+
+
+
+</script>
+</html>

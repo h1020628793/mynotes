@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    let username = 'Tom'
+    let age = 18
+    let obj1 = {
+        username:username
+    }
+    let obj2 = {
+        username,
+        age
+    }
+    console.log(obj2);
+
+    */
+    let username = 'Tom'
+    let age = 18
+    let obj1 = {
+        username:username,
+        age:age,
+        sayName:function(){
+            console.log('My name is '+this.username)
+        },
+        sayAge: function () {
+            console.log('I am ' + this.age + ' years old')
+        }        
+    }
+    // obj1.sayAge()
+
+    let  obj2 = {
+        username,
+        age,
+        sayName(){
+            console.log('My name is ' + this.username)
+        },
+        sayAge(){
+            console.log('I am ' + this.age + ' years old')
+        },
+    }
+
+    obj2.sayName()
+    obj2.sayAge()
+
+
+
+
+</script>
+</html>

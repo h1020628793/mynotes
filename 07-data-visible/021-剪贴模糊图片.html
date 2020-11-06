@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保存环境和恢复</title>
+    <style>
+        .wrap{
+            position: relative;
+            width: 500px;
+            height: 600px;
+            border: 1px solid #000;
+        }
+        .wrap img{
+            position: absolute;
+            top:0;
+            left:0;
+            filter: blur(30px);
+        }
+        .wrap canvas{
+            position: absolute;
+            top:0;
+            left:0; 
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="./img/g.jpg" alt="">
+        <canvas id="canvas"></canvas>
+    </div>
+    <button id="btn">显示</button>
+</body>
+<script>
+    var width = 500
+    var height = 600
+    var r = 50
+    var canvas = document.getElementById('canvas')
+    canvas.width = width
+    canvas.height = height
+
+    var ctx = canvas.getContext('2d')
+
+    var img = new Image()
+    img.onload = function(){
+        ctx.drawImage(img,0,0, width, height)
+    }
+    img.src = "./img/g.jpg"
+
+    ctx.save()
+    ctx.beginPath()
+    var x = Math.random() * (width-2*r) + r
+    var y = Math.random() * (height-2*r) + r
+    ctx.arc(x,y,r,0,2 * Math.PI,false)
+    ctx.clip()
+
+    var btn = document.getElementById('btn')
+    btn.onclick = function(){
+        ctx.restore()
+        ctx.drawImage(img, 0, 0, width, height)
+        ctx.arc(x, y, width + height, 0, 2 * Math.PI, false)
+        ctx.clip()
+    }
+
+</script>
+
+</html>

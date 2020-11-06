@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>209-原子.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = `I    have 100$,haha
+    bb` 
+
+    var reg1 = /1/g
+    var reg2 = /100/g
+    var reg3 = /hah/g
+    var reg4 = /\n/g
+    var reg5 = /\$/g
+    console.log(str)
+    console.log(str.replace(reg1,'2'))
+    console.log(str.replace(reg2,'2'))
+    console.log(str.replace(reg3,'hehe'))
+    console.log(str.replace(reg4,'*'))
+    console.log(str.replace(reg5,'*'))
+
+    console.log('好'.charCodeAt(0).toString(16))//597d
+</script>
+</html>

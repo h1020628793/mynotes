@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>093-元素的offset和client相关值.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #father{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+            padding: 20px;
+        }
+        #son{
+            width: 200px;
+            height: 300px;
+            padding: 30px;
+            border: 20px solid #000;
+            position: absolute;
+            top:50px;
+            left:100px;
+            overflow: scroll;
+        }
+        .box{width: 300px;height: 300px;}
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="son">
+            <div class="box"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var son = document.getElementById('son')
+    console.log('son.offsetParent:',son.offsetParent)
+    //console.log(getComputedStyle(son,false)['left'])
+    console.log('son.offsetLeft:',son.offsetLeft)
+    console.log('son.offsetTop',son.offsetTop)
+    console.log('son.offsetWidth',son.offsetWidth)
+    console.log('son.offsetHeight',son.offsetHeight)
+    console.log('son.clientWidth',son.clientWidth)
+    console.log('son.clientHeight',son.clientHeight)
+
+
+    console.log('document.compatMode',document.compatMode)
+
+    console.log('document.documentElement.clientWidth:',document.documentElement.clientWidth)
+    console.log('document.documentElement.clientHeight:',document.documentElement.clientHeight)
+
+   console.log('document.body.clientWidth:',document.body.clientWidth)
+    console.log('document.body.clientHeight:',document.body.clientHeight) 
+
+    var w =0,h=0;
+    //标准模式
+    if(document.compatMode == 'CSS1Compat'){
+        w = document.documentElement.clientWidth;
+        h = document.documentElement.clientHeight;
+    }
+    //混杂模式
+    else{
+        w = document.body.clientWidth;
+        h = document.body.clientHeight;     
+    }   
+</script>
+</html>

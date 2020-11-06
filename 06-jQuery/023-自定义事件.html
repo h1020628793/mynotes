@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').on('myclick',function(ev,arg1,arg2){
+        console.log('myclick trigger...');
+        console.log(ev);
+        console.log(arg1);
+        console.log(arg2);
+    })
+    $('button').trigger('myclick','hi')
+    $('button').trigger('myclick',{
+        name:'Tom',
+        age:18
+    })
+    $('button').trigger('myclick', [11,22])    
+</script>
+</html>

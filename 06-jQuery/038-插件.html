@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插件</title>
+</head>
+<body>
+    <button>测试</button>
+    <div>div1</div>
+    <div>div2</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').on('click',function(){
+        //插件的目标:让所有的jQuery对象都可以使用扩展的功能,换句话说就是把插件的方法添加到jQuery的原型对象上
+        
+        //1. $.fn就是jQuery的原型对象
+        /*
+        $.fn.setColor = function(options){
+            var DEFAULTS = {color:'red'}
+            options = $.extend({},DEFAULTS,options)
+            return this.each(function(){
+                this.style.color = options.color
+            })
+        }
+        */
+       
+        //2. $.fn.extend方法会添加方法到原型对象上
+        $.fn.extend({
+            setColor:function(options){
+                var DEFAULTS = { color: 'red' }
+                options = $.extend({}, DEFAULTS, options)
+                return this.each(function () {
+                    this.style.color = options.color
+                })
+            }
+        })
+        $('div').setColor({color:'blue'})
+    })
+</script>
+</html>

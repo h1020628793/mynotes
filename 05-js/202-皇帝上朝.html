@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>202-皇帝上朝.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    (function(w){
+        var king = null
+        function King(name){
+            if(!king){
+                this.name = name
+                this.id = Math.random()
+                king = this
+            }
+            return king
+        }
+        King.prototype = {
+            constructor:King,
+            work:function(){
+                console.log('id为'+this.id +'的'+this.name+ "说:有本早奏,无本退朝")
+            }
+        }
+        w.King = King
+    })(window);
+
+
+    for(var i = 0;i<5;i++){
+        new King('秦始皇').work()
+    }
+    new King('秦始皇').work()
+
+
+</script>
+</html>

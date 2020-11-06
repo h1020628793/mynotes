@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>093-固定定位.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 800px;
+            height: 600px;
+            background-color: gray;
+            margin:50px auto;
+            position: relative;
+        }
+        .box{
+            width: 600px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            /*position: absolute;*/
+            top:20px;
+            left:20px;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

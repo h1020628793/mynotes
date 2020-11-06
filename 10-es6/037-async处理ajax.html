@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    const getAjaxPromise = url => new Promise((resolve, reject) => {
+        $.ajax({
+            url: url,
+            success: (data) => {
+                resolve(data)
+            },
+            error: (jqXHR, textStatus) => {
+                reject(textStatus)
+            }
+        })
+    })
+
+    async function getGitHubData(url){
+        const data1 = await getAjaxPromise(url)
+        console.log(data1);
+        const data2 = await getAjaxPromise(data1.followers_url)
+        console.log(data2);
+        const data3 = await getAjaxPromise(data2[0].followers_url)
+        return data3
+    }
+    /*
+    getGitHubData('https://api.github.com/users/kuazhu')
+    .then(data=>{
+        console.log('res::',data);
+    })
+    */
+
+
+async function getGitHubUserInfo(user1Url,user2Url){
+    const user1Promise = getAjaxPromise(user1Url)
+    const user2Promise = getAjaxPromise(user2Url)
+    const data1 = await user1Promise
+    const data2 = await user2Promise
+    return [data1,data2]
+}
+
+getGitHubUserInfo('https://api.github.com/users/kuazhu', 'https://api.github.com/users/chenniantao')
+.then(data=>{
+    console.log(data);
+})
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>149-防止多次执行.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top:50px;
+            left: 0;
+        }
+        .line{
+            position: absolute;
+            top:50px;
+            left:400px;
+            width: 1px;
+            height: 300px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">开始动画</button>
+    <div class="line"></div>
+    <div id="box"></div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+    var btn = document.getElementById('btn')
+    var timer = 0
+    btn.onclick = function(){
+        clearInterval(timer)
+        timer = setInterval(function(){
+            if(elem.offsetLeft == 400){
+                clearInterval(timer)
+            }else{
+                elem.style.left = 10 + elem.offsetLeft + 'px'
+            }
+        },30)        
+    }
+
+    
+
+
+</script>
+</html>

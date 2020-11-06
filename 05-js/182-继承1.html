@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>182-继承1.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //定义一个父类
+    function Person(name,age){
+        this.name = name
+        this.age = age
+    }    
+    Person.prototype = {
+        constructor:Person,
+        showName:function(){
+            console.log('I am '+ this.name)
+        },
+        showAge:function(){
+            console.log('I am ' + this.age + ' years old')
+        }
+    }
+    var p1 = new Person('Tom',18)
+    //定义一个子类
+    function Student(name,age,major){
+        //调用父类的构造函数,并将子类的对象做为父类构造函数调用时的this来继承父类的属性
+        Person.call(this,name,age)
+        //子类自己的属性
+        this.major = major
+    }
+
+    //子类的原型对象指向父类的原型对象
+    Student.prototype = Person.prototype
+
+    //添加子类自己的方法
+    Student.prototype.showMajor = function(){
+        console.log('I am come from ' + this.major)
+    }
+    var s1 = new Student('Amy','20','Computer')
+    
+    //子类实例可以调用父类的方法
+    s1.showName()//I am Amy
+    s1.showAge()//I am 20 years old
+    //子类实例可以调用自己的方法
+    s1.showMajor()//I am come from Computer
+
+    //父类实例可以调用子类的方法
+    p1.showMajor()//I am come from undefined
+    
+
+
+</script>
+</html>

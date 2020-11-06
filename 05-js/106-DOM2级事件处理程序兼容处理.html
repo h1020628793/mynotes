@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>106-DOM2级事件处理程序兼容处理.html</title>
+</head>
+<body>
+    <p  id="box">
+        我是文字
+    </p>
+    <input type="button" value="移除事件" id="btn">
+</body>
+<script>
+    function addHandler(elem,type,handler){
+        if(elem.addEventListener){
+            elem.addEventListener(type,handler,false)
+        }else if(elem.attachEvent){
+            elem.attachEvent('on'+type,handler)
+        }else{
+            elem['on'+type] = handler
+        }
+    }
+    function removeHandler(elem,type,handler){
+        if(elem.removeEventListener){
+            elem.removeEventListener(type,handler,false)
+        }else if(elem.detachEvent){
+            elem.detachEvent('on'+type,handler)
+        }else{
+            elem['on'+type] = null
+        }
+    }    
+    var elem = document.getElementById('box')
+    var btn = document.getElementById('btn')
+
+    function toRed(){
+        this.style.color = 'red'
+    }
+
+    addHandler(elem,'click',toRed)
+    addHandler(btn,'click',function(){
+        removeHandler(elem,'click',toRed)
+    })
+
+</script>
+</html>

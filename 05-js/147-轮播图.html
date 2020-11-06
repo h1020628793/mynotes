@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .carousel-wrap{
+            width: 800px;
+            height: 400px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .carousel-wrap .carousel-imgs,
+        .carousel-wrap .carousel-item,
+        .carousel-wrap .carousel-item img{
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-wrap .carousel-item{
+            position: absolute;
+            left:0;
+            top: 0;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .carousel-wrap .carousel-item.show{
+            opacity: 1;
+        }
+        .carousel-wrap .arrow{
+            position: absolute;
+            top:50%;
+            width: 40px;
+            line-height: 80px;
+            background-color: rgba(0,0,0,0.5);
+            margin-top: -40px;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;            
+        }
+        .carousel-wrap .arrow:hover{
+          background-color: rgba(0,0,0,0.2);  
+        }
+        .carousel-wrap .left-arrow{
+            left:0;
+        }
+        .carousel-wrap .right-arrow{
+            right:0;
+        }
+        .carousel-wrap .btns{
+            list-style: none;
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+        }
+        .carousel-wrap .btns li{
+            float: left;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            margin-right: 10px;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;      
+        }
+        .carousel-wrap .btns li:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        .carousel-wrap .btns li.active{
+            background-color: rgba(0,0,0,0.2);
+        } 
+    </style>
+</head>
+<body>
+      <div class="carousel-wrap">
+        <ul class="carousel-imgs">
+            <li class="carousel-item show">
+                <img src="images/ad1.jpg" alt="">
+            </li>
+            <li class="carousel-item">
+                <img src="images/ad2.jpg" alt="">
+            </li>
+            <li class="carousel-item">
+                <img src="images/ad3.jpg" alt="">
+            </li>                        
+        </ul>
+        
+        <span class="left-arrow arrow">&lt;</span>
+        <span class="right-arrow arrow">&gt;</span>
+        <ul class="btns">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var leftArrow = document.querySelector('.carousel-wrap .left-arrow')
+    var rightArrow = document.querySelector('.carousel-wrap .right-arrow')
+    var btns = document.querySelectorAll('.carousel-wrap .btns li')
+    var carouselItems = document.querySelectorAll('.carousel-wrap .carousel-item')
+    var carouselWrap = document.querySelector('.carousel-wrap')
+
+    var len = carouselItems.length
+    //当前的索引
+    var activeIndex = 0
+    //即将显示的索引
+    var now = 0
+    var timer = 0
+
+    function tab(){
+        carouselItems[activeIndex].className = 'carousel-item'
+        btns[activeIndex].className = ''       
+        
+        carouselItems[now].className = 'carousel-item show'
+        btns[now].className = 'active'
+
+        activeIndex = now
+    }
+    function setCorrectIndex(){
+        if(now >= len){
+            now = 0
+        }
+        if(now < 0){
+            now = len - 1
+        }
+    }
+    rightArrow.onclick = function(){
+        now++
+        setCorrectIndex()
+        tab()
+    }
+    leftArrow.onclick = function(){
+        now--
+        setCorrectIndex()
+        tab()     
+    }
+    for(var i = 0;i<len;i++){
+        btns[i].index = i
+        btns[i].onclick = function(){
+            if(this.index != activeIndex){
+                now = this.index
+                tab()
+            }
+        }
+    }
+
+    timer = setInterval(rightArrow.onclick,3000)
+
+    carouselWrap.onmouseenter = function(){
+        clearInterval(timer)
+    }
+    carouselWrap.onmouseleave = function(){
+        timer = setInterval(rightArrow.onclick,3000)
+    }
+</script>
+</html>

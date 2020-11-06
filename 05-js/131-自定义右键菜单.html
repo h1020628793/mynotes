@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义右键菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            display: none;
+            width: 200px;
+            height: 300px;
+            background-color: #ccc;
+            border-radius: 4px;
+            box-shadow: 2px 3px 3px rgba(0,0,0,.3);
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        自定义右键菜单
+    </div>
+</body>
+<script>
+    var menu = document.getElementById('menu')
+    document.addEventListener('contextmenu',function(ev){
+        ev.preventDefault()
+        menu.style.display = 'block'
+        menu.style.left = ev.pageX + 'px'
+        menu.style.top = ev.pageY + 'px'
+    },false)
+
+    document.addEventListener('click',function(ev){
+        menu.style.display = 'none'
+    },false)
+
+    menu.addEventListener('click',function(ev){
+        ev.stopPropagation()
+    },false)
+</script>
+</html>

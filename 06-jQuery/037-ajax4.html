@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局配置</title>
+</head>
+
+<body>
+    <button>发送请求</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click', function () {
+        $.ajaxSetup({
+            dataType: 'json',
+            xhrFields: { withCredentials: true },
+            headers: { test: 'test' }
+        })
+        $.ajax({
+            url: '/getData',
+            data: {
+                name: 'Tom',
+                age: 18
+            }
+        })
+        $.ajax({
+            url: '/addData',
+            type: 'post',
+            data: JSON.stringify({name: 'Tom',age: 18})
+        })        
+    })
+</script>
+
+</html>

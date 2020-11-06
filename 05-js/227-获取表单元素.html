@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>227-获取表单元素.html</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" name="form1" id="form1">
+        <input type="text" name="username">
+        <input type="text" name="username">
+        <input type="password" name="password">
+    </form>
+</body>
+<script>
+    var form1 = document.forms[0]
+    // var form1 = document.forms.form1
+    // console.log(form1.elements)
+
+    // console.log(form1.elements[1])
+    // console.log(form1.elements['username'])
+    // console.log(form1.elements.username)
+    // console.log(form1.elements['username'])
+    var elem = form1.elements[1]
+    console.log(form1.username)
+    // console.log(elem.form)
+</script>
+</html>

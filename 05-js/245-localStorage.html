@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>245-localStorage.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+localStorage.setItem('test1','test1-content')
+localStorage.setItem('test2',{
+    name:'Tom'
+})
+var obj = {
+    name:'Tom'
+}
+localStorage.setItem('test3',JSON.stringify(obj))   
+
+console.log(localStorage.getItem('test1'))
+console.log(localStorage.getItem('test2'))
+console.log(JSON.parse(localStorage.getItem('test3')))
+
+// localStorage.removeItem('test2')
+// localStorage.clear()
+// console.log(localStorage.length)
+// console.log(localStorage.key(0))
+
+for(var i = 0,len = localStorage.length;i<len;i++){
+    var key = localStorage.key(i)
+    console.log(key+'='+localStorage.getItem(key))
+}
+
+</script>
+</html>

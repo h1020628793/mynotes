@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>067-遍历数组法数组去重.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [11,33,10,11,40,10,11,99]//[11,33,10,40,99]
+
+    var result = []//用来保存去重后的数据
+    //[11,33,10,40,99]
+    for(var i = 0,len = arr.length;i<len;i++){
+
+        if(result.indexOf(arr[i]) == -1){
+            result.push(arr[i])
+        }
+    }
+
+    console.log(result)
+
+</script>
+</html>

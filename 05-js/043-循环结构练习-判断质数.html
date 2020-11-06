@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>043-循环结构练习-判断质数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var num = 1;
+    //flag变量用来标示是否是质数,默认认为是质数
+    var flag = true ;
+    //判断1和本身之外有没有一个可以用来整除自己的数
+    for(var i = 2;i <= num/2;i++){
+        if(num % i == 0){
+            //设置为不是质数
+            flag = false;
+            break;
+        }
+    }
+    if(flag){
+        console.log(num + "是质数数")
+    }else{
+        console.log(num + "不是质数,因为它可以被"+i+"整除")
+    }
+</script>
+</html>

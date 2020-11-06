@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function Timer(id){
+        this.id = id
+
+        setTimeout(function(){
+            console.log(this,this.id);// window 99 
+        },100)
+    }
+    var id = 99
+    new Timer(100)
+    
+    function Timer(id) {
+        this.id = id//this就是一个Timer的实例
+
+        setTimeout(()=>{
+            console.log(this, this.id);//Timer的一个实例  100
+        }, 100)
+    }
+    var id = 99
+    new Timer(100)//Timer的实例
+    */
+    const fn = (arg1)=>{
+        console.log(this,arg1);
+    }
+    fn(1)
+    fn.call({name:'Tom'},2)
+    fn.apply({name:'Tom'},[3])
+
+    const fn1 = fn.bind({ name: 'Tom'})
+    fn1(4)
+
+</script>
+
+
+
+
+</html>

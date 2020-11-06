@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>113-键盘事件.html</title>
+</head>
+<body>
+    <input type="text" id="input">
+</body>
+<script>
+    var elem = document.getElementById('input')
+    /*
+    elem.addEventListener('keydown',function(){
+        console.log('keydown')
+    },false)
+    elem.addEventListener('keyup',function(){
+        console.log('keyup')
+    },false) 
+    */
+    /*
+    elem.addEventListener('keypress',function(){
+        console.log('keypress')
+    },false)     
+    */
+    /*
+    elem.addEventListener('focus',function(){
+        console.log('focus')
+    },false)     
+    elem.addEventListener('blur',function(){
+        console.log('blur')
+    },false)  
+    */
+    elem.addEventListener('change',function(){
+        console.log('change')
+    },false)  
+
+    elem.addEventListener('input',function(){
+        console.log('input')
+    },false)  
+
+
+
+
+       
+</script>
+</html>

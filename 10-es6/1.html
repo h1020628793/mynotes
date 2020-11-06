@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj1 = {
+            age: 18,
+            friends: ['Tom'],
+            say: function () { },
+            city: undefined,
+            name: Symbol('Amy'),
+            job: {
+                name: 'worker',
+                location: 'BJ'
+            }
+        }
+        Object.defineProperty(obj1,'xxx',{
+            value:4444
+        })
+
+        function deepClone(obj) {
+            //判断是否是对象
+            function isObject(o) {
+                return (typeof o === 'function' || typeof o === 'object') && (o !== null)
+            }
+            //传入的参数如果不是对象抛出异常
+            if (!isObject(obj)) {
+                throw new Error('argument is not a object')
+            }
+            //复制对象
+            let newObj = Array.isArray(obj) ? [...obj] : { ...obj }
+            //递归复制
+            // Reflect.ownKeys(newObj).forEach(key => {
+            //     newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key]
+            // })
+
+            return newObj
+        }
+
+        let obj2 = deepClone(obj1)
+        obj2.friends.push('Leo')
+        obj2.job.name = 'teacher'
+        console.log(obj1)
+        /*
+        {
+            age: 18
+            city: undefined
+            friends: ["Tom"]
+            job: {name: "worker", location: "BJ"}
+            name: Symbol(Amy)
+            say: ƒ ()
+        }
+        */
+        console.log(obj2)
+/*
+        {
+            age: 18
+            city: undefined
+            friends: ["Tom", "Leo"]
+            job: {name: "teacher", location: "BJ"}
+            name: Symbol(Amy)
+            say: {}
+        }
+        */
+</script>
+</html>

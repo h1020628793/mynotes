@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            color: red;
+        }
+        .box2{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">切换</button>
+    <div class="box1 box2">div1</div>
+    <div class="box1 box2">div2</div>
+    <div class="box1 box2">div3</div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    var $elems = $('div')
+    // $elems.addClass('box1 box2').removeClass('box1')
+    var btn = document.getElementById('btn')
+    btn.onclick = function(){
+        $elems.toggleClass('box1')
+    }
+</script>
+</html>

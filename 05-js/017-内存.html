@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>017-内存.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 'tom';
+    var b = 1;
+    var c = null;
+    var d = false;
+    var e = undefined;
+    var f = {
+        username:'Tom'
+    }
+    var g = f;
+    var h = a;
+    a = 'amy';
+    
+    f.age = 18;
+    g.age = 20;
+    g = {
+        username:'Amy'
+    }
+
+    console.log(f)
+    //{username:'Amy'}
+    console.log(g)
+    //{username:'Amy'}
+    //
+    console.log(a)
+    console.log(h)
+
+</script>
+</html>

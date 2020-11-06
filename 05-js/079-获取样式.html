@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>079-获取样式.html</title>
+    <style>
+        #box{
+          font-size: 24px;  
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="color: red;font-size: 36px;">box</div>
+</body>
+<script>
+    var box = document.getElementById('box')
+    /*
+    console.log(box.style.color)
+    console.log(box.style['color'])
+    console.log(box.style.fontSize)
+    console.log(box.style['fontSize'])
+    */
+    //console.log(box.style['font-size'])
+    /*
+    var style = getComputedStyle(box,false)
+    console.log(style['font-size'])
+    */
+    /*
+    var fs = getComputedStyle(box,false)['font-size']
+    console.log(fs)
+    var color = getComputedStyle(box,false)['color']
+    console.log(color)
+    */
+    
+    var fs = getComputedStyle(box,false)['font-size']
+    console.log(fs)   
+
+</script>
+</html>

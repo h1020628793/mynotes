@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>165-this的指向.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    var tom = {
+        username:'Tom',
+        sayHi:function(){
+            console.log('hello, I am '+ this.username)
+        },
+        say:function(){
+            //this->tom
+            (function(cb){
+                cb()
+            })(this.sayHi)
+        }
+    }
+
+    tom.say()
+    */
+    var tom = {
+        username:'Tom',
+        sayHi:function(){
+            //this->tom
+            setTimeout(function(){
+                console.log('hello, I am '+ this.username)
+            },30)
+        },        
+    }
+    var username = 'Leo'
+    tom.sayHi()
+    /*
+    function(){
+        console.log('hello, I am '+ this.username)
+    }
+
+     */
+
+</script>
+</html>

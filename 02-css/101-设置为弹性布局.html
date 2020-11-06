@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1010-设置为弹性布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*容器*/
+        .container{
+            display: flex;
+        }
+        /*项目*/
+        .item{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            /*float: left;*/
+        }
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="box">box</div>
+        <span>span</span>
+    </div>
+</body>
+</html>

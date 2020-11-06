@@ -1,0 +1,17 @@
+.detail-panel{
+    min-height: 600px;
+}
+.detail-panel .panel-title{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.detail-panel  .sub-title span{
+    margin-right: 10px;
+}
+.detail-panel  .sub-title .view-num{
+    margin-right: 0;
+    font-style: italic;
+}
+.detail-panel .panel-body{
+    background-color: transparent;
+}

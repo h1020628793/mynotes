@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>117-鼠标事件属性.html</title>
+    <style>
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    document.onmouseover = function(ev){
+        console.log('clientY:',ev.clientY)
+        console.log('clientX:',ev.clientX)
+        console.log('pageY:',ev.pageY)
+        console.log('pageX:',ev.pageX)   
+        console.log('screenY:',ev.screenY)
+        console.log('screenX:',ev.screenX)               
+    }
+    document.addEventListener('mousewheel',function(ev){
+        console.log(ev.wheelDelta)
+    },false)
+    document.addEventListener('contextmenu',function(ev){
+        console.log('clientY:',ev.clientY)
+        console.log('clientX:',ev.clientX)
+        console.log('pageY:',ev.pageY)
+        console.log('pageX:',ev.pageX)   
+        console.log('screenY:',ev.screenY)
+        console.log('screenX:',ev.screenX)    
+    },false)    
+</script>
+</html>

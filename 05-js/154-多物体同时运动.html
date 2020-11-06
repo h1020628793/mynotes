@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>154-多物体同时运动.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 300px;
+            margin: 50px auto;
+        }
+        .wrap div{
+            width: 100px;
+            line-height: 100px;
+            margin-bottom: 20px;
+            background-color: red;
+            opacity: .3;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="box1">变宽</div>
+        <div id="box2">变高</div>
+        <div id="box3">变红</div>
+    </div>
+</body>
+<script>
+    var elem1 = document.getElementById('box1')
+    var elem2 = document.getElementById('box2')
+    var elem3 = document.getElementById('box3')
+
+    elem1.onmouseover = function(){
+        clearInterval(elem1.timer)
+        var speed = 0
+        elem1.timer = setInterval(function(){
+            if(elem1.offsetWidth > 400){
+                speed = -10
+            }else if(elem1.offsetWidth < 400){
+                speed = 10
+            }
+            if(Math.abs(400 - elem1.offsetWidth) < Math.abs(speed)){
+                elem1.style.width = '400px'
+                clearInterval(elem1.timer)
+            }else{
+                elem1.style.width = elem1.offsetWidth + speed + 'px'
+            }
+        },30) 
+    }
+    elem2.onmouseover = function(){
+        clearInterval(elem2.timer)
+        var speed = 0
+        elem2.timer = setInterval(function(){
+            if(elem2.offsetHeight > 400){
+                speed = -10
+            }else if(elem2.offsetHeight < 400){
+                speed = 10
+            }
+            if(Math.abs(400 - elem2.offsetHeight) < Math.abs(speed)){
+                elem2.style.height = '400px'
+                clearInterval(elem2.timer)
+            }else{
+                elem2.style.height = elem2.offsetHeight + speed + 'px'
+            }
+        },30) 
+    }    
+    elem3.onmouseover = function(){
+        clearInterval(elem3.timer)
+        var speed = 0
+        elem3.timer = setInterval(function(){
+            var current = getComputedStyle(elem3,false)['opacity']
+            current = Math.round(100 * current)
+
+            if(current > 100){
+                speed = -3
+            }else if(current < 100){
+                speed = 3
+            }
+
+            if(Math.abs(10 - current) < Math.abs(speed)){
+                elem3.style.opacity = '1'
+                clearInterval(elem3.timer)
+            }else{
+                elem3.style.opacity = (current + speed) / 100 
+            }
+        },30)        
+    }
+</script>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>244-cookie.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // console.log(document.cookie)
+    // var date = new Date();
+    // date.setDate(date.getDate() + 1);
+
+    // document.cookie = 'test3=1234;expires='+date
+    // document.cookie = 'test4=1234;max-age=5'
+    // console.log(document.cookie)
+
+
+
+    function setCookie(key,val,days){
+        var days = days ||  1
+        var date = new Date();
+        date.setDate(date.getDate() + days);
+
+        document.cookie = key + '=' + val + ';expires='+date        
+    }
+
+    setCookie('test5','test1234',3)
+    setCookie('test6','test12346',3)
+    setCookie('test7','test12347',3)
+
+    
+
+    function getCookie(key){
+        var arr1 = document.cookie.split(';')
+        var result = ''
+        for(var i = 0,len = arr1.length;i<len;i++){
+            var arr2 = arr1[i].split('=')
+            if(arr2[0].trim() == key.trim()){
+                result = arr2[1]
+                break
+            }
+        }
+        return result        
+    }
+
+    function removeCookie(key){
+        setCookie(key,false,-1)
+    }
+
+
+    // removeCookie('test3')
+
+function getCookieByReg(key){
+    var cookieStr = document.cookie.trim()
+    var reg = new RegExp(key+'='+'([^;]*)')
+    var result = cookieStr.match(reg)
+    return result ? result[1] : null
+}
+    console.log(getParamFromUrl('test6'))
+</script>
+</html>

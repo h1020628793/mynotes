@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    ;(function ($) {
+        $.fn.extend({
+            drag: function () {
+                this.css({
+                    position: 'absolute',
+                    left: 0,
+                    top: 0
+                })
+                return this.each(function () {
+                    var $elem = $(this)
+                    $elem.on('mousedown', function (ev) {
+
+                        var disX = ev.pageX - $elem.offset().left
+                        var disY = ev.pageY - $elem.offset().top
+
+                        $(document)
+                            .on('mousemove', function (ev) {
+                                $elem.css({
+                                    left: ev.pageX - disX,
+                                    top: ev.pageY - disY
+                                })
+                            })
+                            .on('mouseup', function () {
+                                $(document).off()
+                            })
+                    })
+                })
+            }
+        })
+    })(jQuery)
+    
+    $('div').drag()
+</script>
+</html>

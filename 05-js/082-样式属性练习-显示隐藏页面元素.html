@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>082-样式属性练习-显示隐藏页面元素.html</title>
+</head>
+<body>
+    <input type="button" id="btn" value="显示隐藏">
+    <div id="wrap">
+        我是需要显示隐藏的内容
+    </div>
+</body>
+<script>
+    //1.获取元素
+    var btn = document.getElementById('btn');
+    var wrap = document.getElementById('wrap');
+    //2.给按钮绑定点击事件
+    btn.onclick = function(){
+        //如果容器是隐藏状态->显示
+        if(wrap.style.display == 'none'){
+            wrap.style.display = 'block';
+        }
+        //如果容器是显示状态->隐藏
+        else{
+            wrap.style.display = 'none';
+        }
+    }
+</script>
+</html>

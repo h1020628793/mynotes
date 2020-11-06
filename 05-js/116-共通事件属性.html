@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>116-共通事件属性.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #father{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #son{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="son"></div>
+    </div>
+</body>
+<script>
+    var father = document.getElementById('father')    
+    var son = document.getElementById('son')    
+
+    son.onclick = function(event){
+        console.log('son type:',event.type)
+        console.log('son currentTarget:',event.currentTarget)
+        console.log('son target:',event.target)
+    }
+
+    father.onclick = function(event){
+        console.log('father type:',event.type)
+        console.log('father currentTarget:',event.currentTarget)
+        console.log('father target:',event.target)
+    }
+
+
+
+</script>
+</html>

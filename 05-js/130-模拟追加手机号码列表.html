@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟追加手机号码列表</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 600px;
+            margin: 50px auto;
+        }
+        li{
+            list-style: none;
+            line-height: 30px;
+            border-bottom: 1px dashed #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <input type="text" placeholder="请输入手机号" id="num-input">
+        <button id="btn">追加</button>
+        <ul id="list">
+            <li>13512344321</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var numInput = document.getElementById('num-input')
+    var list = document.getElementById('list') 
+    btn.onclick = function(){
+        var val = numInput.value
+        var elem = document.createElement('li')
+        elem.innerHTML = val
+        list.appendChild(elem)
+        numInput.value = ''
+    }
+    numInput.onkeydown = function(ev){
+        var keyCode = ev.keyCode
+        console.log(keyCode)
+        if((keyCode < 48 || keyCode > 57) && keyCode != 8 && keyCode != 37 && keyCode != 39){
+            ev.preventDefault()
+        }
+        if(keyCode == 13 && ev.ctrlKey){
+            btn.onclick()
+        }
+    }
+</script>
+</html>

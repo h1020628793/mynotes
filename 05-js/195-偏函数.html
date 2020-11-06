@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>195-偏函数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function generateEmployee(city,department,name){
+        return city+department+name
+    }
+    function generateEmployee(city){
+        return function(department){
+            return function(name){
+                return city+department+name
+            }
+        }
+    }    
+    */
+    function generateEmployee(city){
+        return function(department,name){
+            return city+department+name
+        }
+    }
+    var generateBeiJingEmployee = generateEmployee('北京')
+    var e1 = generateBeiJingEmployee('销售部','张三')
+    console.log(e1)
+</script>
+</html>

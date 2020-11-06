@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>026-秒转时分秒.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var totalSecond = 7890;
+    //秒转小时
+    var hour = parseInt(totalSecond / 3600);
+    //秒转分:转小时后剩下的秒再转分
+    var minute = parseInt((totalSecond % 3600) / 60);
+    //剩下的秒
+    var second = (totalSecond % 3600) % 60;
+    if(hour < 10){
+        hour = '0' + hour
+    }
+    if(minute < 10){
+        minute = '0' + minute
+    }
+    if(second < 10){
+        second = '0' + second
+    }    
+    console.log(hour+":"+minute+":"+second);
+</script>
+</html>

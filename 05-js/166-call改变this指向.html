@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>166-call改变this指向.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var tom  = {
+        username:'Tom'
+    }
+    function sayHi(age,city){
+        console.log(this)
+        console.log("I am "+this.username+", I am " + age + " years old and I am from "+ city)
+    }
+
+//    window.sayHi(18,'BeiJing')
+
+//    sayHi.call(tom,18,'BeBeiJingij')// this->tom
+
+    sayHi.call(18,'BeBeiJingij')
+
+    var n = new Number(12)
+
+    console.log(n)
+
+</script>
+</html>

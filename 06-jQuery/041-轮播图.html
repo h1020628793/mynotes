@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .carousel-wrap li {
+            list-style: none;
+        }
+        .carousel-wrap{
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-wrap .carousel-imgs,
+        .carousel-wrap .carousel-item,
+        .carousel-wrap .carousel-item img{
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-wrap .carousel-item{
+            position: absolute;
+            left:0;
+            top: 0;
+        }
+        .carousel-wrap .arrow{
+            position: absolute;
+            top:50%;
+            width: 40px;
+            line-height: 80px;
+            background-color: rgba(0,0,0,0.5);
+            margin-top: -40px;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            user-select: none; 
+            z-index: 999;          
+        }
+        .carousel-wrap .arrow:hover{
+            background-color: rgba(0,0,0,0.2);  
+        }
+        .carousel-wrap .left-arrow{
+            left:0;
+        }
+        .carousel-wrap .right-arrow{
+            right:0;
+        }
+        .carousel-wrap .btns{
+            list-style: none;
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+            z-index: 999;
+        }
+        .carousel-wrap .btns li{
+            float: left;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            margin-right: 10px;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;      
+        }
+        .carousel-wrap .btns li:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        .carousel-wrap .btns li.active{
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .carousel-wrap .carousel-item{
+            display: none;
+        }
+        #wrap {
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    ;(function($){
+        function Carousel($elem,options) {
+            //1.罗列属性
+            this.$elem = $elem
+            this.width = options.width
+            this.height = options.height
+            this.imgs = options.imgs
+            this.len = this.imgs.length
+            this.activeIndex = 0
+            this.now = 0
+            this.playInterval = options.playInterval
+
+            this.$carouselImgs = null
+            this.$leftArrow = null
+            this.$rightArrow = null
+            this.$btns = null
+            this.$carouselImgsChildren = null
+            this.$bntsChildren = null            
+
+            //2.初始化
+            this.init()
+        
+            //3.绑定事件
+            this.bindEvent()
+            //4.处理自动切换
+            if (this.playInterval) {
+                this.autoPlay()
+            }
+        }
+        Carousel.prototype = {
+            constructor: Carousel,
+            init: function () {
+                this.$elem.addClass('carousel-wrap').css({
+                    width: this.width,
+                    height: this.height
+                })
+            
+                this.$carouselImgs = $('<ul></ul>').addClass('carousel-imgs')
+                this.$btns = $('<ul></ul>').addClass('btns')
+
+                for (var i = 0; i < this.len; i++) {
+                    var $carouselItem = $('<li></li>').addClass('carousel-item')
+                    var $btn = $('<li></li>').html(i+1)
+
+                    var $img = $('<img>').attr('src', this.imgs[i])
+                    $carouselItem.append($img)
+
+                    this.$carouselImgs.append($carouselItem)
+                    this.$btns.append($btn)
+                }
+
+                this.$leftArrow = $('<span></span>').addClass('left-arrow arrow').html('&lt;')
+                this.$rightArrow = $('<span></span>').addClass('right-arrow arrow').html('&gt;')
+
+                this.$elem.append(this.$carouselImgs)
+                this.$elem.append(this.$leftArrow)
+                this.$elem.append(this.$rightArrow)
+                this.$elem.append(this.$btns)
+
+                this.$carouselImgsChildren = this.$carouselImgs.find('li')
+                this.$bntsChildren = this.$btns.find('li')
+                
+                this.$carouselImgsChildren.eq(this.activeIndex).show()
+                this.$bntsChildren.eq(this.activeIndex).addClass('active')
+            },
+            bindEvent: function () {
+                var _this = this
+                this.$rightArrow.on('click',function(){
+                    this.now++
+                    this.setCorrectIndex()
+                    this.tab()
+                }.bind(this))
+
+                this.$leftArrow.on('click', function () {
+                    this.now--
+                    this.setCorrectIndex()
+                    this.tab()
+                }.bind(this))
+
+                //用事件代理的方式实现底部指示按钮的点击事件处理
+                this.$btns.on('click','li',function(){
+                    var index = $(this).index()
+                    if(index == _this.activeIndex){
+                        return
+                    }
+                    _this.now = index
+                    _this.tab()
+                })
+            },
+            tab: function () {
+                this.$carouselImgsChildren.eq(this.activeIndex).fadeOut()
+                this.$carouselImgsChildren.eq(this.now).fadeIn()
+
+                this.$bntsChildren.eq(this.activeIndex).removeClass('active')
+                this.$bntsChildren.eq(this.now).addClass('active')
+                this.activeIndex = this.now
+            },
+            setCorrectIndex: function () {
+                if (this.now >= this.len) {
+                    this.now = 0
+                }
+                if (this.now < 0) {
+                    this.now = this.len - 1
+                }
+            },
+            autoPlay: function () {
+                var timer = 0
+                timer = setInterval(function(){
+                   this.$rightArrow.trigger('click') 
+                }.bind(this), this.playInterval)
+
+                this.$elem.on('mouseenter',function(){
+                    clearInterval(timer)
+                })
+                this.$elem.on('mouseleave', function () {
+                    timer = setInterval(function () {
+                        this.$rightArrow.trigger('click')
+                    }.bind(this), this.playInterval)
+                }.bind(this))
+            }
+        }
+        Carousel.DEFAULTS = {
+            imgs: [],
+            width: 800,
+            height: 400,
+            playInterval: 2000    
+        }
+        $.fn.extend({
+            carousel:function(options){
+                return this.each(function () {
+                    var $elem = $(this)
+                    //单例模式创建轮播图对象
+                    var carousel = $elem.data('carousel')
+                    if(!carousel){
+                        options = $.extend({},Carousel.DEFAULTS,options)
+                        carousel = new Carousel($elem, options)
+                        $elem.data('carousel', carousel)
+                    }
+                })
+            }
+        })
+    })(jQuery)
+
+    $('#wrap').carousel({
+        imgs: [
+            'images/ad1.jpg',
+            'images/ad2.jpg',
+            'images/ad3.jpg' 
+        ]  
+    })
+</script>
+
+</html>

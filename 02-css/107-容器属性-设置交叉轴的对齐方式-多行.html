@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>107-容器属性-设置交叉轴的对齐方式-多行.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+            display: flex;
+            /*设置主轴为x轴,那么y轴就是交叉轴*/
+            flex-direction: row;
+            /*flex-wrap: wrap;*/
+            flex-wrap: nowrap;
+            /*align-content: flex-start;*/
+            /*align-content: flex-end;*/
+            /*align-content: center;*/
+            /*align-content: space-between;*/
+            /*align-content: space-around;*/
+            align-content: center;
+            /*align-items: center;*/
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            /*height: auto;*/
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+
+    </div>
+</body>
+</html>

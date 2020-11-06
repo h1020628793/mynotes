@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>002-写在script标签中.html</title>
+    <script type="text/javascript">
+        //在这里就可以写任何js代码啦
+        //var box = document.getElementById('box');
+        //console.log(box)
+        window.onload = function(){
+            var box = document.getElementById('box');
+            console.log(box) 
+        }
+    </script>
+</head>
+<body>
+    <div id="box">我是页面中的一个需要被操作的元素</div>
+</body>
+<script>
+    //在这里就可以写任何js代码啦
+    var box = document.getElementById('box');
+    console.log(box)
+    // alert(111);
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 960px;
+            margin:50px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .tabs{
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #F9002B;
+            background-color: #ccc;
+        }
+        .tabs li{
+            cursor: pointer;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .tabs li:hover{
+            color:#F9002B;
+        }
+        .tabs li.active{
+            color: #fff;
+            background-color: #F9002B;
+        }
+        .contents li{
+            display: none;
+            line-height: 400px;
+            text-align: center;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+        </ul>
+        <ul class="contents">
+            <li style="display: block;">商品介绍的内容</li>
+            <li>规格与包装的内容</li>
+            <li>售后保障的内容</li>
+            <li>商品评价的内容</li>
+        </ul>
+    </div>   
+</body>
+<script>
+    function Tab(tabsSelector,contentsSelector){
+        //1.罗列属性
+        this.tabs = document.querySelectorAll(tabsSelector)
+        this.contents = document.querySelectorAll(contentsSelector)
+        this.activeIndex = 0
+        //2.添加事件
+        this.bindEvent()
+    }
+    Tab.prototype = {
+        constructor:Tab,
+        bindEvent:function(){
+            var _this = this
+            for(var i = 0,len = this.tabs.length; i < len;i++){
+                this.tabs[i].index = i
+                this.tabs[i].onclick = function(){
+                    _this.handleClick(this)
+                }
+            }
+        },
+        handleClick:function(elem){
+            /*
+            for(var i = 0,len = this.tabs.length; i < len;i++){
+                this.tabs[i].className = ''
+                this.contents[i].style.display = 'none'
+            }
+            */
+            this.tabs[this.activeIndex].className = ''
+            this.contents[this.activeIndex].style.display = 'none'
+
+            elem.className = 'active'           
+            this.contents[elem.index].style.display = 'block'
+
+            this.activeIndex = elem.index
+        }
+    }
+
+    new Tab('.wrap .tabs li','.wrap .contents  li')
+</script>
+</html>

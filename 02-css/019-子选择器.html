@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>019-子选择器.html</title>
+    <style>
+        /*
+        .box1 .box{
+            color: red;
+        }
+        */
+       .box1>.box11>.box{
+            color: red;
+       }
+       .box1>.box12>.box{
+            color: green;
+       }
+       .box1>.box11>.box111{
+            color: blue;
+       }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box11">
+            box11
+            <div class="box111">
+                box111
+            </div>
+            <div class="box">box</div>
+        </div>
+        <div class="box12">
+            box12
+            <div class="box">box</div>
+        </div>
+    </div>
+</body>
+</html>

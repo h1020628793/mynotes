@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>173-真数组转伪数组.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [11,22,33]
+
+    //arr.push(44,55)// this-> arr 就是把参数列表中的每一项添加到this上
+
+    var likeArr = {};
+
+    [].push.apply(likeArr,arr)
+
+    console.log(likeArr)
+
+
+    
+</script>
+</html>

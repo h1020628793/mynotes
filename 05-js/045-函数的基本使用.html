@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>045-函数的基本使用.html</title>
+</head>
+<body>
+    
+</body>
+<script>    
+    //打招呼 hi,某某
+    /*
+    console.log('hi,Tom')
+
+    console.log('hi,Amy')
+    
+    console.log('hi,Leo')
+    
+    console.log('hi,Andy')
+    */
+    /*
+    function sayHi(name){
+        console.log('hello,'+name)
+    }
+    sayHi('Tom');
+    sayHi('Amy');
+    sayHi('Leo');
+    sayHi('Andy');
+    
+    var sayHi = function(name){
+        console.log('hello,'+name)
+    }
+    sayHi('Tom');
+    sayHi('Amy');
+    sayHi('Leo');
+    sayHi('Andy');
+    */
+    var sayHi = new Function('name',"console.log('hello,'+name)"); 
+    sayHi('Tom');
+    sayHi('Amy');
+    sayHi('Leo');
+    sayHi('Andy');   
+</script>
+</html>

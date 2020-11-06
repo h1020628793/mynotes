@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>016-引用数据类型特点.html</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    /*
+    var obj = {
+        username:'Tom'
+    }
+    obj.age = 18
+    console.log(obj)
+    */
+   /*
+   var arr = []
+   arr.text = 'hello'
+   console.log(arr.text)
+   */
+    /*
+    function fn(){
+
+    }
+    fn.text = 'hello'
+
+   
+    console.log(fn.text)
+    */
+   /*
+   var elem = document.getElementById('box');
+   elem.text = 'hello'
+   console.log(elem.text)
+   */
+    var obj = {
+        username:'Tom'
+    }
+    
+    var obj1 = obj;
+
+    obj.age = 18;
+    
+    console.log(obj)
+
+    console.log(obj1)
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

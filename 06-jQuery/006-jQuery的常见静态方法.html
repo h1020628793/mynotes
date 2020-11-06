@@ -1,0 +1,89 @@
+<!--
+ * @Author: Tom
+ * @Date: 2020-09-08 09:08:47
+ * @LastEditTime: 2020-09-08 09:28:12
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    var arr = [11,22,33,44]
+    /*
+    var res1 = $.each(arr,function(index,value){
+        console.log(index,value);
+    })
+    console.log(res1);
+    */
+    /*
+    var res2 = $.map(arr,function(value,index){
+        return value + 10
+    })
+    */
+    /*
+    var res3 = arr.map(function(){
+
+    })
+    */
+    // console.log(res2);
+    /*
+    var str = ' abc '
+    console.log(str);
+    console.log(str.trim());
+    console.log($.trim(str));
+    */
+    /*
+    console.log($.isWindow(window));
+    console.log($.isWindow(document));
+    console.log($.isArray([11,22]));
+    console.log($.isArray({0:'11',length:1}));
+    */
+    /*
+    console.log($.isFunction(function(){}));
+    console.log($.isFunction({}));
+    */
+    /*
+    var obj1 = {
+        name:'Tom',
+        city:'BJ'
+    }
+    var obj2 = {
+        name:'Amy',
+        age:18
+    }
+    */
+    /*
+    var obj3 = $.extend(obj1,obj2)
+
+    console.log(obj3);
+    console.log(obj1);
+    console.log(obj1 == obj3);
+    */
+    /*
+    var obj4 = $.extend({},obj1,obj2)
+    console.log(obj4);
+    console.log(obj1);
+    */
+    function fn(){
+        console.log(this)
+    }
+
+    //fn()
+    var res = $.proxy(fn,{name:'Tom'})// bind
+    console.log(res);
+    res()
+    
+
+
+
+    
+    
+</script>
+</html>

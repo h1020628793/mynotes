@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>054-变量的作用域.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 10
+    function fn1(){
+       console.log('fn1 a = ',a)
+       a = 99
+       var b = 88 
+       console.log('fn1 b = ',b)
+       function fn11(){
+            console.log('fn11 b = ',b)
+            // console.log('fn11 c = ',c)
+            function fn111(){
+                console.log('fn111 c = ',c)
+                var c = 100
+                console.log('fn111 b = ',b)
+                console.log('fn111 a = ',a)
+                console.log('fn111 c = ',c)
+            }
+            fn111()
+       }
+       fn11()
+    }
+    function fn2(){
+        console.log('fn2 a = ',a)
+        // console.log('fn2 b = ',b)
+    }
+    fn1()
+    fn2()
+    console.log('after fn1 a = ',a)
+</script>
+</html>

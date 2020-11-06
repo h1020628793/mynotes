@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>181-对象的属性.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name,age){
+        this.name = name
+        this.age = age
+    }
+    Person.prototype = {
+        constructor:Person,
+        LEGS:2,
+        sayHi:function(){
+           console.log("Hi ,Im " + this.name+", Im " + this.age + ' years old, I has ' + this.LEGS + ' legs' ) 
+        }
+    }
+
+    var p1 = new Person('Tom',18)
+    var p2 = new Person('Tom',18)
+    // console.log(p1)
+
+    // p1.name = 'Amy'
+
+    // p1.city = 'BJ'
+
+    // console.log(p1)
+
+    // p1.sayHi()
+    // 
+    // p1.LEGS = 4
+
+    // p1.sayHi()
+    
+    /*
+    console.log(p1)
+
+    console.log(p1.LEGS)
+    
+    console.log(delete p1.LEGS)
+
+    console.log(p1.LEGS)
+    console.log(p1)
+    */
+   /*
+    console.log(p1.LEGS)
+    
+    console.log(p1.hasOwnProperty('LEGS'))
+
+    console.log('name' in p1)
+    console.log('LEGS' in p1)
+    */
+    //判断属性只是原型链上不包括实例自身
+    /*
+    function hasOwnPrototype(obj,attr){
+        return (attr in obj) && !obj.hasOwnProperty(attr)
+    }
+
+    console.log(hasOwnPrototype(p1,'name'))
+    console.log(hasOwnPrototype(p1,'LEGS'))
+    */
+    /*
+    Object.defineProperty(p1,'city',{
+        value:'BJ',
+        enumerable:true,
+        writable:true,
+        configurable:true
+    })
+
+    for(var attr in p1){
+        console.log(attr)
+    }
+
+
+    //p1.city = 'SH'
+
+    // delete p1.city
+    
+    Object.defineProperty(p1,'city',{
+        value:'SH',
+        enumerable:true,
+        writable:true,
+        configurable:true
+    })
+    */
+
+    Object.defineProperties(p1,{
+        city:{
+            value:'SH',
+            enumerable:false,
+            writable:false,
+            configurable:true  
+        },
+        sex:{
+            value:'male',
+            enumerable:true,
+            writable:true,
+            configurable:true   
+        }
+    })
+    console.log(p1)
+
+    console.log(Object.getOwnPropertyDescriptor(p1,'sex'))
+
+
+
+
+
+</script>
+</html>

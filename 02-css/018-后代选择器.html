@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>018-后代选择器.html</title>
+    <style>
+        /*
+       .father .son{
+            color: red;
+        }
+        */
+       /*
+       div .son{
+        color: red;
+       }
+       */
+      /*
+      #box .son{
+        color: red;
+      }
+      */
+        .father .son .son1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+            我是son1
+            <p class="son1">
+                我是p
+            </p>
+        </div>
+        <ul>
+            <li>
+                <ul>
+                    <li>
+                        <p class="son">我是son3</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="box" id="box">
+        <div class="son">
+            我是son2
+        </div>
+    </div>
+</body>
+</html>

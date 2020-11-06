@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>087-插入和删除元素.html</title>
+</head>
+<body>
+    <ul id="wrap">
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ul>
+    <input type="button" value="测试" id="btn">
+</body>
+<script>
+    var wrap = document.getElementById('wrap')
+    var btn = document.getElementById('btn')
+    btn.onclick = function(){
+        var elem1 = wrap.firstElementChild
+        var elem2 = wrap.lastElementChild
+        //wrap.appendChild(elem1)
+        // wrap.insertBefore(elem2,elem1)
+        // var elem = document.createElement('li')
+        // wrap.insertBefore(elem,elem1)
+        wrap.removeChild(elem1)
+    }
+</script>
+</html>

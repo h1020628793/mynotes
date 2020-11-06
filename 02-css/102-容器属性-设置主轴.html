@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>102-容器属性-设置主轴.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+
+            display: flex;
+            /*设置主轴为x轴,那么y轴就是交叉轴*/
+            /*flex-direction: row;*/
+            /*flex-direction: row-reverse;*/
+            
+            /*设置主轴为y轴,那么x轴就是交叉轴*/
+            /*flex-direction: column;*/
+
+            flex-direction: column-reverse;
+
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>

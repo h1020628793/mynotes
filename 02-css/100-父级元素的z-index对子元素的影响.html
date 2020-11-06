@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>100-父级元素的z-index对子元素的影响.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father1{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            position: relative;
+            z-index: 2;
+        }
+        .son1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top:250px;
+            left: 250px;
+            z-index: 10;
+        }
+        .father2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+            z-index: 1;
+        }
+        .son2{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top:120px;
+            left: 170px; 
+            z-index: 20;           
+        }
+    </style>
+</head>
+<body>
+    <div class="father1">
+        <div class="son1">s1</div>
+    </div>
+    <div class="father2">
+        <div class="son2">s2</div>
+    </div>
+</body>
+</html>

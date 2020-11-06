@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        .target {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container"></div>
+    <div id="target" class="target" draggable=true></div>
+    <div id="target1" class="target" draggable=true></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('.target')
+    .on('dragstart',function(ev){
+        ev.originalEvent.dataTransfer.setData('id', $(this).attr('id'))
+    })
+
+    $('#container')
+    .on('drop', function (ev) {
+        var id = ev.originalEvent.dataTransfer.getData('id')
+        $('#container').append($('#'+id))
+    })
+    .on('dragover', function (ev) {
+        ev.preventDefault()
+    })
+</script>
+
+</html>

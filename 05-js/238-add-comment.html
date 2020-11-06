@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟添加评论</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 600px;
+            margin: 50px auto;
+            padding: 5px;
+        }
+        .action-bar{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+        }
+        #sub-btn{
+            width: 100px;
+            font-size: 30px;
+        }
+        li{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            line-height: 40px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .del-btn{
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="action-bar">
+            <textarea  id="text" cols="30" rows="10"></textarea>
+            <input type="button" value="发布" id="sub-btn">
+        </div>
+        <ul id="contents">
+            <li>
+                <span>我是内容1</span>
+                <span class="del-btn">删除</span>
+            </li>
+        </ul>                           
+    </div>
+</body>
+<!--ajax封装函数-->
+<script src="js/ajax.js"></script>
+<script>
+    var subBtn = document.getElementById('sub-btn')
+    var text = document.getElementById('text')
+    var contents = document.getElementById('contents')
+    subBtn.onclick = function(){
+       var val = text.value
+
+       if(!val) return
+
+        ajax({
+            method:'POST',
+            url:'http://127.0.0.1:3000/addComment',
+            data:{
+                comment:val
+            },
+            success:function(data){
+                if(data.code == 0){
+                   var elemLi = document.createElement('li')
+                   var elemSpan = document.createElement('span')
+                   elemSpan.innerHTML = data.data.comment
+                   elemLi.appendChild(elemSpan)
+
+                   var btnSpan = document.createElement('span')
+                   btnSpan.innerHTML = '删除'
+                   btnSpan.className = 'del-btn'
+
+                   elemLi.appendChild(btnSpan)
+
+                   contents.insertBefore(elemLi,contents.firstChild)
+
+                   text.value = ''
+                }
+            }
+        })
+    }
+    contents.onclick = function(ev){
+        if(ev.target.className == 'del-btn'){
+            ajax({
+                url:'http://127.0.0.1:3000/delComment',
+                data:{
+                    id:123456//模拟ID
+                },
+                success:function(data){
+                    if(data.code == 0){
+                        this.removeChild(ev.target.parentNode)     
+                    }
+                }.bind(this)
+            })  
+        }
+    }
+</script>
+</html>

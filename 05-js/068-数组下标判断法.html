@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>068-数组下标判断法.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [11,33,10,11,40,10,11,99]
+
+    var result = []
+
+    //[11,33,10,40,99]
+    
+    for(var i = 0,len = arr.length;i<len;i++){
+        if(arr.indexOf(arr[i]) == i){
+            result.push(arr[i])
+        }
+    }
+
+    console.log(result)
+
+</script>
+</html>

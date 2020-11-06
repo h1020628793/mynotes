@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+<!-- <script src="./jQuery/jquery.1.12.4.js"></script> -->
+<script src="./jQuery/t.js"></script>
+<script>
+    //1. 参数是一个表示布尔假的值
+    /*
+    console.log($(false));
+    console.log($(0));
+    console.log($(1));
+    console.log($(null));
+    console.log($(undefined));
+    console.log($(NaN));
+    */
+    //2. 参数是一个函数
+    // console.log($(function(){
+    //     console.log('haha');
+    // }))
+    //3. 参数是一个字符串
+    //<div><div><p></p><p></p></div></div>
+    // console.log($('div'))
+    //4. 其他
+    //4.1 数组
+    // console.log($([11,22,33]));
+    // console.log($({0:11,1:22,length:2}));
+    //4.2 对象
+    // console.log($({name:'tom'}));
+    //获取DOM节点
+    console.log($('div').get('a'));
+   /*
+    var arr = [11,22,33,44]
+    var obj = {name:'Tom',age:18}
+    var arr1 = $.each(obj,function(index,value){
+        // if(index == 1){
+        //     return false
+        // }
+        console.log(this);
+        console.log(index,value);
+    })
+    console.log(arr1)
+    */
+   /*
+   var arr = [11, 22, 33, 44]
+   var obj = { name: 'Tom', age: 18 }
+    $.each(arr,function(index,value){
+        console.log(index, value);
+    })
+    */
+   /*
+    var res = $('div').each(function(key,value){
+        if(key == 1){
+            return false
+        }
+        console.log(key,value);
+        console.log(this);
+    })
+    console.log(res)
+    */
+    /*
+    var arr = [11, 22, 33, 44]
+    var obj = { name: 'Tom', age: 18 }   
+    var res = $.map(obj,function(value,index){
+        console.log(index,value);
+        // return value + 10
+        // if(index == 1){
+        //     return value + 10
+        // }
+        return {key:index}
+    })
+    */
+    // var res = $('div').map(function(value, index){
+    //     console.log(index, value);
+    //     // return value
+    //     return value
+    // })
+    // console.log(res);
+    // console.log($('div').css('color'))
+    // // console.log($('div').css('color','red'))
+    // console.log($('div').css({
+    //     width:'100px',
+    //     height:'100px',
+    //     color:'red'
+    // }));
+</script>
+</html>

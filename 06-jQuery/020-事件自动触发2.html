@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自动触发事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .center {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #grand-father {
+            width: 600px;
+            height: 600px;
+            background-color: gray;
+        }
+
+        #father {
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+        }
+
+        #son {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body class="center">
+    <div id="grand-father" class="center">
+        <div id="father" class="center">
+            <div id="son"></div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('#son').on('click',function(){
+        console.log('son click');
+    })
+    $('#father').on('click', function () {
+        console.log('father click');
+    })
+    $('#grand-father').on('click', function () {
+        console.log('grand-father click');
+    }) 
+    // $('#son').trigger('click')       
+    // $('#son').triggerHandler('click')       
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>005-onload和DOMContentLoaded事件.html</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/test4.js"></script>
+    <script>
+        window.addEventListener('load',function(){
+            console.log('window onload')
+        })
+        window.addEventListener('DOMContentLoaded',function(){
+            console.log('DOMContentLoaded')
+        })
+    </script>
+</head>
+<body>
+    <p>我是段落</p>
+    <div>
+        <img src="images/c1.jpg" alt="">
+    </div>
+    <p>我是文章</p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>206-适配器模式举例.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function SDCard(){
+
+    }
+    SDCard.prototype.getInterface = function(){
+        return 'SD卡接口'
+    }
+
+    var s = new SDCard()
+    console.log(s.getInterface())
+
+    function Target(){
+
+    }
+    Target.prototype.getInterface = function(){
+        var s = new SDCard()
+        return s.getInterface() + '转换为USB接口'
+    }
+
+    var t = new Target()
+    console.log(t.getInterface())
+
+</script>
+</html>

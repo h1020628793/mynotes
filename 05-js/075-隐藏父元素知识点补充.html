@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>075-隐藏父元素知识点补充.html</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="box" onclick="handleClick()"></div> -->
+    <div id="box"></div>
+</body>
+<script>
+    /*
+    function handleClick(){
+        alert('bbb')
+    }
+    */
+    var box = document.getElementById('box')
+    box.onclick = function(){
+        console.log(this)
+        //box.style.display = 'none'
+    }
+
+
+</script>
+</html>

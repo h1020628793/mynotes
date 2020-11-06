@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>089-父元素的参考区域.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            background-color: gray;
+            border: 50px solid #000;
+            padding: 50px;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top:100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        111213213213213213213213213213123213123
+        <div class="son"></div>
+    </div>
+</body>
+</html>

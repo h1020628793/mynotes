@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>201-工厂模式.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function Student(){
+
+    }
+
+    function Worker(){
+
+    }
+
+    function Teacher(){
+
+    }
+
+    //工厂函数
+    function factory(type){
+        switch(type){
+            case 'student':
+                return new Student()
+                break
+            case 'worker':
+                return new Worker()
+                break
+            case 'teacher':
+                return new Teacher()
+                break
+            default:
+                return null
+        }
+
+    }
+
+    var s = factory('student')
+    console.log(s)
+
+
+
+
+</script>
+</html>

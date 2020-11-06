@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>135-动画的其他属性.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: sport;
+            animation-duration: 0.5s;
+
+            animation-timing-function: linear;
+            /*animation-delay: 3s;*/
+            /*animation-iteration-count: 2;*/
+            animation-iteration-count: infinite;
+            /*animation-direction: normal;*/
+            animation-direction: alternate;
+            animation-play-state: paused;
+        }
+        .box:hover{
+            animation-play-state: running;
+        }
+        @keyframes sport{
+            from{
+                width: 100px;
+            }
+            to{
+                width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

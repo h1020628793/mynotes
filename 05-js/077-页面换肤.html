@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>077-页面换肤.html</title>
+    <link rel="stylesheet" href="css/skin1.css" id="skin">
+</head>
+<body>
+    <input type="button" value="皮肤1" id="btn1"> 
+    <input type="button" value="皮肤2" id="btn2"> 
+</body>
+<script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    var skin = document.getElementById('skin')
+    btn1.onclick = function(){
+       skin.href = "css/skin1.css" 
+    }
+    btn2.onclick = function(){
+       skin.href = "css/skin2.css" 
+    }    
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伸缩菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            position: absolute;
+            top:0;
+            left:-200px;
+            width: 200px;
+            height: 300px;
+            background-color: #111;
+        }
+        #sub{
+            position: absolute;
+            top: 0;
+            left:200px;
+            width: 100px;
+            height: 300px;
+            background-color: #f21;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="sub"></div>
+    </div>
+</body>
+<script src="js/animate.js"></script>
+<script>
+    var main = document.getElementById('main')
+
+    main.onmouseenter = function(){
+        animate(main,'left',0)
+    }
+    main.onmouseleave = function(){
+        animate(main,'left',-200)
+    }
+
+</script>
+</html>

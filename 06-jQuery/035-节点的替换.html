@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替换节点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f21;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>replaceWith替换1</button>
+    <button>replaceWith替换2</button>
+    <button>replaceAll替换</button>
+    <div>我是div</div>
+    <div>我是div</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click', function () {
+        //页面中所有的div被替换成h1,返回被替换元素对应的jQuery对象
+        $('div').replaceWith($('<h1>我是h1</h1>'))
+    })
+    $('button').eq(1).on('click', function () {
+        //页面中所有的div被替换成h1,返回被替换元素对应的jQuery对象
+        $('div').replaceWith('<h1>我是h1</h1>')
+    })
+    $('button').eq(2).on('click', function () {
+        //页面中所有的div被替换成h1,返回替换元素对应的jQuery对象
+        $('<h1>我是h1</h1>').replaceAll('div')
+    })                        
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>078-普通属性练习-全选全不选反选.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .action-bar{
+            line-height: 40px;
+        }
+        .action-bar input{
+            margin-right: 10px;
+        }
+        li{
+            list-style:none;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="action-bar">
+            <input type="button" value="全选" id="btn1">
+            <input type="button" value="全不选" id="btn2">
+            <input type="button" value="反选" id="btn3">
+        </div>
+        <ul class="wrap">
+            <li>
+                <input type="checkbox">
+                <span>邮件标题</span>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>邮件标题</span>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>邮件标题</span>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>邮件标题</span>
+            </li>                        
+        </ul>
+    </div>
+</body>
+<script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    var btn3 = document.getElementById('btn3')
+
+    var allCheckbox = document.querySelectorAll('.wrap input')
+    //全选
+    btn1.onclick = function(){
+        for(var i = 0,len = allCheckbox.length;i<len;i++){
+            if(!allCheckbox[i].checked){
+                // allCheckbox[i].checked = 'checked'
+                allCheckbox[i].checked = true
+            }
+        }
+    }
+    //全不选
+    btn2.onclick = function(){
+        for(var i = 0,len = allCheckbox.length;i<len;i++){
+            if(allCheckbox[i].checked){
+                // allCheckbox[i].checked = ''
+                allCheckbox[i].checked = false
+            }
+        }
+    }
+    //反选
+    btn3.onclick = function(){
+        for(var i = 0,len = allCheckbox.length;i<len;i++){
+            if(allCheckbox[i].checked){
+                // allCheckbox[i].checked = ''
+                allCheckbox[i].checked = false
+            }else{
+                // allCheckbox[i].checked = 'checked'
+                allCheckbox[i].checked = true
+            }
+        }
+    }         
+</script>
+</html>

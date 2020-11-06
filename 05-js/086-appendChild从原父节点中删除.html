@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appendChild从原父节点中删除</title>
+</head>
+<body>
+    <ul id="wrap1">
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ul>
+    <input type="button" value="移动" id="btn">
+    <ul id="wrap2">
+        
+    </ul>
+</body>
+<script>
+    var wrap1 = document.getElementById('wrap1')
+    var wrap2 = document.getElementById('wrap2')
+    var btn = document.getElementById('btn')
+    btn.onclick = function(){
+        var elem = wrap1.firstElementChild
+        wrap2.appendChild(elem)
+    }
+</script>
+</html>

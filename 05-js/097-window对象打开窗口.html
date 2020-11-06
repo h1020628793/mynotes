@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>097-window对象打开窗口.html</title>
+</head>
+<body>
+    <input type="button" id="btn" value="打开窗口">
+    <input type="button" id="btn2" value="打开窗口">
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var btn2 = document.getElementById('btn2')
+    var win = null
+    btn.onclick = function(){
+        // window.open()
+        // window.open('http://www.baidu.com')
+        // window.open('091-首尾子节点.html')
+        // window.open('about:blank')
+        // window.open('http://www.baidu.com',"_blank")
+        // window.open('http://www.baidu.com',"_self")
+        win = window.open('098-关闭窗口.html')
+        // console.log(win)
+    }
+    btn2.onclick = function(){
+        win.close()
+    }
+</script>
+</html>

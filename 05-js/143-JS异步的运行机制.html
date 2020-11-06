@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>143-JS异步的运行机制.html</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var i = 0
+    
+    btn.onclick = function(){
+        i++
+        console.log(i)
+    }
+    
+    setTimeout(function(){
+        console.log(i)
+    },2000)
+
+    i++
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

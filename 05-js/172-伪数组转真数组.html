@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>172-伪数组转真数组.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var likeArr = {
+        0:'Tom',
+        1:'Amy',
+        2:'Leo',
+        length:3
+    }
+
+    var arr = ['Peter','Mike','Riche']
+
+    var arr1 = arr.slice()//this 指向了arr 所以返回的新数组中的值来自于arr
+    //console.log(arr1)
+    var arr2 = [].slice.call(likeArr)
+    console.log(arr2)
+
+    var arr3 =  Array.prototype.slice.call(likeArr)
+    console.log(arr3)
+
+
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/*
+$.get('https://api.github.com/users/kuazhu',(data)=>{
+    $.get(data.followers_url,(data)=>{
+        $.get(data[0].followers_url,(data)=>{
+            console.log(data);
+        })
+    })
+})
+*/    
+
+
+const getAjaxPromise = url => new Promise((resolve,reject)=>{
+    /*
+    $.get(url,(data)=>{
+        console.log('111');
+        resolve(data)
+    },(jqXhr)=>{
+        reject(jqXhr)
+    })
+    */
+    $.ajax({
+        url:url,
+        success:(data)=>{
+            resolve(data)
+        },
+        error:(jqXHR,textStatus)=>{
+            reject(textStatus)
+        }
+    })
+})
+
+getAjaxPromise('https://api.github.com/users/kuazhu')
+.then(data=>{
+    // console.log(data);
+    return getAjaxPromise(data.followers_url)
+    /*
+    .then(data=>{
+        getAjaxPromise(data[0].followers_url)
+        .then(data=>{
+            console.log(data);
+        })
+    })
+    */
+})
+.then(data=>{
+    return getAjaxPromise(data[0].followers_url)
+})
+.then(data=>{
+    console.log(data);
+})
+
+
+</script>
+
+
+</html>

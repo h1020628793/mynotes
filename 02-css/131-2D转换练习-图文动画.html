@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>131-2D转换练习-图文动画.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            border: 10px solid skyblue;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            perspective: 500px;
+        }
+        .wrap img{
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s;
+        }
+        .wrap .desc{
+            width: 200px;
+            height: 200px;
+            padding: 45px 20px 20px;
+            box-sizing: border-box;
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: -1;
+            transform-origin: center bottom;
+            transform: rotateX(80deg);
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        .wrap:hover img{
+            transform: translateY(-100%);
+        }
+        .wrap:hover .desc{
+             transform: rotateX(0deg);
+             opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img src="http://www.chenniantao.com/media/markdownx/7b848d00-6022-40d2-8b54-79939ea4ee82.jpg" alt="">
+        <div class="desc">
+            <h3>高圆圆</h3>
+            <p>高圆圆，原名高园园，1979年10月5日出生于北京市丰台区，祖籍河北唐山，中国内地影视女演员、模特。</p>
+        </div>
+    </div>
+</body>
+</html>

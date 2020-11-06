@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const p1 = new Promise((resolve,reject)=>{
+        //异步任务处理
+        setTimeout(()=>{
+            //resolve('ok data')
+            reject('error data')
+        },100)
+    })
+
+    
+    let p3 = null
+    const p2 = p1
+    .then((data)=>{
+        console.log('ok');
+        console.log(data);
+        // return 123
+        // return 'str...'
+        // return {
+        //     name:'Tom'
+        // }
+        p3 =  new Promise((resolve,reject)=>{
+            resolve('p3 data')
+        })
+        return p3
+    },(data)=>{
+        console.log('error')
+        console.log(data);
+    })
+
+    console.log(p2 == p1);
+    
+    p2.then((data)=>{
+        console.log('p2...');
+        console.log(data);
+        console.log(p3 == p2);
+    })
+
+
+</script>
+</html>

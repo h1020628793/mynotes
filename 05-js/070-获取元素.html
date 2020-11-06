@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>70-获取元素.html</title>
+</head>
+<body>
+    <div id="box1" class="box">box1</div>
+    <div id="box1" class="box">box1</div>
+    <div name='box2'>box2</div>
+    <div name='box2'>box2</div>
+    <p>我是段落</p>
+    <div id="box3">
+        <p class="box">1</p>
+        <p class="box">2</p>
+        <p>3</p>
+    </div>
+</body>
+<script>
+    /*
+    var box1 = document.getElementById('box1')//返回的是一个DOM节点对象,也叫做元素
+    console.log(box1)
+    var box2 = document.getElementsByName('box2')
+    console.log(box2)
+    for(var i = 0,len = box2.length;i<len;i++){
+        console.log(box2[i])
+    }
+    */
+    /*
+    var box3 = document.getElementsByTagName('div')
+    for(var i = 0,len = box3.length;i<len;i++){
+        console.log(box3[i])
+    }
+    */
+    /*
+    var elems = document.getElementsByTagName('p')
+    console.log(elems)
+    */
+    /*
+    var box3 = document.getElementById('box3')
+    var elems = box3.getElementsByTagName('p')
+    console.log(elems)
+    */
+    /*
+    var elems = document.getElementsByClassName('box')
+    console.log(elems)
+    */
+    /*
+    var box3 = document.getElementById('box3')
+    var elems = box3.getElementsByClassName('box')
+    console.log(elems)
+    */
+    /*
+    var elem = document.querySelector('#box3 .box')
+    console.log(elem)
+    */
+    /*
+    var elems = document.querySelectorAll('p')
+    console.log(elems)   
+    */
+    // console.log(document.documentElement)
+    // console.log(document.body)
+    // console.log(document.querySelector('body'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

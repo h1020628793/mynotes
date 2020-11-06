@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>074-获取兄弟节点.html</title>
+</head>
+<body>
+    <div id="son1">son1</div>
+    <div id="son2">son2</div>
+    <div id="son3">son3</div>
+</body>
+<script>
+    var son2 = document.getElementById('son2')
+    /*
+    console.log(son2.nextSibling)
+    console.log(son2.previousSibling)
+    */
+   console.log(son2.nextElementSibling)
+   console.log(son2.previousElementSibling)
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>154-多物体同时运动.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 300px;
+            margin: 50px auto;
+        }
+        .wrap div{
+            width: 100px;
+            line-height: 100px;
+            margin-bottom: 20px;
+            background-color: red;
+            opacity: .3;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="box1">变宽</div>
+        <div id="box2">变高</div>
+        <div id="box3">变红</div>
+    </div>
+</body>
+<script>
+    function animate(elem,attr,target,callback){
+        clearInterval(elem.timer)
+        var speed = 0
+        elem.timer = setInterval(function(){
+            var current = parseFloat(getComputedStyle(elem,false)[attr])
+            
+            if(attr == 'opacity'){
+                current = Math.round(100 * current)
+            }
+
+            if(current > target){
+                speed = -10
+            }else{
+                speed = 10
+            }
+
+            if(Math.abs(target - current) < Math.abs(speed)){
+                if(attr == 'opacity'){
+                    elem.style.opacity = target / 100
+                }else{
+                    elem.style[attr] = target + 'px'
+                }
+                clearInterval(elem.timer)
+                typeof callback == 'function' ? callback() : null
+            }else{
+                if(attr == 'opacity'){
+                    elem.style.opacity = (current + speed) / 100
+                }else{
+                    elem.style[attr] = current + speed + 'px'
+                }
+            }
+        },30)
+    }
+
+    var elem1 = document.getElementById('box1')
+    var elem2 = document.getElementById('box2')
+    var elem3 = document.getElementById('box3')
+
+elem1.onmouseover = function(){
+    animate(elem1,'width',400,function(){
+        animate(elem1,'height',400,function(){
+            console.log('动画执行完毕了')
+        })
+    })
+}
+
+    elem2.onmouseover = function(){
+        animate(elem2,'height',400)
+    }  
+    elem3.onmouseover = function(){
+        animate(elem3,'opacity',100)
+    }
+   
+</script>
+
+
+
+
+
+
+</html>

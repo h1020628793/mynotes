@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>146-倒计时.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #timer{
+            color: #fff;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">
+        距离活动结束还有 00:00:00
+    </div>
+</body>
+<script>
+    function toStr(num){
+        return num < 10 ? '0' + num : ''+num
+    }
+    
+    var elem = document.getElementById('timer')
+
+    var endDate = new Date('2020-08-07 16:31:59')
+    var endTime = endDate.getTime()
+    var timer = 0
+
+    function handlerTimer(){
+        
+        var currentTime = Date.now()
+
+        var allMilliSeconds = endTime - currentTime
+
+        if(allMilliSeconds < 0){
+            allMilliSeconds = 0
+            clearInterva(timer)
+        }
+
+        var allSeconds = parseInt(allMilliSeconds / 1000)
+
+        var hours = parseInt(allSeconds / 3600)
+        var minutes = parseInt((allSeconds % 3600) / 60)
+        var seconds = (allSeconds % 3600) % 60
+
+        elem.innerHTML = '距离活动结束还有 ' + toStr(hours) + ':' + toStr(minutes) + ':' +toStr(seconds)
+    }
+
+    timer = setInterval(handlerTimer,500)
+    handlerTimer()
+</script>
+</html>

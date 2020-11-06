@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function getParamFromUrl(key){
+    var query = window.location.search.substr(1)
+    var reg = new RegExp('(^|&)'+key+'='+'([^&]*)(&|$)')
+    var result = query.match(reg)
+    return result ? decodeURIComponent(result[2]) : null
+}
+</script>
+</html>

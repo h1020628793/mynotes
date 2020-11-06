@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj1 = {
+        age: 18,
+        friends: ['Tom'],
+        info: {
+            major: 'Computer'
+        },
+        sayHi() {
+            console.log('Hi');
+        },
+        city: undefined,
+        name: Symbol('Amy')
+    }
+
+    function deepClone(obj){
+
+        function isObject(o){
+            return ((typeof o === 'object') && (o != null))
+        }
+
+        if(!isObject(obj)){
+            throw new Error('argument is not a object')
+        }
+
+        let newObj =  Array.isArray(obj) ? [...obj] :  {...obj}
+        
+        Object.keys(newObj).forEach(key=>{
+            newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key]
+        })
+
+        return newObj
+    }
+
+    let obj2 = deepClone(obj1)
+    obj2.age = 88
+    obj2.friends.push('Amy')
+    obj2.info.major = 'art'
+    console.log(obj2);
+    console.log(obj1);           
+</script>
+</html>

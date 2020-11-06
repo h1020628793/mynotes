@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>170-模拟apply.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {
+        username:'Tom'
+    }
+    function sayHi(age,city){
+        console.log(this)
+        console.log("I am "+this.username+", I am " + age + " years old and I am from "+ city)
+
+        return 22
+    }
+
+    function test(){
+        console.log(this)
+    }
+
+    Function.prototype.myApply = function(context){
+
+        var context = context || window
+        context.fn = this
+
+        var args = arguments[1]   //[18, "BeiJing"]
+        var result;
+        if(args){
+            result = context.fn(...args)//context.fn(18, "BeiJing") 
+        }else{
+            result = context.fn()
+        }
+        
+
+        delete context.fn
+
+        return result
+    }
+
+    
+    var result = sayHi.myApply(obj,[18,'BeiJing'])//改变this其实就是让传递的第一个参数取调用函数
+    console.log(result)
+   
+
+    test.myApply(obj)
+
+     console.log(obj)
+
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color:rosybrown;
+            position: absolute;
+            top:100px;
+            left: 100px;
+        }
+        .father{
+            position: relative;
+        }        
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="father">
+        <div class="box2"></div>
+    </div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    // console.log($('div').eq(1).offset())
+    /*
+    $('div').offset({
+        top:200,
+        left:200
+    })
+    */
+    // console.log($('div').eq(1).position())
+    /*
+    $('div').position({
+        top: 200,
+        left: 200
+    })
+    */
+    $('.box2').position({
+        top:300,
+        left:300
+    })
+    console.log($('.box2').position())    
+    // console.log($(window).scrollTop())
+    // $(window).scrollTop(1000)
+</script>
+</html>

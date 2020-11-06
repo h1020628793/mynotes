@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>140-生成指定范围的随机数字.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function getRandom(min,max){
+        return Math.round(min + (max - min) * Math.random())
+    }
+    //getRandom(100,120) 
+    //100-120 100 101 109 120
+    //100 + 0到(120 - 100)范围的一个随机值
+    //20 * Math.random()// [0 - 1)
+    //
+    console.log(getRandom(100,105))
+</script>
+</html>

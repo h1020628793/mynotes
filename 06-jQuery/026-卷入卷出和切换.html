@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>卷入</button>
+    <button>卷出</button>
+    <button>切换</button>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click', function () {
+        //  $('div').slideDown()
+        //  $('div').slideDown(1000)
+         $('div').slideDown(1000,function(){
+             console.log('slideDown done');
+         })
+    })
+    $('button').eq(1).on('click', function () {
+        // $('div').slideUp()
+        // $('div').slideUp(1000)
+        $('div').slideUp(1000,function(){
+            console.log('slideUp done');
+        })
+
+    })
+    $('button').eq(2).on('click', function () {
+        // $('div').slideToggle()
+        // $('div').slideToggle(1000)
+        $('div').slideToggle(1000,function(){
+            console.log('slideToggle done');
+        })
+    })        
+</script>
+
+</html>

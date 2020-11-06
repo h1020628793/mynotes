@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>110-视图事件.html</title>
+    <style>
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    var i = 0
+    window.addEventListener('resize',function(){
+        console.log(i++)
+    },false)
+
+    window.addEventListener('scroll',function(){
+        console.log(i++)
+    },false)    
+</script>
+</html>

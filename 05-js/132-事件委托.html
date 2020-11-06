@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .son{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">add elem</button>
+    <div id="wrap">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <p>我是段落</p>
+    </div>
+</body>
+<script>
+    var elems = document.querySelectorAll('.son')
+    var btn = document.getElementById('btn')
+    var wrap = document.getElementById('wrap')
+    //循环
+    /*
+    for(var i = 0,len = elems.length;i<len;i++){
+        elems[i].onclick = function(){
+            this.parentNode.removeChild(this)
+        }
+    }
+    */
+
+    btn.onclick = function(){
+        var elem = document.createElement('div')
+        elem.className = 'son'
+        wrap.appendChild(elem)
+    }
+
+    wrap.onclick = function(ev){
+        if(ev.target.className == 'son'){
+            this.removeChild(ev.target)
+        }
+    }
+
+
+
+
+
+
+
+</script>
+</html>

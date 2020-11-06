@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>126-2d-平移.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 600px;
+            margin: 50px auto;
+        }
+        li{
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin-bottom: 50px;
+        }
+        li:nth-child(1){
+            transform: translate(-100%,-20px);
+            /*transform: translate(20px);*/
+        }
+        li:nth-child(2){
+            transform: translateX(-50%);
+        }
+        li:nth-child(3){
+            transform: translateY(-30px);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>translate</li>
+        <li>translateX</li>
+        <li>translateY</li>
+    </ul>
+</body>
+</html>

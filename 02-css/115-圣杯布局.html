@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>115-圣杯布局.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*
+        vw 把整个浏览器的宽度分成100等份，每一份就是一个vw
+        vh 把整个浏览器的高度分成100等份，每一份就是一个vh           
+         */
+        header{
+            background-color: tomato;
+        }
+        .left{
+            background-color: blue;
+        }
+        .main{
+            background-color: white;
+        }
+        aside{
+            background-color: yellow;
+        }
+        footer{
+            background-color: pink;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header,footer{
+            flex: 0 0 10vh;
+        }
+        section{
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+        }
+        .left,aside{
+            flex: 0 0 10vw;
+        }
+        .main{
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <section>
+        <div class="left">left</div>
+        <div class="main">main</div>
+        <aside>asid</aside>
+    </section>
+    <footer>footer</footer>
+</body>
+</html>

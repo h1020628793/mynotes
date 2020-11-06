@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>229-表单的提交和重置.html</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" name="form1" id="form1">
+        <input type="text" name="username" value="tom">
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <!-- <input type="submit"> -->
+        <!-- <input type="image"> -->
+        <button type="submit" id="sub-btn">提交</button>
+        <button type="button" id="btn">提交</button>
+
+        <input type="reset"/>
+        <button type="reset">重置</button>
+        <button type="button" id="btn1">重置</button>
+    </form>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var btn1 = document.getElementById('btn1')
+    // var subBtn = document.getElementById('sub-btn')
+    var from1 = document.forms[0]
+
+    form1.addEventListener('submit',function(){
+        console.log('submit...')
+    },false)
+    form1.addEventListener('reset',function(){
+        console.log('reset...')
+    },false)    
+    btn.onclick = function(){
+        //验证。。
+        form1.submit()
+    }
+    btn1.onclick = function(){
+        //验证。。
+        form1.reset()
+    }    /*
+    subBtn.onclick = function(ev){
+        console.log('sub btn..')
+        //验证。。
+        ev.preventDefault()
+    }
+    */
+</script>
+</html>

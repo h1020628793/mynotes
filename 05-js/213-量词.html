@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>213-量词.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'abc 123 ef 45 g 1234 xx 1'
+
+    console.log(str.replace(/\d{3}/g,'*'))
+    console.log(str.replace(/\d{2,}/g,'*'))
+    console.log(str.replace(/\d{3,4}/g,'*'))
+
+    console.log(str.replace(/\d+/g,'*'))
+    console.log(str.replace(/\d?/g,'*'))
+    console.log(str.replace(/\d*/g,'*'))
+
+
+
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>吸顶效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            line-height: 100px;
+            text-align: center;;
+            background-color: #ccc;
+        }
+        #top-search{
+            position: fixed;
+            top:-50px;
+            left:0;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 2px solid #f21;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+        .main{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <nav>顶部导航</nav>
+    <div id="top-search">顶部固定搜索</div>
+    <div class="main"></div>
+</body>
+<!--js/animate.js文件中保存着前面封装的动画函数animate-->
+<script src="js/animate.js"></script>
+<script>
+    var timer = 0
+    var topSearch = document.getElementById('top-search')
+    var isShow = false
+    window.onscroll = function(ev){
+        clearTimeout(timer)
+        timer = setTimeout(function(){
+            var scrollTop = window.pageYOffset
+            
+            if(scrollTop >= 400 && !isShow){
+                animate(topSearch,'top',0,function(){
+                    isShow = true
+                })
+            }
+
+            if(scrollTop < 400 && isShow){
+               topSearch.style.top = '-50px'
+               isShow = false 
+            }
+
+        },50)  
+    }
+</script>
+
+</html>

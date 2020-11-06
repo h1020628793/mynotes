@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>132-3D转换-基本使用.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            margin: 50px auto;
+            border: 1px solid #000;
+            transform: rotateX(0deg) rotateY(85deg);
+            transform-style: preserve-3d;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: red;
+            transform: rotateY(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

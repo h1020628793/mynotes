@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>048-函数的参数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function sayHi(name,age,obj){
+        console.log(obj)
+        // obj.age = 40
+
+        console.log('Hi,'+name+" I am "+age+" years old")
+
+        name = 'Peter'
+    }
+    //sayHi('Tom',18)//name = 'Tom' age = 18
+    // sayHi(18,'Tom')
+    var name1 = 'Tom'
+    var age1 = 18
+    var obj1 = {
+        username:'Amy'
+    }
+    sayHi(name1,age1,obj1)//name = name1 age = age1 obj = obj1
+    console.log(obj1)
+    console.log(name1)
+
+    sayHi(123);
+
+
+</script>
+</html>

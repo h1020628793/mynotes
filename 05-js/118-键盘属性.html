@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>118-键盘属性.html</title>
+</head>
+<body>
+    <input type="text" id="input">
+</body>
+<script>
+    var elem = document.getElementById('input')
+    elem.addEventListener('keyup',function(ev){
+        console.log('keyup')
+        console.log(ev.keyCode)
+        console.log(ev.ctrlKey)
+        console.log(ev.shiftKey)
+        console.log(ev.altKey)
+    },false)
+    elem.addEventListener('keydown',function(ev){
+        console.log('keydown')
+        console.log(ev.keyCode)
+        console.log(ev.ctrlKey)
+        console.log(ev.shiftKey)
+        console.log(ev.altKey)
+    },false) 
+    elem.addEventListener('keypress',function(ev){
+        console.log('keypress')
+        console.log(ev.keyCode)
+        console.log(ev.ctrlKey)
+        console.log(ev.shiftKey)
+        console.log(ev.altKey)
+    },false)         
+</script>
+</html>

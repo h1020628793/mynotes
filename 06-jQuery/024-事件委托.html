@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <style>
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">add elem</button>
+    <div class="father" id="father">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var fatherElem = document.getElementById('father')
+    $('#btn').on('click',function(){
+        var elem = document.createElement('div')
+        elem.className = 'son'
+        fatherElem.appendChild(elem)
+    })
+    //方式一
+    /*
+    $('#father').delegate('.son','click',function(){
+        // console.log(this);
+        fatherElem.removeChild(this)
+    })
+    */
+    $('#father').on('click','.son',function(){
+        //console.log(this);
+        fatherElem.removeChild(this)
+    })
+</script>

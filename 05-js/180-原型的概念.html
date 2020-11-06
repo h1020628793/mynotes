@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name,age){
+        this.name = name
+        this.age = age
+    }
+    /*
+    Person.prototype.sayHi = function(){
+        console.log("Hi ,Im " + this.name+", Im " + this.age + ' years old' )
+    }
+    Person.prototype.LEGS = 2
+    */
+   // console.log(Person.prototype)
+   console.log({})
+   Person.prototype = {
+        constructor:Person,
+        sayHi:function(){
+           console.log("Hi ,Im " + this.name+", Im " + this.age + ' years old' ) 
+        }
+   }
+   console.log(Person.prototype)
+
+    
+</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    function Person(name,age){
+        this.name = name
+        this.age = age
+    }
+    Person.prototype.sayName = function(){
+        console.log('My name is '+this.name);
+    }
+
+    Person.prototype.sayAge = function () {
+        console.log('I am ' + this.age + ' years old');
+    }
+
+
+    function Student(name,age,major){
+        Person.call(this,name,age)
+        this.major = major
+    }
+    Student.prototype = Object.create(Person.prototype)
+    Object.defineProperty(Student.prototype, 'constructor',{
+        value: Student
+    })
+    Student.prototype.sayMajor = function(){
+        console.log('I am from ' + this.major)
+    }
+    /*
+    let p = new Person('Tom',18)
+    
+    Person.sayHi = function(){
+        console.log('hello...');
+    }
+    
+    p.sayName()
+    p.sayAge()
+    
+    Person.sayHi()
+  
+    let s = new Student('Amy',88,'computer')
+    console.log(s);
+    s.sayAge()
+    s.sayName()
+    s.sayMajor()
+    */
+
+    class Person {
+        constructor(name, age) {
+            this.name = name
+            this.age = age
+        }
+        legs=12
+        sayName() {
+            console.log('My name is ' + this.name);
+        }
+        sayAge() {
+            console.log('I am ' + this.age + ' years old');
+        }
+
+        static sayHi() {
+            console.log('hello...');
+        }
+    }
+    let p = new Person()
+    console.log(p);
+    class Student extends Person{
+        /*
+        constructor(name,age){
+            super(name,age)
+        }
+        */
+        constructor(name, age,major){
+            super(name,age)
+            this.major = major
+        }
+        sayMajor(){
+            console.log('I am from ' + this.major)
+        }
+    }
+    let s = new Student('Amy',88,'Computer')
+    s.sayName()
+    s.sayAge()
+    s.sayMajor()
+    console.log(s);
+    Student.sayHi()
+    console.log(Object.keys(s));
+    /*
+    let p = new Person('Tom', 18)
+
+    p.sayName()
+    p.sayAge()
+    Person.sayHi()
+    */
+</script>
+
+</html>

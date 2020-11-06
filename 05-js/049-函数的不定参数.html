@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>049-函数的不定参数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function sum(n1,n2,n3){
+        var total = n1 + n2 + n3;
+        console.log('total='+total)
+    }
+    sum(3,4,5);
+    */
+   function sum(){
+        /*
+        console.log(arguments)//arguments其实是一个数组
+        console.log(arguments[0])
+        console.log(arguments[1])
+        console.log('l::',arguments.length)
+        */
+       var total = 0
+       for(var i = 0,len = arguments.length;i<len;i++){
+            total += arguments[i]
+       }
+       console.log('total='+total)
+   }
+   sum(3,4,5,6,100)
+</script>
+</html>

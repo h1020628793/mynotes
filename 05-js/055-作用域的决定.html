@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>055-作用域的决定.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    var a = 1
+    function fn(){
+        var a = 2
+        return a
+    }
+    console.log('a = ',a)
+    console.log(fn())
+    */
+    /*
+    var a = 1
+    function fn(){
+        console.log(a)
+    }
+    function show(){
+        var a = 2
+        fn()
+    }
+    //fn()
+    show()
+    */
+    var a = 1
+    function fn(){
+        console.log(a)
+    }
+    function show(){
+        var a = 2
+        return function(){
+            console.log(a)
+        }
+    }
+    var f = show()
+    console.log(f)
+    f()
+</script>
+</html>

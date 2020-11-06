@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>072-节点关系和获取节点树元素.html</title>
+</head>
+<body>
+    <div id="father">
+        test1
+        <div id="son1">son1</div>
+        <div id="son2">son2</div>
+        <div id="son3">son3</div>
+        text2
+    </div>
+</body>
+<script>
+    var father = document.getElementById('father')
+    //console.log(father)
+    //获取子节点
+    /*
+    console.log(father.childNodes)
+    console.log(father.children)
+    */
+    /*
+    var elems = father.children
+    for(var i = 0,len = elems.length;i<len;i++){
+        console.log(elems[i])
+    }
+    */
+    console.log(father.firstChild)
+    console.log(father.lastChild)
+
+    console.log(father.firstElementChild)
+    console.log(father.lastElementChild)
+
+
+</script>
+</html>

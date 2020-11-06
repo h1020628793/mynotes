@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>168-bind改变this指向.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    'use strict'
+    var tom  = {
+        username:'Tom',
+    }
+    function sayHi(age,city){
+        console.log(this)
+        console.log("I am "+this.username+", I am " + age + " years old and I am from "+ city)
+    }
+    // sayHi.bind(tom,18,'BeiJing')()
+    sayHi.bind(null,18,'BeiJing')()
+</script>
+</html>

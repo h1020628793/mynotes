@@ -1,0 +1,7 @@
+/node_modules/
+*.mov
+*.jpg
+*.jpeg
+*.png
+/done/
+/03-git/

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let a = 'string'
+    let b = `abc`
+    console.log(typeof b);
+    let c = `abc
+                efg
+            `
+    console.log(c);
+    const data = ['Tom','Amy','Leo']
+    let html = '<ul>'
+    for(var i = 0,len = data.length;i<len;i++){
+        html  += `<li>
+                    ${data[i] + ': haha'}
+                </li>`
+    }
+    html += '</ul>'
+    console.log(html);
+</script>
+</html>

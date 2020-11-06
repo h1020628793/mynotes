@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //写一个生成promise实例的函数(promise化)
+    const getTimerPromise = delay => new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(delay + 'ms Timer,resolved')
+        },delay)
+    })
+
+    const promises = [200,800,600].map(delay=>getTimerPromise(delay))
+
+    const p1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject(20 + 'ms Timer,rejected')
+        },20)
+    })
+
+    promises.push(p1)
+
+    const p = Promise.race(promises)
+    p.then(data=>{
+        console.log('1::');
+        console.log(data);
+    })
+    .catch(data=>{
+        console.log('2:::');
+        console.log(data);
+    })
+
+</script>
+</html>

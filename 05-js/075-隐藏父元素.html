@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>076-隐藏父元素.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 600px;
+            margin: 50px auto;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        li{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            line-height: 40px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .btn{
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="wrap">
+        <li>
+            <span>我是内容1</span>
+            <span class="btn">隐藏</span>
+        </li>
+        <li>
+            <span>我是内容2</span>
+            <span class="btn">隐藏</span>
+        </li>
+        <li>
+            <span>我是内容3</span>
+            <span class="btn">隐藏</span>
+        </li>
+        <li>
+            <span>我是内容4</span>
+            <span class="btn">隐藏</span>
+        </li>
+        <li>
+            <span>我是内容5</span>
+            <span class="btn">隐藏</span>
+        </li>                                
+    </ul>
+</body>
+<script>
+    var btns = document.querySelectorAll('.btn')
+    for(var i = 0,len = btns.length; i < len;i++){
+        btns[i].onclick = function(){
+           //隐藏父元素
+           this.parentNode.style.display = 'none'
+        }
+    }
+</script>
+</html>
+
+
+
+
+
+
+
+
+

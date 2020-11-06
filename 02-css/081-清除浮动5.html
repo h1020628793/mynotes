@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>081-清除浮动4.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father1{
+            background-color: purple;
+            /*margin-bottom: 50px;*/
+        }
+        .father1 .box{
+            width: 100px;
+            background-color: skyblue;
+            float: left;
+        }
+        .father2{
+            background-color: pink;
+            margin-top: 100px;
+        }
+        .father2 .box{
+            width: 100px;
+            background-color: tomato;
+            float: left;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="father1 clearfix">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <div class="father2">
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</body>
+</html>

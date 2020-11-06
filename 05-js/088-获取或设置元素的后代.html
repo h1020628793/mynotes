@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>088-获取或设置元素的后代.html</title>
+</head>
+<body>
+    <div id="wrap">
+        <p>我是段落</p>
+        <div>
+            <p>我是段落2</p>
+        </div>
+    </div>
+</body>
+<script>
+    var wrap = document.getElementById('wrap')
+    // console.log(wrap.innerHTML)
+    //wrap.innerHTML = '<h1>我是标题</h1>'
+    // wrap.innerHTML = '我是标题'
+    
+    // console.log(wrap.innerText)
+    // wrap.innerText = '我是设置的文本'
+    //wrap.innerText = '<h1>我是设置的文本</h1>'
+    //
+    var elem = document.createElement('div')
+    elem.innerHTML = '<h4>我是一个标题</h4>'
+
+    wrap.appendChild(elem)
+</script>
+</html>

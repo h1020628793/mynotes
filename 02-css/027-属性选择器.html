@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>027-属性选择器.html</title>
+    <style>
+        /*
+        [title]{
+            color: red;
+        }
+        
+       [title='chenniantao.com']{
+            color: red;
+       }
+       
+        [title |= chenniantao]{
+            color: red;
+        }
+        
+        [title ^= chenniantao]{
+            color: red;
+        }
+        
+        [title $= com]{
+            color: red;
+        }
+        
+        [title ~= chenniantao]{
+            color: red;
+        }
+        */
+        [title *= chenniantao]{
+            color: red;
+        }       
+    </style>
+</head>
+<body>
+    <a href="#" title="">title</a>
+    <a href="#">no title</a>
+    <a href="#" title="chenniantao">chenniantao</a>
+    <a href="#" title="chenniantao.com">chenniantao.com</a>
+    <a href="#" title="chenniantao-com">chenniantao-com</a>
+    <a href="#" title="www.chenniantao.com">www.chenniantao.com</a>
+    <a href="#" title="www chenniantao com">www chenniantao com</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+
+
+    function Foo(){
+        getName = function(){
+            console.log(1);
+        };
+        return this; 
+    }
+    Foo.getName = function(){
+        console.log(2);
+    }; 
+    Foo.prototype.getName = function(){
+        console.log(3);
+    }; 
+    var getName = function(){
+        console.log(4);
+    };
+    function getName(){
+        console.log(5);
+    }
+
+    Foo.getName();//2 调用Foo上面的静态方法
+    
+    getName();//4 函数声明的函数会有函数声明的提升,函数表达式没有 
+    
+
+    Foo().getName();//1 调用是先执行函数Foo，Foo的返回值是this,那么Foo().getName()就相当于this.getName(),还是会调用window上的getName方法，注意点是，在调用Foo的过程中，又将window上的变量getName重新赋 
+    
+    getName();//1 接调用window上面的getName，但是此时的getName指向已经改变，所以打印结果是1
+    
+    new Foo.getName(); //2 把Foo.getName整体当成了一个构造函数，然后通过关键词new来构造一个实例对象，但在过程中，也是执行了函数Foo.getName,因此打印结果是2
+    
+    new Foo().getName(); //3 new Foo()，会得到一个构造函数Foo的一个实例对象，然后调用这个实例对象上的getName方法，实例对象通过原型链最终找的Foo.prototype上的getName方法，因此打印3
+    
+    new new Foo().getName();//3 new Foo().getName这整个当成一个构造函数，最终结果就是new了这样一个构造函数，将new Foo().getName再拆开来看，new Foo()先得到一个构造函数Foo的一个实例对象，然后将这个实例对象上的getName再当成一个构造函数，实例对象上的getName还是会找到Foo原型上的getName方法，因此new new Foo().getName(); = new Foo.prototype.getName();所以打印结果是3,但返回值是Foo.prototype.getName这个构造函数的一个实例对象
+
+</script>
+</html>

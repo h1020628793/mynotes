@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //http://.baidu.com
+    //https://news.baidu.com/index?xx=aa
+    // var str = 'http://baidu.com'
+    /*
+    var reg = /^http[s]?:\/\/\w+\.\w+\.\w+$/
+    console.log(reg.test(str))
+    */
+    //提取页面参数
+    //https://www.baidu.com/s?wd=%E8%B6%B3%E7%90%83&rsv_spt=1&rsv_iqid=0x992c7e92001a0f6c&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug2=0&rsv_btype=i&inputT=2516&rsv_sug4=2516
+        
+    function getParamFromUrl(key){
+        var query = window.location.search.substr(1)
+        //key wd
+        //key rsv_spt
+        var reg = new RegExp('(^|&)'+key+'='+'([^&]*)(&|$)')
+        var result = query.match(reg)
+        
+        return result ? decodeURIComponent(result[2]) : null
+    }
+    getParamFromUrl('wd')
+
+
+
+
+
+
+
+
+
+</script>
+</html>

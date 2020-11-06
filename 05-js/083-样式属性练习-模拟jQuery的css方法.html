@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>083-样式属性练习-模拟jQuery的css方法.html</title>
+</head>
+<body>
+    <input type="button" value="获取样式" id="btn1">
+    <input type="button" value="设置样式" id="btn2">
+    <div id="box">box</div>
+</body>
+<script>
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    var box = document.getElementById('box')
+    
+    function css(elem,attr,value){
+        var len = arguments.length
+        //获取样式
+        if(len == 2){
+            return getComputedStyle(elem,false)[attr]
+        }
+        //设置样式
+        else if(len == 3){
+            elem.style[attr] = value
+            return elem
+        }
+    }
+
+    btn1.onclick = function(){
+       //console.log(getComputedStyle(box,false)['color'])
+       console.log(css(box,'color'))
+    }
+    btn2.onclick = function(){
+        // box.style.color = 'red'
+        css(box,'color','red')
+    }
+
+</script>
+</html>

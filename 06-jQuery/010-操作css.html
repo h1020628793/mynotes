@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    var $elems = $('div')
+    /*
+    console.log($elems.css('width'));
+    $elems.css('width','100px')
+    */
+    $elems.css({
+        width:'100px',
+        height:'100px',
+        color:'red'
+    })
+</script>
+</html>

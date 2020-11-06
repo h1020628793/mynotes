@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    let obj1 = {age:18}
+    let obj2 = obj1
+    obj2.age = 88
+    console.log(obj2);
+    console.log(obj1);
+    */
+    /*
+    let obj1 = { age: 18 }
+    let obj2 = {}
+    for(let key in obj1){
+        obj2[key] = obj1[key]
+    }
+    obj2.age = 88
+    console.log(obj2);
+    console.log(obj1);    
+    */
+    /*
+    let obj1 = { age: 18 }
+    let obj2 = {...obj1}
+    obj2.age = 88
+    console.log(obj2);
+    console.log(obj1);        
+    */
+    /*
+    let obj1 = { age: 18 }
+    let obj2 = Object.assign({},obj1)
+    obj2.age = 88
+    console.log(obj2);
+    console.log(obj1); 
+    */
+    let obj1 = { age: 18,friends:['Tom'] }
+    let obj2 = Object.assign({}, obj1)
+    obj2.age = 88
+    obj2.friends.push('Amy')
+    console.log(obj2);
+    console.log(obj1);          
+</script>
+</html>

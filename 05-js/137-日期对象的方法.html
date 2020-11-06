@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>137-日期对象的方法.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    getFullYear()   返回指定日期对象的年份。
+    getMonth()  返回指定日期对象的月份，从0开始（0表示一年中的第一月）。
+    getDate()   返回指定日期对象在月中的第几天。
+    getHours()  返回指定日期对象的小时。
+    getMinutes()    返回指定日期对象的分钟数。
+    getSeconds()    返回指定日期对象的秒数。
+    getMilliseconds()   返回指定日期对象的毫秒数。
+    getTime()   返回值一个数值，表示从1970-1-1 00:00:00 UTC (世界协调时间)距离该日期对象所代表时间的毫秒数。
+    getDay()    返回指定日期对象在具体日期中一周的第几天，0 表示星期天。
+    toLocaleDateString()    返回指定日期对象的年月日字符串。
+    toLocaleString()    返回指定日期对象的年月日和时间字符串。
+    toLocaleTimeString()    返回指定日期对象的时间字符串。
+    */
+    var today = new Date()
+
+    console.log(today)
+    console.log('getFullYear():',today.getFullYear())
+    console.log('getMonth():',today.getMonth())
+    console.log('getDate():',today.getDate())
+    console.log('getHours():',today.getHours())
+    console.log('getMinutes():',today.getMinutes())
+    console.log('getSeconds():',today.getSeconds())
+    console.log('getMilliseconds():',today.getMilliseconds())
+    console.log('getTime():',today.getTime())
+    console.log('getDay():',today.getDay())
+    console.log('toLocaleDateString():',today.toLocaleDateString())
+    console.log('toLocaleString():',today.toLocaleString())
+    console.log('toLocaleTimeString():',today.toLocaleTimeString())
+
+
+    console.log('Date.now():',Date.now())
+
+</script>
+</html>

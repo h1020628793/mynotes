@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>134-自定义事件.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //step1. 创建事件对象
+    var ev = new Event('test')
+
+    //step2. 监听事件
+    document.addEventListener('test',function(){
+        console.log('test event trigger')
+    },false)
+
+    console.log(111)
+
+    //step3. 触发事件
+    document.dispatchEvent(ev)
+</script>
+</html>

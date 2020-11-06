@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>228-表单元素的属性和方法.html</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" name="form1" id="form1">
+        <input type="text" name="username" value="tom">
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <input type="checkbox" name="ckb">
+        <input type="checkbox" name="ckb">
+        <input type="radio" name="rd">
+        <input type="radio" name="rd">
+        <select name="sl" >
+            <option value="1">1</option>
+            <option value="3">2</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+<script>
+    var form1 = document.forms[0]
+    /*
+    form1.username.disabled = true
+    form1.sl.disabled = true
+   
+    form1.username.readOnly = true
+    form1.desc.readOnly = true
+    form1.sl.readOnly = true  
+     */
+    // console.log(form1.ckb) 
+    /*
+    form1.ckb[0].checked = true
+    form1.ckb[1].checked = true
+
+    form1.rd[0].checked = true
+    form1.rd[1].checked = true
+    */
+    // console.log(form1.sl.options[1].selected = true)
+    form1.desc.focus()
+    form1.desc.blur()
+</script>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .carousel-wrap{
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-wrap .carousel-imgs,
+        .carousel-wrap .carousel-item,
+        .carousel-wrap .carousel-item img{
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-wrap .carousel-item{
+            position: absolute;
+            left:0;
+            top: 0;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .carousel-wrap .carousel-item.show{
+            opacity: 1;
+        }
+        .carousel-wrap .arrow{
+            position: absolute;
+            top:50%;
+            width: 40px;
+            line-height: 80px;
+            background-color: rgba(0,0,0,0.5);
+            margin-top: -40px;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;            
+        }
+        .carousel-wrap .arrow:hover{
+          background-color: rgba(0,0,0,0.2);  
+        }
+        .carousel-wrap .left-arrow{
+            left:0;
+        }
+        .carousel-wrap .right-arrow{
+            right:0;
+        }
+        .carousel-wrap .btns{
+            list-style: none;
+            position: absolute;
+            right: 50px;
+            bottom: 20px;
+        }
+        .carousel-wrap .btns li{
+            float: left;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            margin-right: 10px;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;      
+        }
+        .carousel-wrap .btns li:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        .carousel-wrap .btns li.active{
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        #wrap{
+            margin:50px auto;
+        } 
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+<script>
+    function Carousel(options){
+        //1.罗列属性
+        this.wrap = document.getElementById(options.id)
+        this.width = options.width
+        this.height = options.height
+        this.imgs = options.imgs
+        this.len = this.imgs.length
+        this.activeIndex = 0
+        this.now = 0
+        this.playInterval = options.playInterval
+
+        this.carouselImgs = null
+        this.leftArrow = null
+        this.rightArrow = null
+        this.btns = null
+
+        //2.初始化
+        this.init()
+
+        //3.绑定事件
+        this.bindEvent()
+
+        //4.处理自动切换
+        if(this.playInterval){
+            this.autoPlay()
+        }
+    }
+    Carousel.prototype = {
+        constructor:Carousel,
+        init:function(){
+            this.wrap.className = 'carousel-wrap'
+            this.wrap.style.width = this.width + 'px'
+            this.wrap.style.height = this.height + 'px'
+
+            this.carouselImgs = document.createElement('ul')
+            this.carouselImgs.className = 'carousel-imgs'
+
+            this.btns = document.createElement('ul')
+            this.btns.className = 'btns'
+
+            for(var i = 0;i < this.len;i++){
+                var carouselItem = document.createElement('li')
+                var btn = document.createElement('li')
+                btn.innerHTML = i + 1
+                //动态添加属性,为了事件代理时可以获取到下标
+                btn.index = i
+                if(this.activeIndex == i){
+                    carouselItem.className = 'carousel-item show'
+                    btn.className = 'active'
+                }else{
+                    carouselItem.className = 'carousel-item'
+                }
+
+                var img = document.createElement('img')
+                img.src = this.imgs[i]
+
+                carouselItem.appendChild(img)
+
+                this.carouselImgs.appendChild(carouselItem)
+                this.btns.appendChild(btn)
+            }
+
+            this.leftArrow = document.createElement('span')
+            this.leftArrow.className = 'left-arrow arrow'
+            this.leftArrow.innerHTML = '&lt;'
+            this.rightArrow = document.createElement('span')
+            this.rightArrow.className = 'right-arrow arrow'
+            this.rightArrow.innerHTML = '&gt;'            
+
+            this.wrap.appendChild(this.carouselImgs)
+            this.wrap.appendChild(this.leftArrow)
+            this.wrap.appendChild(this.rightArrow)
+            this.wrap.appendChild(this.btns)
+
+        },
+        bindEvent:function(){
+            this.rightArrow.onclick = function(){
+                this.now++
+                this.setCorrectIndex()
+                this.tab()
+            }.bind(this)
+
+            this.leftArrow.onclick = function(){
+                this.now--
+                this.setCorrectIndex()
+                this.tab()
+            }.bind(this)
+            /*
+            var _this = this
+            for(var i = 0;i<this.len;i++){
+                this.btns.children[i].index = i
+                this.btns.children[i].onclick = function(){
+                    _this.now = this.index
+                    _this.tab()
+                }
+            }
+            */
+           //用事件代理的方式实现底部指示按钮的点击事件处理
+           this.btns.onclick = function(ev){
+                if(ev.target.tagName == 'LI'){
+                    if(ev.target.index != this.activeIndex){
+                        this.now = ev.target.index
+                        this.tab()
+                    }
+                }
+           }.bind(this)
+
+        },
+        tab:function(){
+            var carouselImgsChildren =  this.carouselImgs.children
+            var bntsChildren = this.btns.children
+
+            carouselImgsChildren[this.activeIndex].className = 'carousel-item'
+            carouselImgsChildren[this.now].className = 'carousel-item show'
+
+            bntsChildren[this.activeIndex].className = ''
+            bntsChildren[this.now].className = 'active'
+
+            this.activeIndex = this.now
+        },
+        setCorrectIndex:function(){
+            if(this.now >= this.len){
+                this.now = 0
+            }
+            if(this.now < 0){
+                this.now = this.len - 1
+            }
+        },
+        autoPlay:function(){
+            var timer = 0
+            timer = setInterval(this.rightArrow.onclick,this.playInterval)
+
+            this.wrap.onmouseenter = function(){
+                clearInterval(timer)
+            }
+
+            this.wrap.onmouseleave = function(){
+                timer = setInterval(this.rightArrow.onclick,this.playInterval)
+            }.bind(this)
+        }
+    }
+
+
+    new Carousel({
+        id:'wrap',
+        imgs:[
+           'images/ad1.jpg', 
+           'images/ad2.jpg', 
+           'images/ad3.jpg' 
+        ],
+        width: 800,
+        height: 400,
+        playInterval:2000        
+    })
+</script>
+</html>

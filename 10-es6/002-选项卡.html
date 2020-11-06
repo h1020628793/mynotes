@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 960px;
+            margin: 50px auto;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #F9002B;
+            background-color: #ccc;
+        }
+
+        .tabs li {
+            cursor: pointer;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .tabs li:hover {
+            color: #F9002B;
+        }
+
+        .tabs li.active {
+            color: #fff;
+            background-color: #F9002B;
+        }
+
+        .contents li {
+            display: none;
+            line-height: 400px;
+            text-align: center;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+        </ul>
+        <ul class="contents">
+            <li style="display: block;">商品介绍的内容</li>
+            <li>规格与包装的内容</li>
+            <li>售后保障的内容</li>
+            <li>商品评价的内容</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var tabs = document.querySelectorAll('.tabs li')
+    var contents = document.querySelectorAll('.contents li')
+    var len = tabs.length;
+    var lastActiveIndex = 0
+    for (let i = 0; i < len; i++) {
+        /*
+        tabs[i].index = i
+        tabs[i].onclick = function(){
+            tabs[lastActiveIndex].className = ''
+            contents[lastActiveIndex].style.display = 'none'  
+
+            this.className = 'active'           
+            contents[this.index].style.display = 'block'
+
+            lastActiveIndex = this.index
+        }
+        */
+        //用小闭包改造上面注释部分的代码
+        /*
+        (function (i) {
+            tabs[i].onclick = function () {
+                tabs[lastActiveIndex].className = ''
+                contents[lastActiveIndex].style.display = 'none'
+
+                this.className = 'active'
+                contents[i].style.display = 'block'
+
+                lastActiveIndex = i
+            }
+        })(i);
+        */
+        tabs[i].onclick = function () {
+            tabs[lastActiveIndex].className = ''
+            contents[lastActiveIndex].style.display = 'none'
+
+            this.className = 'active'
+            contents[i].style.display = 'block'
+
+            lastActiveIndex = i
+        }       
+    }
+</script>
+
+</html>

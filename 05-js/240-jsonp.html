@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP</title>
+</head>
+<body>
+    <button id="btn">请求</button>
+</body>
+<script>
+    function handleCallback(data){
+        console.log(data);
+    }
+</script>
+<script>
+    var btn = document.getElementById('btn')
+    
+    btn.onclick = function(){
+        var script = document.createElement('script')
+        script.src = 'https://suggest.taobao.com/sug?code=utf-8&q=x%20x&_ksTS=1598340739312_484&callback=handleCallback&k=1&area=c2c&bucketid=4'
+        document.body.appendChild(script)
+    }
+</script>
+</html>

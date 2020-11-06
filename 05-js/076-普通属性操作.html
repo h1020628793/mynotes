@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>076-普通属性操作.html</title>
+</head>
+<body>
+    <input type="text" name="username" value="Tom" id="username" myattr="myattr">
+</body>
+<script>
+    var elem = document.getElementById('username')
+    /*
+    console.log(elem.getAttribute('value'))
+    console.log(elem.getAttribute('id'))
+    console.log(elem.getAttribute('type'))
+    console.log(elem.getAttribute('name'))
+    console.log(elem.getAttribute('myattr'))
+    console.log(elem.getAttribute('myattr2'))
+    */
+    /*
+    console.log(elem.type)
+    console.log(elem.name)
+    console.log(elem.value)
+    console.log(elem.id)
+    console.log(elem.myattr)
+    */
+    /*
+    console.log(elem['type'])
+    console.log(elem['name'])
+    console.log(elem['value'])
+    console.log(elem['id'])
+    console.log(elem['myattr'])   
+    */
+    /*
+    elem.setAttribute('value','Amy')
+    elem.setAttribute('myattr','hello')
+    */
+    /*
+    elem.value = 'Leo'
+    elem.myattr = 'hello'
+    */
+    /*
+    elem['value'] = 'Peter'
+    elem['myattr'] = 'hello'
+    */
+    // elem.removeAttribute('value')
+    elem.removeAttribute('myattr')
+</script>
+</html>

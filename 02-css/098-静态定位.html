@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>098-静态定位.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+
+        div.box{
+            position: static;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">box</div>
+</body>
+</html>

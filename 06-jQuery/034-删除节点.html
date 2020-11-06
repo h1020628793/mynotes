@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除节点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f21;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>remove删除</button>
+    <button>empty删除</button>
+    <button>detach删除</button>
+    <div>我是文本</div>
+    <div>
+        <span>我是span</span>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('div').on('click',function(){
+        console.log('trigger click...');
+    }) 
+    $('button').eq(0).on('click',function(){
+        var $elems = $('div').remove()
+        //再次插入后没有事件
+        $('body').append($elems)
+    })
+    $('button').eq(1).on('click', function () {
+        //清空文本和节点
+        var $elems = $('div').empty()
+    })
+    $('button').eq(2).on('click', function () {
+        var $elems = $('div').detach()
+        //再次插入后有事件
+        $('body').append($elems)
+    })                        
+</script>
+    
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>076-为什么要清除浮动.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father1{
+            background-color: purple;
+        }
+        .father1 .box{
+            width: 100px;
+            background-color: skyblue;
+            float: left;
+        }
+        .father2{
+            background-color: pink;
+        }
+        .father2 .box{
+            width: 100px;
+            background-color: tomato;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="father1">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+    <div class="father2">
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</body>
+</html>

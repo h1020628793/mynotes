@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function ajax(options){
+        let url = options.url
+        let method = options.method
+    }
+    */
+    const options = {
+        a:1,
+        b:2,
+        c:3,
+        d:7
+    }
+    /*
+    let a1 = options.a
+    let b1 = options.b
+    let c1 = options.c
+   
+    let {a:a1,b:b1,c:c1} = options
+    console.log(a1,b1,c1);
+   
+    let { a: a, b: b, c: c } = options
+    console.log(a, b, c);
+    
+    let { a, b, c } = options
+    console.log(a, b, c);
+  
+    let { a, c, b } = options
+    console.log(a, b, c);
+   */       
+    let { a, b, c, d = 4 } = options
+    console.log(a, b, c,d);
+
+</script>
+</html>

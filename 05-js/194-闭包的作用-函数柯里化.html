@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>194-闭包的作用-函数柯里化.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function generateEmployee(city,department,name){
+        return city+department+name
+    }
+    //作为一个专门负责北京地区的同事来说
+    var e1 = generateEmployee('北京','销售部','张三')
+    var e2 = generateEmployee('北京','宣传部','李四')
+    var e3 = generateEmployee('北京','技术部','王五')
+
+    console.log(e1)
+    console.log(e2)
+    console.log(e3)
+    //同理,如果有另外一个同事专门负责北京地区销售部的员工
+    var e4 = generateEmployee('北京','销售部','张三')
+    var e5 = generateEmployee('北京','销售部','李四')
+    */
+    function generateEmployee(city){
+        return function(department){
+            return function(name){
+                return city+department+name
+            }
+        }
+    }
+
+    var generateBeiJingEmployee = generateEmployee('北京')
+
+    var s1 = generateBeiJingEmployee('销售部')('张三')
+    var s2 = generateBeiJingEmployee('宣传部')('李四')
+    console.log(s1)
+    console.log(s2)
+
+    var generateBeiJingSellEmployee = generateEmployee('北京')('销售部')
+
+
+    var s3 = generateBeiJingSellEmployee('王五')
+    console.log(s3)
+
+    console.log(generateEmployee('北京')('销售部')('赵六'))
+
+</script>
+</html>

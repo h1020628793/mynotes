@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>148-让元素移动.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top:50px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+    var timer = 0
+    timer = setInterval(function(){
+        if(elem.offsetLeft == 400){
+            clearInterval(timer)
+        }else{
+            elem.style.left = 10 + elem.offsetLeft + 'px'
+        }
+       
+    },30)
+    
+
+
+</script>
+</html>

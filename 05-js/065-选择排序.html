@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>065-选择排序.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [2,8,5,4,11,22,1,55,6]//升序
+    //第1轮 2 8 5 4 //从0号元素开始
+    //第2轮 2 4 5 8 //从1号元素开始
+    //第3轮 2 4 5 8 //从2号元素开始
+    var len = arr.length
+    var minIndex,temp;
+    for(var i = 0; i < len -1;i++){
+        minIndex = i//设置最小数的默认下标
+        //找出没有排序的元素中的最小值的下标
+        for(j = i + 1;j < len;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex = j
+            }
+        }
+        //找到最小值后和当前的外层循环的值交换
+        temp = arr[i]
+        arr[i] = arr[minIndex]
+        arr[minIndex] = temp
+    }
+    console.log(arr)
+</script>
+</html>

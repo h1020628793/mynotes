@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由测试</title>
+</head>
+
+<body>
+    <button>get请求</button>
+    <button>post请求</button>
+    <button>delete请求</button>
+    <button>put请求</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var $btns = $('button')
+    $btns.eq(0).on('click', function () {
+        $.ajax({
+            type: 'get',
+            url: '/articles',
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    })
+    $btns.eq(1).on('click', function () {
+        $.ajax({
+            type: 'post',
+            url: '/articles',
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    })
+    $btns.eq(2).on('click', function () {
+        $.ajax({
+            type: 'delete',
+            url: '/articles',
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    })
+    $btns.eq(3).on('click', function () {
+        $.ajax({
+            type: 'put',
+            url: '/articles',
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    })             
+</script>
+
+</html>

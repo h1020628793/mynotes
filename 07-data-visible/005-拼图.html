@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拼图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .container li{
+            list-style: none;
+            width: 100px;
+            height: 150px;
+        }
+        .container li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul class="container">
+        <li draggable="true"><img src="img/03.png" alt=""></li>
+        <li draggable="true"><img src="img/02.png" alt=""></li>
+        <li draggable="true"><img src="img/01.png" alt=""></li>
+        <li draggable="true"><img src="img/04.png" alt=""></li>
+        <li draggable="true"><img src="img/05.png" alt=""></li>
+        <li draggable="true"><img src="img/06.png" alt=""></li>
+        <li draggable="true"><img src="img/07.png" alt=""></li>
+        <li draggable="true"><img src="img/08.png" alt=""></li>
+        <li draggable="true"><img src="img/10.png" alt=""></li>
+        <li draggable="true"><img src="img/09.png" alt=""></li>
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var targetElem = null
+    $('.container')
+    //被拖拽元素开始拖拽时
+    .on('dragstart','li',function(){
+        //保存自身的DOM节点
+        targetElem = this
+    })
+    //被拖动元素在容器中放置时
+    .on('drop','li',function(){
+        //被拖拽元素和容器元素不是同一个时交互图片
+        if(targetElem != this){
+            var $containerElem = $(this)
+            var $targetElem = $(targetElem)
+            //交互图片
+            var tempHtml = $containerElem.html()
+            $containerElem.html($targetElem.html())
+            $targetElem.html(tempHtml)
+        }
+    })
+    .on('dragover', 'li', function (ev) {
+        ev.preventDefault()
+    })    
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>063-径向渐变背景.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            margin:50px auto;
+            border: 1px solid #000;
+            background-image: radial-gradient(red,blue);
+            /*background-image: radial-gradient(ellipse farthest-corner at center,red,blue);*/
+            /*background-image: radial-gradient(ellipse 100px 200px at 100px 100px,red,blue); */
+            /*background-image: radial-gradient(circle 100px at 200px 200px,red,blue);  */
+            background-image: radial-gradient(circle 100px at 50% 50%,red,blue,yellow);                           
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

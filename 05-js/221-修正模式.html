@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>221-修正模式.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'Aa b c A B C abc AB'
+    var reg = /a/i
+
+    // console.log(reg.global)
+    console.log(reg.ignoreCase)
+
+    console.log(str.replace(reg,'*'))
+
+    console.log('a1b2c*d&'.replace(/[a-z](?=\d)/g,'$'))
+    console.log('a1b2c*d&'.replace(/[a-z](?!\d)/g,'$'))
+</script>
+</html>

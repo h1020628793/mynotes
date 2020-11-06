@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.chenniantao.com">
+        <span>去学习</span>    
+    </a>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('a').on('click',function(){
+        console.log('a click');
+    })
+    $('body').on('click',function(){
+        console.log('body click');
+    })
+    // $('a').trigger('click')
+    $('span').trigger('click')
+</script>
+</html>

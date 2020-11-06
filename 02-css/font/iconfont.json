@@ -1,0 +1,23 @@
+{
+  "id": "1954005",
+  "name": "aa-test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1244097",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "6119261",
+      "name": "用户",
+      "font_class": "user-line",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    }
+  ]
+}

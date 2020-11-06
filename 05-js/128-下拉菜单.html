@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>128-下拉菜单.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 400px;
+            margin: 20px auto;
+        }
+        #main-menu{
+            width: 60px;
+            line-height: 30px;
+            text-align: center;
+            background-color: gray;
+            cursor: pointer;
+        }
+        #sub-menu{
+            display: none;
+            width: 60px;
+            height: 300px;
+            background-color: #bbb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="main-menu">主菜单</div>
+        <div id="sub-menu">子菜单</div>
+    </div>
+</body>
+<script>
+    var mainMenu = document.getElementById('main-menu')
+    var subMenu = document.getElementById('sub-menu')
+    
+    mainMenu.onclick = function(ev){
+        subMenu.style.display = 'block'
+        ev.stopPropagation()
+    }
+
+    document.onclick = function(){
+        subMenu.style.display = 'none'
+    }
+
+    subMenu.onclick = function(ev){
+        ev.stopPropagation()
+    }
+
+
+
+
+</script>
+</html>

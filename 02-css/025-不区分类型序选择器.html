@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>025-不区分类型序选择器.html</title>
+    <style>
+        /*
+        p:first-child{
+            color: red;
+        }
+        p:last-child{
+            color: red;
+        }
+        p:nth-child(3){
+            color: red;
+        }
+        */
+       /*
+       p:nth-child(odd){
+            color: red;
+       }
+       
+       p:nth-child(even){
+            color: red;
+       }
+       */
+      /*
+      p:nth-child(3n+0){
+        color: red;
+      } 
+      
+        p:nth-last-child(3){
+            color: red;
+        }
+        */
+       p:only-child{
+        color: red;
+       }     
+    </style>
+</head>
+<body>
+    <div>
+        <!-- <h1>h1</h1> -->
+        <p>p1</p>
+        <h2>h2</h2>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+        <p>p5</p>
+        <span>span</span>
+    </div>
+    <div>
+        <p>p11</p>
+        <h2>h2</h2>
+    </div>
+</body>
+</html>

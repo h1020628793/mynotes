@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>205-汇率计算.html</title>
+</head>
+<body>  
+</body>
+<script>
+    (function(w){
+        function Local(name){
+            this.name = name
+            this.inputElem = null
+            this.foreigns = []
+            this.init()
+            this.bindEvent()
+        }
+        Local.prototype = {
+            constructor:Local,
+            init:function(){
+                var pElem = document.createElement('p')
+                pElem.innerHTML = this.name
+                this.inputElem = document.createElement('input')
+                pElem.appendChild(this.inputElem)
+                document.body.appendChild(pElem)
+            },
+            register:function(foreign){
+                this.foreigns.push(foreign)
+            },
+            publish:function(){
+                for(var i = 0,len = this.foreigns.length;i<len;i++){
+                    this.foreigns[i].listen(this.inputElem.value)
+                }
+            },
+            bindEvent:function(){
+               this.inputElem.oninput = function(){
+                    this.publish()
+               }.bind(this) 
+            }
+        }
+
+        w.Local = Local
+    })(window);
+
+    (function(w){
+        function Foreign(name,local,rate){
+            this.name = name
+            this.spanElem = null
+            this.rate = rate
+
+            local.register(this)
+
+            this.init()
+        }
+        Foreign.prototype = {
+            constructor:Foreign,
+            init:function(){
+                var pElem = document.createElement('p')
+                pElem.innerHTML = this.name
+                this.spanElem = document.createElement('span')
+                pElem.appendChild(this.spanElem)
+                document.body.appendChild(pElem)
+            },
+            listen:function(val){
+                this.spanElem.innerHTML = val / this.rate 
+            }
+        }
+
+        w.Foreign = Foreign
+    })(window);
+
+    var cny = new Local('本币cny')
+
+    var usd = new Foreign('美元usd',cny,20)
+
+    var jpy = new Foreign('日元jpy',cny,0.14)
+
+</script>
+</html>

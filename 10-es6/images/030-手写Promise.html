@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const PENDING = 'pending'
+    const FULFILLED = 'fulfilled'
+    const REJECTED = 'rejected'
+
+    function CustomPromise(resolver){
+        if(typeof resolver != 'function'){
+            throw new TypeError('Promise resolver undefined is not a function')
+        }
+
+        this.status = PENDING
+        this.value = undefined
+        const _this = this
+        _this.fulfilledCallBacks = []
+        _this.rejectedCallBacks = []
+        function resolve(value){
+            if(_this.status == PENDING){
+                _this.value = value
+                _this.status = FULFILLED
+                _this.fulfilledCallBacks.forEach(cb=>cb(_this.value))
+            }
+        }
+        function reject(value){
+            if (_this.status == PENDING) {
+                _this.value = value
+                _this.status = REJECTED
+                _this.rejectedCallBacks.forEach(cb => cb(_this.value))
+            }
+        }
+        resolver(resolve, reject)
+
+    }
+    CustomPromise.prototype.then = function(fulfilled,rejected){
+        const _this = this
+        if(_this.status == FULFILLED){
+            fulfilled(_this.value)
+        }
+        if (_this.status == REJECTED) {
+            rejected(_this.value)
+        }
+        //保存
+        if(_this.status == PENDING){
+            _this.fulfilledCallBacks.push(fulfilled)
+            _this.rejectedCallBacks.push(rejected)
+        }
+
+        return this     
+    }
+
+    const p1 = new Promise((resolve,reject)=>{
+        console.log('exector1...');
+        resolve('ok1')
+        // reject('err')
+    })
+    p1.then(data=>{
+        console.log(data);
+    })
+
+    const p2 = new CustomPromise((resolve, reject) => {
+        setTimeout(()=>{
+            // resolve('ok2')
+            reject('err2')
+        },200)
+    })
+    p2.then(data=>{
+        console.log(data);
+    },data=>{
+        console.log(data);
+    })
+
+
+</script>
+</html>

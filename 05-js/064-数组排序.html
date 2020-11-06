@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>064-数组排序.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [2,8,5,4,11,33,22,55,1]//升序排序(从小到大)
+    //第1轮: 2 5 4 8  比较了3次
+    //第2轮: 2 4 5 8  比较了2次
+    //第3轮: 2 4 5 8  比较了1次
+    
+    var len = arr.length// 4
+
+    //比较的轮数
+    for(var i = 0; i < len - 1;i++){
+        //比较的次数
+        for(var j = 0; j < len - 1 - i; j++){
+            //升序:如果前面的数大于后面的数交换位置
+            if(arr[j] > arr[j+1]){
+                var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
+
+    console.log(arr)
+
+
+
+</script>
+</html>

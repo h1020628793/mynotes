@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框登录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        #login-wrap{
+            display: none;
+            width: 300px;
+            height: 200px;
+            padding: 30px;
+            box-shadow: 1px 5px 5px rgba(0,0,0,0.3);
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);  
+            z-index: 999; 
+            background-color: #fff; 
+        }
+        #login-wrap input{
+            width: 100%;
+        }
+        #login-wrap div{
+            margin-bottom: 20px;
+        }
+        #mask{
+            display: none;
+        }
+        .overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,.2);
+            z-index: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="go-login-btn">登录</button>
+    <div id="login-wrap">
+        <div>    
+            <input type="text" placeholder="用户名">
+        </div>
+        <div>
+        <input type="password" placeholder="密码">
+        </div>
+        <div class="action-bar">
+            <button>登录</button>
+            <button>注册</button>
+        </div>
+    </div>
+    <div id="mask" class="overlay">
+        
+    </div>
+</body>
+<script>
+    var goLoginBtn = document.getElementById('go-login-btn')
+    var loginWrap = document.getElementById('login-wrap')
+    var mask = document.getElementById('mask')
+
+    goLoginBtn.onclick = function(ev){
+        loginWrap.style.display = 'block'
+        mask.style.display = 'block'
+        ev.stopPropagation()
+    }
+
+    document.onclick = function(){
+        loginWrap.style.display = 'none'
+        mask.style.display = 'none'
+    }
+
+    loginWrap.onclick =  function(ev){
+        ev.stopPropagation()
+    }
+
+</script>
+</html>

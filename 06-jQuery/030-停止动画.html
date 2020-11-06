@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开始动画</button>
+    <button>停止动画</button>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var $elems = $('div')
+
+    $('button').eq(0).on('click', function () {
+        $elems.animate({
+            width: 200
+        },2000)
+        $elems.animate({
+            height: 200
+        },2000)
+        $elems.animate({
+            opacity: 0.5
+        },2000)
+      
+    }) 
+    $('button').eq(1).on('click', function () {
+        // $elems.stop()
+        // $elems.stop(false)
+        // $elems.stop(true)
+        // $elems.stop(true,false)
+        $elems.stop(true,true)
+    })            
+</script>
+
+</html>

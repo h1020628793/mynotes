@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>167-apply改变this指向.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    'use strict'
+    var tom  = {
+        username:'Tom',
+        sayHi:function(){
+            console.log(this)
+        }
+    }
+    function sayHi(age,city){
+        console.log(this)
+        console.log("I am "+this.username+", I am " + age + " years old and I am from "+ city)
+    }
+    //sayHi.apply(tom,[18,'Beijing'])
+    //sayHi.apply(null,[18,'Beijing'])
+    //sayHi(18,'Beijing')
+    //sayHi.apply(tom,[18,'Beijing'])
+    //sayHi.apply(null,[18,'Beijing'])
+    tom.sayHi()
+    tom.sayHi.apply(null)
+    tom.sayHi.apply()
+    tom.sayHi.apply(undefined)
+    tom.sayHi.apply(123)
+
+</script>
+</html>

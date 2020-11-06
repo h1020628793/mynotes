@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>160-悬浮侧边栏.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top:0;
+            right: 0;
+
+            transition: top .3s;
+        }
+        body{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+
+<script>
+    var elem = document.getElementById('box')
+    var timer = 0
+    window.onload = window.onscroll = window.onresize = function(){
+        clearTimeout(timer)
+        timer = setTimeout(function(){
+            var target = (window.innerHeight - elem.offsetHeight) / 2 + window.pageYOffset
+            elem.style.top = target + 'px'
+        },50)
+    }
+</script>
+</html>

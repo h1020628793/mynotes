@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>080-设置样式.html</title>
+</head>
+<body>
+    <div id="box">box</div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+    /*
+    elem.style.color = 'red';
+    elem.style.fontSize = '48px';
+    */
+    elem.style['color'] = '#f21';
+    // elem.style['fontSize'] = '48px';
+    elem.style['font-size'] = '48px';
+</script>
+</html>

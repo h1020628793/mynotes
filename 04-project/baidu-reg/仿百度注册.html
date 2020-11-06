@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿百度注册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top-wrap{
+            width: 100%;
+            height: 100px;
+            background-image: url(images/t.png);
+            background-repeat: no-repeat;
+            background-position: center 0px;
+        }        
+        .main{
+            width: 990px;
+            margin: 50px auto;
+        }
+        .reg {
+            width: 720px;
+            float: left;
+        }
+        .reg div {
+            position: relative;
+            margin-bottom: 20px;
+            zoom: 1;
+            display: block;
+        }
+        .reg div:after {
+            content: "";
+            clear: both;
+            display: block;
+            visibility: hidden;
+            height: 0;
+        }
+        .reg label {
+            display: block;
+            float: left;
+            width: 65px;            
+            height: 42px;
+            line-height: 42px;
+            margin-right: 10px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 700;
+            text-align: right;
+        }
+        .reg input {
+            display: block;
+            position: relative;
+            float: left;
+            width: 328px;            
+            height: 16px;
+            padding: 11px 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            color: #666;
+            transition: .3s;
+            float: left;
+        }
+        #verify-wrap input:nth-of-type(1){
+             width: 158px;
+        }
+        #verify-wrap input:nth-of-type(2){
+            width: 160px;            
+            height: 40px;
+            border-radius: 0;            
+            background: #f7f7f7;
+            font-weight: 400;
+            text-align: center;
+            cursor: pointer;
+        }
+        #verify-wrap input:nth-of-type(2):focus{
+            border: 1px solid #ddd;
+        }
+        #verify-wrap input:nth-of-type(2):hover{
+            background-color: #eee;
+        }
+        #verify-wrap .cancel{
+            left: 212px;
+        }
+        .reg .sub-btn {
+            position: relative;
+            left: 75px;
+        }
+        .reg .sub-btn input {
+            display: block;
+            float: left;            
+            width: 350px;
+            height: 50px;
+            border-radius: 3px;
+            border: 0;            
+            background-image: none;
+            background-color: #3f89ec;             
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+        }
+        .reg input:focus {
+            border-color: #488ee7;
+            outline: 0;
+        }
+        .reg .input-err{
+            border-color: red;
+        }
+        .msg{
+            display: none;
+        }
+        .ok {
+            display: inline-block;
+            position: relative;
+            float: left;
+            top: 14px;
+            height: 16px;
+            line-height: 12px;
+            padding-left: 20px;
+            background: url(images/reg_icons.png) -80px 0 no-repeat;
+        }
+        .err {
+            float: left;
+            position: relative;
+            width: 250px;
+            height: 16px;            
+            top: 12px;
+            padding-left: 20px;            
+            background: url(images/reg_icons.png) -80px -23px no-repeat;
+            font-size: 12px;
+            color: #fc4343;            
+        }
+        .cancel {
+            position: absolute;
+            top: 12px;
+            left: 398px;            
+            width: 16px;
+            height: 16px;
+            background: url(images/reg_icons.png) -32px -24px no-repeat;
+            cursor: pointer;
+        }
+
+        .cancel:hover {
+            background-position: -48px -24px;
+        }
+        .tiptext {
+            height: 40px;
+            line-height: 40px;
+            font-size: 12px;
+            color: #aaa;            
+        }
+        #username-wrap .tiptext{
+            float: left;  
+            width: 250px;          
+            line-height: 18px;
+        }
+
+        #pwd-checklist{
+            position: absolute;
+            top: 0;
+            right: 50px;            
+            width: 200px;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            box-shadow: 1px 1px 1px #efefef;
+            background: #f9f9f9;
+            font-size: 12px;
+        }
+        .pwd-checklist li{
+            list-style: none;
+        }
+        .pwd-checklist .pwd-checklist-item-success {
+            background-position: -86px -128px;
+        }
+        .pwd-checklist  .pwd-checklist-item-error {
+            color: rgb(252, 67, 67);
+            background-position: -86px -144px;
+        }
+        .pwd-checklist-item {
+            line-height: 20px;
+            padding-left: 18px;
+            background: url(images/reg_icons.png) no-repeat -86px -112px;
+            color: #666;
+        }
+        .pwd-checklist-arrow{
+            position: absolute;
+            top: 12px;
+            left: -7px;            
+            width: 14px;
+            height: 14px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #ddd; 
+            transform: rotateZ(45deg);                  
+        }
+        #agree-wrap{
+            font-size: 12px;
+        }
+        #agree-wrap a{
+            text-decoration: none;
+        }
+        #agree-wrap label{
+            width: 60px;
+            height: 40px;
+            margin:-12px 0px 0px 2px;            
+            vertical-align: top;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+        }
+        #agree-wrap input{
+            width: 20px;
+            margin: 1px 0px 0px 70px;
+        }
+        #agree-wrap .msg{
+            float: none;
+            top: 0;
+            color: #fc4343;
+        }
+        .right-wrap{
+            float: right;            
+            width: 270px;
+            height: 427px;
+            background-image: url(images/r.png);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-wrap"></div>
+    <div class="main">
+        <div class="reg" id='reg'>
+            <form action="https://www.chenniantao.com">
+                <div id="username-wrap">
+                    <label for="username">用户名</label>
+                    <input type="text"  autocomplete="off" name="username" placeholder="请设置用户名">
+                    <span class="cancel" style="display: none;"></span>
+                    <span class="msg"></span>
+                </div>
+                <div id="phone-wrap">
+                    <label for="phone">手机号</label>
+                    <input type="text" autocomplete="off" name="phone" placeholder="可用于登录和找回密码">
+                    <span class="cancel" style="display: none;"></span>
+                    <span class="msg"></span>
+                </div>
+                <div id="pwd-wrap" class="pwd-wrap">
+                    <label for="password">密码</label>
+                    <input type="password" autocomplete="off" name="password" placeholder="请设置登录密码"/>
+                    <span class="cancel"  style="display: none;"></span>
+                    <span class="msg"></span>
+                    <div id="pwd-checklist" class="pwd-checklist" style="display:none;">
+                        <ul>
+                            <li class="pwd-checklist-item">长度为8~14个字符</li>
+                            <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
+                            <li class="pwd-checklist-item ">不允许有空格</li>
+                        </ul>
+                        <span class="pwd-checklist-arrow"></span>
+                    </div>
+                </div>
+                <div id="verify-wrap">
+                    <label for="verify">验证码</label>
+                    <input type="text" autocomplete="off" name="verify" placeholder="请输入验证码">
+                    <span class="cancel"  style="display: none;"></span>
+                    <input type="button"  id="sms-btn" value="获取短信验证码">
+                    <span class="msg"></span>       
+                </div> 
+                <div id='agree-wrap'>
+                   <input type="checkbox" name='isAgree'> 
+                   <label for="isAgree">阅读并接受</label>
+                   <a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>  
+                   <span class="msg">选“阅读并接受百度用户协议”</span>               
+                </div>           
+                <div class="sub-btn">
+                    <input type="button" value="注册" id="sub-btn">
+                </div>
+            </form>
+        </div>
+        <div class="right-wrap"></div>
+    </div>
+</body>
+<script>
+    //共同函数
+    function getLen(str){
+        return str.replace(/[\u4e00-\u9fa5]/g,'**').length
+    }
+    function setErr(msgElem,msgStr,inputElem){
+        msgElem.className = 'err'
+        msgElem.innerHTML = msgStr
+        inputElem.className = 'input-err'
+    }
+    function setOk(msgElem,inputElem){
+        msgElem.className = 'ok'
+        msgElem.innerHTML = ''
+        inputElem.className = ''
+    }    
+    //获取元素
+    var form = document.forms[0]
+    var usernameElem = form.username
+    var phoneElem = form.phone
+    var pwdElem = form.password
+    var verifyElem = form.verify
+    var isAgreeElem = form.isAgree
+    var msges = document.querySelectorAll('.msg')
+    var cancelIcons = document.querySelectorAll('.cancel')
+    var pwdChecklist = document.getElementById('pwd-checklist')
+    var pwdChecklistItems = document.querySelectorAll('.pwd-checklist-item')
+    var smsBtn = document.getElementById('sms-btn')
+    var subBtn = document.getElementById('sub-btn')
+
+    //定义验证结果标示
+    var isPhoneOk = false,isUsernameOk = false,isPwdOk = false,isVerifyOk = false
+
+    //初始化页面
+    init()
+    checkUsername()
+    checkPhone()
+    checkPwd()
+    checkVerify()
+    handleSubmit()
+
+    function init(){
+        usernameElem.focus()
+        msges[0].className = 'tiptext'
+        msges[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字'
+
+        //用事件委托的方式处理取消操作
+        form.oninput = function(ev){
+            var inputElem = ev.target
+            var cancelIcon = inputElem.nextElementSibling
+            if(inputElem.value.length > 0){
+                cancelIcon.style.display = 'block'
+            }else{
+                cancelIcon.style.display = 'none'
+            }
+        }
+        form.onclick = function(ev){
+            var cancelIcon = ev.target
+            if(cancelIcon.className == 'cancel'){
+                var inputElem = cancelIcon.previousElementSibling
+                cancelIcon.style.display = 'none'
+                inputElem.value = ''
+                inputElem.className = ''
+                inputElem.focus()
+            }
+        }
+        
+    }
+    //验证用户名
+    function checkUsername(){
+        var msgElem = msges[0]
+        usernameElem.onblur = function(){
+            var val = this.value
+            //全空
+            var reg1 = /^\s+$/
+            //用户名仅支持中英文、数字和下划线,且不能为纯数字
+            var reg2 = /[^\u4e00-\u9fa5|a-z|\d|_]/i
+            var reg3 = /^\d+$/
+            //什么都没有输入
+            if(val == ''){
+                msgElem.className = 'msg'
+                //针对手动将已有的内容清空时,如上一次是错误的处理
+                this.className = '' 
+                isUsernameOk = false               
+            }
+            //输入全空
+            else if(reg1.test(val)){
+                setErr(msgElem,'请输入用户名',this)
+                isUsernameOk = false
+            }
+            //长度验证:用户名不能超过7个汉字或14个字符
+            else if(getLen(val) > 14){
+                setErr(msgElem,'用户名不能超过7个汉字或14个字符',this)
+                isUsernameOk = false
+            }
+            //用户名仅支持中英文、数字和下划线,且不能为纯数字
+            else if(reg2.test(val) || reg3.test(val)){
+                setErr(msgElem,'用户名仅支持中英文、数字和下划线,且不能为纯数字',this)
+                isUsernameOk = false
+            }
+            //成功
+            else{
+                setOk(msgElem,this)
+                isUsernameOk = true
+            }
+        }
+        usernameElem.onfocus = function(){
+            msgElem.className = 'tiptext'
+            msgElem.innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字'
+        }
+    }
+    //验证手机号
+    function checkPhone(){
+        var msgElem = msges[1]
+        phoneElem.onblur = function(){
+            var val = this.value
+            //全空
+            var reg1 = /^\s+$/
+            //手机号格式
+            var reg2 = /^1[35789]\d{9}$/
+            //什么都没有输入
+            if(val == ''){
+                msgElem.className = 'msg'
+                //针对手动将已有的内容清空时,如上一次是错误的处理
+                this.className = ''
+                isPhoneOk = false
+            }
+            //输入全空
+            else if(reg1.test(val)){
+                setErr(msgElem,'请输入手机号',this)
+                isPhoneOk = false
+            }
+            //手机号格式验证
+            else if(!reg2.test(val)){
+                setErr(msgElem,'手机号格式不正确',this)
+                isPhoneOk = false
+            }
+            //成功
+            else{
+                setOk(msgElem,this)
+                isPhoneOk = true
+            }
+        }
+        //输入限制:只能输入11位数字
+        phoneElem.onkeydown = function(ev){
+            var keyCode = ev.keyCode
+            if((keyCode < 48 || keyCode > 57 || this.value.length > 10) && keyCode != 8 && keyCode != 37 && keyCode != 39){
+                ev.preventDefault()
+            }
+        }
+        phoneElem.onfocus = function(){
+            msgElem.className = 'tiptext'
+            msgElem.innerHTML = '请输入中国大陆手机号,其他用户不可见'
+        }
+    }
+    //验证密码
+    function checkPwd(){
+        var msgElem = msges[2]
+        //实时验证类
+        var checkSuccessClass = 'pwd-checklist-item  pwd-checklist-item-success'
+        var checkErrClass = 'pwd-checklist-item  pwd-checklist-item-error'
+        //长度为8~14个字符
+        var reg1 = /^.{8,14}$/
+        //支持数字,大小写字母和标点符号
+        var reg2 = /[^\da-zA-Z@#\*]/
+        //不允许有空格
+        var reg3 = /\s/
+        //每一个验证的标示
+        var isCheckOk1 = false,isCheckOk2 = false,isCheckOk3 = false        
+        pwdElem.oninput = function(){
+            var val = this.value
+            
+            if(!reg1.test(val)){
+                pwdChecklistItems[0].className = checkErrClass
+                isCheckOk1 = false
+            }else{
+                pwdChecklistItems[0].className = checkSuccessClass
+                isCheckOk1 = true
+            }
+
+            if(reg2.test(val)){
+                pwdChecklistItems[1].className = checkErrClass
+                isCheckOk2 = false
+            }else{
+                pwdChecklistItems[1].className = checkSuccessClass
+                isCheckOk2 = true
+            }
+
+            if(reg3.test(val)){
+                pwdChecklistItems[2].className = checkErrClass
+                isCheckOk3 = false
+            }else{
+                pwdChecklistItems[2].className = checkSuccessClass
+                isCheckOk3 = true
+            }
+
+        }
+        //密码框取消时的特殊处理
+        cancelIcons[2].onclick = function(ev){
+            isCheckOk1 = false
+            isCheckOk2 = false
+            isCheckOk3 = false
+            pwdChecklistItems[0].className = 'pwd-checklist-item'
+            pwdChecklistItems[1].className = 'pwd-checklist-item'
+            pwdChecklistItems[2].className = 'pwd-checklist-item'
+        }
+
+        pwdElem.onblur = function(){
+            if(this.value == ''){
+                pwdChecklist.style.display = 'none'
+                //针对手动将已有的内容清空时,如上一次是错误的处理
+                this.className = '' 
+                isPwdOk = false               
+            }
+            else if(isCheckOk1 && isCheckOk2 && isCheckOk3){
+                setOk(msgElem,this)
+                pwdChecklist.style.display = 'none'
+                isPwdOk = true
+            }else{
+                this.className = 'input-err'
+                isPwdOk = false  
+            }
+        }
+
+        pwdElem.onfocus = function(){
+            msgElem.className = 'msg'
+            pwdChecklist.style.display = 'block'
+        }
+    }
+    //验证验证码
+    function checkVerify(){
+        var msgElem = msges[3]
+        //发送验证码
+        smsBtn.onclick = function(){
+            var phoneVal = phoneElem.value
+            if(phoneVal == ''){
+                setErr(msges[1],'请输入手机号',phoneElem)
+                return false
+            }
+            if(isPhoneOk){
+                //模拟发送获取验证码的请求
+                alert('为手机号:'+phoneVal+'发送验证码请求')
+            }
+        }
+        //验证码格式验证
+        verifyElem.onblur = function(){
+            var val = this.value
+            //全空
+            var reg1 = /^\s+$/
+            //格式
+            var reg2 = /^\d{6}$/
+            //什么都没有输入
+            if(val == ''){
+                msgElem.className = 'msg'
+                //针对手动将已有的内容清空时,如上一次是错误的处理
+                this.className = '' 
+                isVerifyOk = false               
+            }
+            //输入全空
+            else if(reg1.test(val)){
+                setErr(msgElem,'请输入验证码',this)
+                isVerifyOk = false 
+            }
+            //验证码验证
+            else if(!reg2.test(val)){
+                setErr(msgElem,'验证码格式不正确',this)
+                isVerifyOk = false 
+            }
+            //成功
+            else{
+                setOk(msgElem,this)
+                isVerifyOk = true
+            }            
+        }
+        //输入限制:只能6位数字
+        verifyElem.onkeydown = function(ev){
+            var keyCode = ev.keyCode
+            if((keyCode < 48 || keyCode > 57 || this.value.length > 5) && keyCode != 8 && keyCode != 37 && keyCode != 39){
+                ev.preventDefault()
+            }
+        }
+        verifyElem.onfocus = function(){
+            msgElem.className = 'msg'
+        }        
+    }
+    //提交注册
+    function handleSubmit(){
+        subBtn.onclick = function(){
+            if(usernameElem.value == ''){
+                setErr(msges[0],'请输入用户名',usernameElem)
+            }
+            if(phoneElem.value == ''){
+                setErr(msges[1],'请输入手机号',phoneElem)
+            }
+            if(pwdElem.value == ''){
+                setErr(msges[2],'请输入密码',pwdElem)
+            }
+            if(verifyElem.value == ''){
+                setErr(msges[3],'请输入验证码',verifyElem)
+            }
+            if(isAgreeElem.checked){
+                msges[4].style.display = 'none'
+            }else{
+                msges[4].style.display = 'inline'
+            }
+
+            if(isUsernameOk && isPhoneOk && isPwdOk && isVerifyOk && isAgreeElem.checked){
+                form.submit()
+            }
+        }
+    }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

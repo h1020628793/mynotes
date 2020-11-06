@@ -1,0 +1,42 @@
+<!--
+ * @Author: Tom
+ * @Date: 2020-09-08 14:52:22
+ * @LastEditTime: 2020-09-08 15:19:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div id="box">2</div>
+    <div>3</div>
+    <p>p</p>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    var $elems = $('div')
+    /*
+    var elem = document.getElementById('box')
+    var elem1 = document.querySelector('p')
+    console.log($elems.index(elem1));
+    */
+    /*
+    $elems.each(function(index,elem){
+        console.log(this);
+        console.log(index,elem);
+    })
+    */
+    //console.log($elems.data('key1','val1'));
+    // console.log($elems.data('key1', 'val1').eq(1).data('key1'))
+    console.log($elems.is('.box'));
+
+
+
+
+   
+</script>
+</html>

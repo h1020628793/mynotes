@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>198-小闭包作用-模拟私有属性.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function User(name,password){
+        this.name = name
+        this.password = password
+    }
+    User.prototype.login = function(){
+        console.log('name='+this.name+';password='+this.password)
+    }
+
+    var user = new User('Tom',123456)
+
+
+    user.login()
+
+    
+    console.log(user.password)
+    user.password = 88888
+
+    user.login()
+    */
+    var User = (function(){
+        var _password;
+        function User(name,password){
+            this.name = name
+            _password = password
+        }
+        User.prototype.login = function(){
+            console.log('name='+this.name+';password='+_password)
+        }        
+        return User
+    })();
+
+    var user = new User('Tom',123456)
+
+
+  
+    user._password = 8888
+    user.password = 8888
+    console.log(user.password)
+    console.log(user._password)
+
+    user.login()
+
+</script>
+</html>

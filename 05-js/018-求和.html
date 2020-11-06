@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>018-求和.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var n1 = prompt('请输入第一个数字:');//'10'
+    var n2 = prompt('请输入第二个数字:');//'10'
+    //console.log(typeof n1)
+    
+    //n1 = parseInt(n1);
+    //n2 = parseInt(n2);
+    
+    // n1 = parseFloat(n1);
+    // n2 = parseFloat(n2);
+
+    n1 = n1 * 1;
+    n2 = n2 * 1;
+    
+    if(isNaN(n1)){
+        alert('你输入的第一个数有误')
+    }else if(isNaN(n2)){
+        alert('你输入的第二个数有误')
+    }else{
+        var sum = n1 + n2;
+        alert(sum); 
+    }
+
+</script>
+</html>

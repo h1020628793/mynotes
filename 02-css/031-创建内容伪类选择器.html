@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>031-创建内容伪类选择器.html</title>
+    <style>
+        div::after{
+            content: "我是被添加的"
+        }
+        div::before{
+            content: "我也是被添加的"
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>我是本来就有的</p>
+    </div>
+</body>
+</html>

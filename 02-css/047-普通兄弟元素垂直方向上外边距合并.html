@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>047-普通兄弟元素垂直方向上外边距合并.html</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 100px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 100px;
+        }
+        .father{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+       <div class="box1"></div> 
+    </div>
+    
+    <div class="box2"></div>
+</body>
+</html>

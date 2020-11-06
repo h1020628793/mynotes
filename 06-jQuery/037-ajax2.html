@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见接口封装</title>
+</head>
+
+<body>
+    <button>GET请求</button>
+    <button>POST请求</button>
+    <button>JSON数据</button>
+    <button>jsonp请求</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //GET请求
+    $('button').eq(0).on('click', function () {
+        $.get('/getData',{name:'Amy',age:18},function(data,textStatus,jqXHR){
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        },'json')
+      
+    })
+    //POST请求
+    $('button').eq(1).on('click', function () {
+        $.post('/addData',JSON.stringify({ name: 'Amy', age: 18 }), function(data, textStatus, jqXHR){
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        }, 'json')
+    })
+    //JSON数据
+    $('button').eq(2).on('click', function () {
+        //服务器端需要有一个data.json的json文件
+        $.getJSON('/data.json',function(data, textStatus, jqXHR){
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        })
+    })
+    //jsonp请求
+    $('button').eq(3).on('click', function () {
+        $.getJSON('http://127.0.0.1:3001?callback=?', function (data, textStatus, jqXHR) {
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        })
+    })   
+</script>
+
+</html>

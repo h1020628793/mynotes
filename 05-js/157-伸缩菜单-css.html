@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伸缩菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            position: absolute;
+            top:0;
+            left:-200px;
+            width: 200px;
+            height: 300px;
+            background-color: #111;
+            transition: left .5s;
+        }
+        #main:hover{
+            left:0;
+        }
+        #sub{
+            position: absolute;
+            top: 0;
+            left:200px;
+            width: 100px;
+            height: 300px;
+            background-color: #f21;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="sub"></div>
+    </div>
+</body>
+</html>

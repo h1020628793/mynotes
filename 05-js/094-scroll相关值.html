@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>094-scroll相关值.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    // document.documentElement.scrollLeft = 1000
+    // document.documentElement.scrollTop = 1000
+
+    console.log('scrollLeft:',document.documentElement.scrollLeft)
+    console.log('scrollTop:',document.documentElement.scrollTop) 
+
+    console.log('scrollLeft:',document.body.scrollLeft)
+    console.log('scrollTop:',document.body.scrollTop) 
+
+    console.log('window.pageXOffset:',window.pageXOffset)
+    console.log('window.pageYOffset:',window.pageYOffset)
+
+    console.log('scrollWidth:',document.documentElement.scrollWidth)
+    console.log('scrollHeight:',document.documentElement.scrollHeight) 
+
+    var l = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;      
+
+    var t = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+    console.log('l',l)
+    console.log('t',t)
+
+
+</script>
+</html>

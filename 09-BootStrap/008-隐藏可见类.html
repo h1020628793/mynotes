@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container div {
+            background-color: red;
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (max-width:767px) {
+            .container {
+                width: 100%;
+            }
+            .hidden-xs{
+                display: none !important;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width: 991px) {
+            .container {
+                width: 750px;
+            }
+            .hidden-sm{
+                display: none !important;
+            }            
+        }
+
+        @media screen and (min-width:992px) and (max-width: 1199px) {
+            .container {
+                width: 970px;
+            }
+            .hidden-md{
+                display: none !important;
+            }               
+        }
+
+        @media screen and (min-width:1200px) {
+            .container {
+                width: 1170px;
+            }
+            .hidden-lg{
+                display: none !important;
+            }                
+        }
+
+        @media screen and (min-width: 992px) {
+
+            .col-md-1,
+            .col-md-2,
+            .col-md-3,
+            .col-md-4,
+            .col-md-5,
+            .col-md-6,
+            .col-md-7,
+            .col-md-8,
+            .col-md-9,
+            .col-md-10,
+            .col-md-11,
+            .col-md-12 {
+                float: left;
+            }
+
+            .col-md-1 {
+                width: 8.33333333%;
+                ;
+            }
+
+            .col-md-2 {
+                width: 16.66666667%;
+            }
+
+            .col-md-3 {
+                width: 25%;
+            }
+
+            .col-md-4 {
+                width: 33.33333333%;
+            }
+
+            .col-md-5 {
+                width: 41.66666667%;
+            }
+
+            .col-md-6 {
+                width: 50%;
+            }
+
+            .col-md-7 {
+                width: 58.33333333%;
+            }
+
+            .col-md-8 {
+                width: 66.66666667%;
+            }
+
+            .col-md-9 {
+                width: 75%;
+            }
+
+            .col-md-10 {
+                width: 83.33333333%;
+            }
+
+            .col-md-11 {
+                width: 91.66666667%;
+            }
+
+            .col-md-12 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="hidden-xs">
+            hidden-xs
+        </div>
+        <div class="hidden-sm">
+            hidden-sm
+        </div>
+        <div class="hidden-md">
+            hidden-md
+        </div>
+        <div class="hidden-lg">
+            hidden-lg
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>089-克隆节点.html</title>
+</head>
+<body>
+    <input type="button" id="btn" value="克隆">
+    <div id="wrap">
+        <div id="box">
+            <p>我是段落</p>
+        </div>     
+    </div>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var wrap = document.getElementById('wrap')
+    var box = document.getElementById('box')
+    btn.onclick = function(){
+        var elem = box.cloneNode(true)
+        wrap.appendChild(elem)
+    }
+</script>
+</html>

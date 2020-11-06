@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>226-获取表单.html</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" name="form1" id="form1">
+        <input type="text">
+    </form>
+    <form action="http://www.baidu.com" name="form2" id="form2">
+        <input type="text">
+    </form>    
+</body>
+<script>
+    //var form1 = document.getElementById('form1')
+    console.log(document.forms)
+    //var form1 = document.forms[1]
+    var form1 = document.forms['form1']
+    console.log(form1)
+</script>
+</html>

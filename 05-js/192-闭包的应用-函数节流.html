@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>192-闭包的应用-函数节流.html</title>
+</head>
+<body style="height: 3000px">
+    
+</body>
+<script>
+    function throttle(fn,interval){
+        var lastTime = Date.now()
+
+        return function(){
+            var currentTime = Date.now()
+            if(currentTime - lastTime > interval){
+                fn()
+                lastTime = Date.now()
+            }
+        }
+    }
+
+    var result = throttle(function(){
+        console.log('滚动事件第'+(i++)+'次被触发')
+    },1000)
+
+
+    var i = 0
+    /*
+    document.addEventListener('scroll',function(){
+        console.log('滚动事件第'+(i++)+'次被触发')
+    },false)
+    */
+    document.addEventListener('scroll',result,false)   
+
+
+</script>
+</html>

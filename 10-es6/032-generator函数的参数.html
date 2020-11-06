@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function * gen(x){
+        console.log(x);
+        const y = yield (x + 10)
+        const z = yield (y + 30)
+        return z + 10
+    }
+
+
+    const g = gen(5)
+    console.log(g.next(100));//{value:15,done:false}
+    console.log(g.next(99));//{value:129,done:false}
+    console.log(g.next(10));//{}
+
+</script>
+</html>

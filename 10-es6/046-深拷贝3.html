@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+<script>
+    let obj1 = {
+        age: 18,
+        friends: ['Tom'],
+        info: {
+            major: 'Computer'
+        },
+        sayHi() {
+            console.log('Hi');
+        },
+        city: undefined,
+        name: Symbol('Amy')
+    }
+
+    // let obj2 = $.extend(true,{},obj1)
+
+    let obj2 = _.cloneDeep(obj1)
+    obj2.age = 88
+    obj2.friends.push('Amy')
+    obj2.info.major = 'art'
+    console.log(obj2);
+    console.log(obj1);      
+</script>
+</html>

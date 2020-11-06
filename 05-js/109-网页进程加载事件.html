@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>109-网页进程加载事件.html</title>
+</head>
+<body>
+    <img src="images/c1.jpg" alt="">
+</body>
+<script>
+    window.addEventListener('load',function(){
+        console.log('load')
+    },false)
+
+    window.addEventListener('DOMContentLoaded',function(){
+        console.log('DOMContentLoaded')
+        var elem = document.querySelector('img')
+        console.log(elem)
+    },false) 
+
+</script>
+</html>

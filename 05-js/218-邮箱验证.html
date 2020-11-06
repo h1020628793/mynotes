@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>218-合法邮箱.html</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">检查邮箱</button>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var txt = document.getElementById('txt')
+    btn.onclick = function(){
+        var val = txt.value
+        //76876201@qq.com
+        //niantaochen@126.com
+        //niantaochen@gmail.com
+        //_niantaochen@gmail.com
+        //h@h.com
+        var reg = /^\w+@[a-zA-Z-0-9]+\.[a-zA-Z]{1,5}$/
+
+        if(reg.test(val)){
+            alert('合法')
+        }else{
+            alert('不合法')
+        }
+    }
+</script>
+</html>

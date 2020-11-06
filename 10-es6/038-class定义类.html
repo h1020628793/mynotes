@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Person()
+    /*
+    function Person(name,age){
+        this.name = name
+        this.age = age
+        //return this
+    }
+    Person.prototype.sayName = function(){
+        console.log('My name is '+this.name);
+    }
+
+    Person.prototype.sayAge = function () {
+        console.log('I am ' + this.age + ' years old');
+    }
+    let p = new Person('Tom',18)
+    
+    Person.sayHi = function(){
+        console.log('hello...');
+    }
+    
+    p.sayName()
+    p.sayAge()
+    
+    Person.sayHi()
+    */
+
+    class Person{
+        constructor(name,age){
+            this.name = name
+            this.age = age
+            //return this
+        }
+        sayName(){
+            console.log('My name is ' + this.name); 
+        }
+        sayAge(){
+            console.log('I am ' + this.age + ' years old');
+        }
+
+        static sayHi(){
+            console.log('hello...');
+        }
+    }
+
+    let p = new Person('Tom', 18)
+   
+    p.sayName()
+    p.sayAge()
+
+    Person.sayHi()
+
+
+</script>
+</html>

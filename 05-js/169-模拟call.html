@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>169-模拟call.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {
+        username:'Tom'
+    }
+    function sayHi(age,city){
+        console.log(this)
+        console.log("I am "+this.username+", I am " + age + " years old and I am from "+ city)
+    }
+
+    Function.prototype.myCall = function(context){
+        //console.log(context)
+        //console.log(this)
+        var context = context || window
+        context.fn = this
+
+        // console.log(arguments)
+        // var args = arguments.slice(1)
+        // console.log(args)
+        var args = [...arguments].slice(1)//[18, "BeiJing"]
+        console.log(args)
+
+        var result = context.fn(...args)//context.fn(18, "BeiJing")
+
+        // delete context.fn
+
+        return result
+    }
+
+    //sayHi.call(obj)
+    //sayHi.myCall(obj)
+    //sayHi.myCall(obj,18,'Beijing')
+    
+    var result = sayHi.myCall(obj,18,'BeiJing')//改变this其实就是让传递的第一个参数取调用函数
+    console.log(result)
+    console.log(obj)
+
+</script>
+</html>

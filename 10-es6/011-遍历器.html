@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//普通for循环遍历数组
+let arr = [11,22,33]
+for(let i = 0,len = arr.length;i<len;i++){
+    console.log(arr[i]);//11 22 33
+}
+
+//普通for循环逻辑 
+let total = 0
+for(let j = 0;j<10;j++){
+    total += j
+}
+console.log(total);//45
+
+//for in 循环遍历对象
+let obj = {
+    name:'Tom',
+    age:18
+}
+for(let key in obj){
+    console.log(obj[key]);//Tom 18
+}
+
+//for of 循环遍历器(Iterator)接口的实现类对象,比如数组
+let arr = [11, 22, 33]
+for(let val of arr){
+    console.log(val);//11 22 33
+}
+
+
+</script>
+</html>

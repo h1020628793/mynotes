@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>224-字符串对象方法-分隔.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    var str = 'a1b2c3d4e'//a b c d e
+    console.log(str.split(/\d{1}/))
+    console.log(str.split(''))
+    */
+    //判断是否回文字符串
+    /*
+    var str2 = 'acbcab' //bacbca
+    function fn(str){
+        return str == str.split('').reverse().join('')
+    }
+    console.log(str2 == str2.split('').reverse().join(''))
+ 
+   
+    var str = 'adfd  dfd   ddfdf  d df    d'
+    console.log(str.split(/\s+/))
+    */
+    /*
+    var str = 'I have 100RMB'
+    console.log(str.replace(/RMB/,'USD'))//I have 100USD
+    console.log(str)//I have 100RMB
+    */
+    /*
+    var str = 'a1b2c3d4'//a10b20c30d40
+    var str1 = str.replace(/\d/g,function(match,index,origin){
+        return match * 10
+    })
+    console.log(str1)
+    */
+    /*
+    var str = 'good baby,have a good day';
+
+    console.log(str.search(/gaod/))
+    console.log(str.search(/good/g))
+    console.log(str.search(/good/g))
+    */
+    
+
+
+    //var str = 'today is 2020-08-18,tmr is 2020-08-19,haha'
+    /*
+    console.log(str.match(/\d{4}-\d{2}-\d{2}/g))
+    */
+    //console.log(str.match(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/))
+    //
+    //var str = 'today is 2020-08-18,tmr is 2020-08-19,haha'
+
+    // console.log(str.charAt(1000)) 
+    //console.log(str.charCodeAt(0).toString(16))
+    //unicode 编码 从0到大概10几万  好的编码是22909
+    //console.log('好'.charCodeAt(0))
+    //
+    // console.log(str.indexOf('#'))
+    /*
+    var str = 'abc=123&name=&abc*()xxx'
+    console.log(str)
+    console.log(encodeURIComponent(str))
+    var str1 = encodeURIComponent(str)
+    console.log(decodeURIComponent(str1))
+    
+    var str1 = 'abc'
+    var str2 = 'efg'
+    console.log(str1.concat(str2))
+    */
+    
+    var str = '    Today is 2020-08-18,Tmr is 2020-08-19,haha    '
+    /*
+    console.log(str.slice(0,5))
+    console.log(str.slice(0))
+    console.log(str.slice(0,-1))
+    */
+    /*
+    console.log(str.substr(0,5))
+    console.log(str.substr(-5,5))
+    */
+   console.log(str.toLowerCase())
+   console.log(str.toUpperCase())
+   console.log(str)
+   console.log(str.trim())
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

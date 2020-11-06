@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>058-作用域链.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 1
+    var b = 2
+    function fn1(){
+        var a = 3
+        console.log('fn1 a = ',a)
+        console.log('fn1 b = ',b)
+        function fn11(){
+            console.log('fn11 a = ',a)
+            console.log('fn11 b = ',b)
+            console.log('fn11 c = ',c)
+            function fn111(){
+                var b = 4
+                var c = 5
+                console.log('fn111 a = ',a)
+                console.log('fn111 b = ',b)
+                console.log('fn111 c = ',c)
+            }
+            fn111()
+        }
+        fn11()
+    }
+    fn1()
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我</button>    
+    <button id="btn2">点我</button>
+    <div></div>    
+    <div style="background-color: sienna;"></div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    //var btn = document.getElementById('btn1')
+    /*
+    btn.onclick = function(){
+        console.log(1)
+    }
+    btn.onclick = function () {
+        console.log(2)
+    }
+    */
+    /*
+    btn.addEventListener('click',function(){
+        console.log(1)
+    },false) 
+    btn.addEventListener('click', function () {
+        console.log(2)
+    }, false)
+    */
+    /*
+    $('button').click(function(){
+        console.log(1)
+    })
+    $('button').click(function () {
+        console.log(2)
+    })
+    */
+    /* 
+    $('button').on('click',function(){
+        console.log(1);
+    })
+    $('button').on('click', function () {
+        console.log(2);
+    })
+    */
+    /*
+    $('button').one('click', function () {
+        console.log(1);
+    })
+    */
+    /*
+    $('div').hover(function(){
+        console.log('in')
+    },function(){
+        console.log('out')
+    })
+    */
+    $('button').on('click', function () {
+        console.log(1);
+    })
+    function fn(){
+        console.log(2);
+    }
+    $('button').on('click', fn)    
+    $('button').on('mouseenter', function () {
+        console.log(3);
+    })
+    // $('button').off()
+    // $('button').off('click')                              
+    $('button').off('click',fn)                              
+</script>
+</html>

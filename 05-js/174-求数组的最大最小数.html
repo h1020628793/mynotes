@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>174-求数组的最大最小数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    function max(){
+        var maxIndex = 0
+        for(var i = 0,len = arguments.length;i < len;i++){
+            if(arguments[i] > arguments[maxIndex]){
+                maxIndex = i
+            }
+        }
+        return arguments[maxIndex]
+    }
+
+    console.log(max(11,22,88,44))
+
+    //max([11,22,88,44])
+
+    console.log(max.apply(null,[11,22,88,44]))
+    */
+    console.log(Math.max.apply(null,[11,22,88,44]))
+
+    console.log(Math.min.apply(null,[11,22,88,44]))
+
+</script>
+</html>

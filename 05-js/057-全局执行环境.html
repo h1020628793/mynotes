@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>057-全局执行环境.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(window)
+    console.log(this)
+    console.log(username)
+    console.log(age)
+    console.log(getPerson)
+
+    var username = 'Tom'
+    var age = 18
+    function getPerson(){
+        console.log('fn::',arguments)
+        console.log('fn::',this)
+        console.log('fn::',city)
+        console.log('fn::',sayHi)
+        
+        var city = 'BJ'
+        function sayHi(){
+            console.log('hello')
+        }
+        return {
+            username:username,
+            age:age,
+            city:city
+        }
+    }
+    getPerson()
+</script>
+</html>

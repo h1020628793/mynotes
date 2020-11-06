@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>056-var声明变量对作用域的影响.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 1
+    function fn(){
+        // 'use strict'
+        //var a;
+        console.log('a = ',a)
+        //console.log('b = ',b)
+        //var a = 2
+        a = 2
+        b = 3
+        var c = 4
+    }
+    fn()
+    console.log('after fn a = ',a)
+    // console.log('after fn c = ',c)
+    console.log('after fn b = ',b)
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+let map = new Map()
+map.set('name','Tom')
+map.set('age',18)
+let obj = {key:'hello'}
+map.set(obj,'hello Tom')
+
+map.forEach(function (value, key) {
+    console.log('key=' + key + ';value=' + value);
+})
+/*
+key=name;value=Tom
+key=age;value=18
+key=[object Object];value=hello Tom
+*/
+
+
+
+
+
+</script>
+</html>

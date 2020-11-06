@@ -1,0 +1,60 @@
+<!--
+ * @Author: Tom
+ * @Date: 2020-09-08 15:33:05
+ * @LastEditTime: 2020-09-08 16:08:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: none;
+        }
+        #box{
+            visibility: hidden;
+            /* opacity: 0; */
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div class="box">2</div>
+    <div id="box">3</div>
+    <div></div>
+    <div><p>p</p></div>
+    <div class="father">
+        <div class="son1">son1</div>
+        <div class="son1">son1</div>
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <div class="son2">son2</div>
+        <div class="son2">son3</div>
+    </div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    /*
+    console.log($('div'))
+    console.log($('.box'))
+    console.log($('#box'))
+    
+    console.log($('div:eq(-1)'))
+    console.log($('div').get(0))
+   
+    console.log($('div:empty'))
+    console.log($('div:parent'))
+    console.log($('div:contains(2)'))
+    console.log($('div:has(p)'))
+    console.log($('div').eq(1))
+    console.log($('div').eq(1).siblings())
+
+    console.log($('div:hidden'))
+    console.log($('div:visible'))
+    */
+    // console.log($('.father .son1'))
+    console.log($('.father').find('.son1'))
+</script>
+</html>

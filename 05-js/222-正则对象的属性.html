@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>222-正则对象的属性.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var reg = /[a-z]/
+
+    var str = 'a1b1'
+    console.log(reg.lastIndex)//0
+    console.log(reg.test(str))//true
+    console.log(reg.lastIndex)
+    console.log(reg.test(str))//true
+    console.log(reg.lastIndex)
+    console.log(reg.test(str))//false
+    console.log(reg.lastIndex)
+</script>
+</html>

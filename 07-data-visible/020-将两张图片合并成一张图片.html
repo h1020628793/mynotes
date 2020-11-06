@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合并图片</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 500
+    canvas.height = 600
+
+    var ctx = canvas.getContext('2d')
+
+    var img1 = new Image()
+
+    img1.onload = function(){
+        ctx.drawImage(img1,0,0,500,600)
+        var img2 = new Image()
+        img2.onload = function(){
+            ctx.drawImage(img2, 400, 500, 100, 100)
+        }
+        img2.src = './img/qr.jpg'
+    }
+
+    img1.src = './img/g.jpg'
+
+</script>
+
+</html>

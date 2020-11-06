@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //const p1 = Promise.resolve()
+    // const p0 = new Promise((resolve, reject) => {
+
+    // })
+
+    // const thenObj = {
+    //     then22:function(){
+    //         console.log('thenObj then...');
+    //     }
+    // }
+    // const p1 = Promise.resolve(thenObj)
+    // console.log(p1);
+
+    // const p1 = Promise.reject('error...')
+    // console.log(p1);
+
+
+    const getImagePromise = src => new Promise((resolve,reject)=>{
+        let img = new Image()
+        img.onload = function(){
+            resolve(src+' loaded success...')
+        }
+        img.onerror = function () {
+            reject(src + ' loaded error...')
+        }        
+        img.src = src
+    })
+    //需要等到4张图片全部加载完毕才进行下一步
+    const promises = ['./images/1.jpg', './images/2x.jpg', './images/3.jpg', './images/4.jpg'].map(src=>getImagePromise(src))
+
+    const p = Promise.all(promises)
+    p.then(data=>{
+        console.log(data);
+    })
+    .catch(data=>{
+        console.log(data);
+    })
+
+
+
+</script>
+</html>

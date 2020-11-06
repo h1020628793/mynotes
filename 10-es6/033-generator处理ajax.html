@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    const getAjaxPromise = url => new Promise((resolve, reject) => {
+        $.ajax({
+            url: url,
+            success: (data) => {
+                resolve(data)
+            },
+            error: (jqXHR, textStatus) => {
+                reject(textStatus)
+            }
+        })
+    })
+
+    function * gen(url){
+       const data1 = yield getAjaxPromise(url)
+       const data2 = yield getAjaxPromise(data1)
+       const data3 = yield getAjaxPromise(data2)
+       console.log('use data3',data3);
+    }
+
+    const g = gen('https://api.github.com/users/kuazhu')
+    
+    g.next().value
+    .then(data=>{
+        return g.next(data.followers_url).value
+    })
+    .then(data=>{
+        return g.next(data[0].followers_url).value
+    })
+    .then(data=>{
+        g.next(data)
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>128-2d-复合样式.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            margin:50px auto;
+            background-color: blue;
+            /*
+            transform: rotate(45deg);
+            transform: translateX(100px);
+            transform: scale(1.2);
+            */
+            transform: rotate(45deg) translateX(100px) scale(1.2);        
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

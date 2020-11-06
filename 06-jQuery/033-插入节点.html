@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入节点</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            padding:20px;
+            border:1px solid #f21;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>append插入节点</button>
+    <button>appendTo插入节点</button>
+    <button>prepend插入节点</button>
+    <button>prependTo插入节点</button>
+    <button>after插入节点</button>
+    <button>before插入节点</button>
+    <div class="father">
+        <div>原有的子节点</div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click',function(){
+        //将子节点插入到父节点内部后面
+        var $elem = $('<div>我是append插入的节点</div>')
+        $('.father').append($elem)
+    })
+    $('button').eq(1).on('click', function () {
+        //将子节点插入到父节点内部后面
+        var $elem = $('<div>我是appendTo插入的节点</div>')
+        $elem.appendTo($('.father'))
+    })
+    $('button').eq(2).on('click', function () {
+        //子节点插入到父节点内部前面
+        var $elem = $('<div>我是prepend插入的节点</div>')
+        $('.father').prepend($elem)
+    })
+    $('button').eq(3).on('click', function () {
+        //将子节点插入到父节点内部前面
+        var $elem = $('<div>我是prependTo插入的节点</div>')
+        $elem.prependTo($('.father'))
+    })
+    $('button').eq(4).on('click', function () {
+        //jQuery对象1中的节点后面插入jQuery对象2中的节点
+        var $elem = $('<div>我是after插入的节点</div>')
+        $('.father').after($elem)
+    })
+    $('button').eq(5).on('click', function () {
+        //jQuery对象1中的节点前面插入jQuery对象2中的节点
+        var $elem = $('<div>我是before插入的节点</div>')
+        $('.father').before($elem)
+    })                      
+</script>    
+</html>

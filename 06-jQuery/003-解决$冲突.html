@@ -1,0 +1,25 @@
+<!--
+ * @Author: Tom
+ * @Date: 2020-09-05 17:13:19
+ * @LastEditTime: 2020-09-09 15:02:33
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    window.$ = function () {console.log('custom $')}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    var jq = jQuery.noConflict()
+    console.log($)
+    console.log(jq)
+</script>
+</html>

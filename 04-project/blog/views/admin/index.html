@@ -1,0 +1,33 @@
+{% extends './layout.html' %}
+{% block title %}
+    欢迎使用个人博客后台管理系统
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">用户数</div>
+            <div class="panel-body">
+                {{userCount}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">分类数</div>
+            <div class="panel-body">
+                11
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">文章数</div>
+            <div class="panel-body">
+                11
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

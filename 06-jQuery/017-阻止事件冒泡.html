@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .gf{
+            width: 400px;
+            height: 400px;
+            background-color: silver;
+        }
+        .f{
+            width: 200px;
+            height: 200px;
+            background-color: slateblue;
+        }
+        .s{
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div class="gf">
+        <div class="f">
+            <div class="s"></div>
+        </div>
+    </div>
+</body>
+<script src="./jQuery/jquery.1.12.4.js"></script>
+<script>
+    $('.s').on('click',function(ev){
+        console.log('s click...')
+        // ev.stopPropagation()
+        // return false
+    })
+    $('.f').on('click', function () {
+        console.log('f click...')
+        return false
+    })
+    $('.gf').on('click', function () {
+        console.log('gf click...')
+    })    
+</script>
+</html>

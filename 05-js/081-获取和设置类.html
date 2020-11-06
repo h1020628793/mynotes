@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>081-获取和设置类.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .box1{
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box">box</div>
+</body>
+<script>
+    var elem = document.getElementById('box')
+    // console.log(elem.className)
+    // console.log(elem['className'])
+    // elem.className = elem.className + ' box1'
+    var c = 'className'
+    elem[c] = elem[c] + ' box1'
+    
+</script>
+</html>

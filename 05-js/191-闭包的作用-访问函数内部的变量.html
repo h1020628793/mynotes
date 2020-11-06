@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>191-闭包的作用-访问函数内部的变量.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function fn(){
+        var n = 1;
+        add = function(){
+            n++
+        }
+        return function(){//这个匿名函数就是一个闭包
+            return n
+        }
+    }
+    var result = fn()
+    console.log(result())
+    add() 
+    console.log(result())   
+</script>
+</html>

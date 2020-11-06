@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>211-原子筛选-任意原子.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'abc 123, defg 234'
+    console.log(str)
+    console.log(str.replace(/abcdefg/g,'*'))
+    console.log(str.replace(/[abcdefg]/g,'*'))
+    console.log(str.replace(/[a-z]/g,'*'))
+    console.log(str.replace(/[0-9]/g,'*'))
+
+    //你可以输入16个英文字符或者8个汉字
+    var str1 = '你好nihao123'
+
+    //在计算机中 所有的字符都有编码
+    console.log(str1.replace(/[\u4e00-\u9fa5]/g,'**').length)
+
+    console.log(str1.replace(/[^\u4e00-\u9fa5]/g,'*'))
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>淡入</button>
+    <button>淡出</button>
+    <button>切换</button>
+    <button>淡入到</button>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click', function () {
+        // $('div').fadeIn()
+        // $('div').fadeIn(1000)
+        $('div').fadeIn(1000,function(){
+            console.log('fadeIn done');
+        })
+    })
+    $('button').eq(1).on('click', function () {
+        // $('div').fadeOut()
+        // $('div').fadeOut(1000)
+        $('div').fadeOut(1000,function(){
+            console.log('fadeOut done');
+        })
+    })
+    $('button').eq(2).on('click', function () {
+        // $('div').fadeToggle()
+        // $('div').fadeToggle(1000)
+        $('div').fadeToggle(1000,function(){
+            console.log('fadeToggle done');
+        })
+    })
+    $('button').eq(3).on('click', function () {
+        // $('div').fadeTo(1000,0.5)
+        $('div').fadeTo(1000,0.5,function(){
+            console.log('fadeTo done');
+        })
+    })              
+</script>
+
+</html>

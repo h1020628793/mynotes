@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click',function(){
+        // $('div').show()
+        // $('div').show(1000)
+        /*
+        $('div').show(function(){
+            console.log('show done');
+        })
+        */
+        $('div').show(1000,function () {
+            console.log('show done');
+        })
+    })
+    $('button').eq(1).on('click', function () {
+        // $('div').hide()
+        // $('div').hide(1000)
+        /*
+        $('div').hide(function(){
+            console.log('hide done');
+        })
+        */
+        $('div').hide(1000,function () {
+            console.log('hide done');
+        })       
+    }) 
+    $('button').eq(2).on('click', function () {
+        // $('div').toggle()
+        // $('div').toggle(1000)
+        /*
+        $('div').toggle(function(){
+            console.log('toggle done');
+        })
+        */
+        $('div').toggle(1000,function () {
+            console.log('toggle done');
+        })       
+    })        
+</script>
+</html>

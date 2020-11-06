@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>163-利用对象属性唯一的特征去除数组重复值.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function uniArray(arr){
+        var result = []
+        var obj = {}
+
+        for(var i = 0,len = arr.length;i < len;i++){
+            obj[arr[i]] = i
+        }
+
+        for(var attr in obj){
+            result.push(attr)
+        }
+
+        return result
+    }
+    var arr = [1,2,1,88,34,44,55,88,34]
+    var result = uniArray(arr)
+    console.log(result)
+
+
+
+</script>
+</html>

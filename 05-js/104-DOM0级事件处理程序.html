@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>104-DOM0级事件处理程序.html</title>
+</head>
+<body>
+    <p  id="box">
+        我是文字
+    </p>
+    <input type="button" value="移除事件" id="btn">
+</body>
+<script>
+    /*
+    function handleClick(){
+        this.style.color = 'red'
+    }
+    */
+
+    var elem = document.getElementById('box')
+    var btn = document.getElementById('btn')
+
+    function toRed(){
+        this.style.color = 'red'
+    }
+    function toBig(){
+        this.style.fontSize = '40px'
+    }
+
+    elem.onclick = toRed
+    // elem.onclick = toBig
+
+    /*
+    elem.onclick = function(){
+        this.style.color = 'red'
+    }
+    */
+    btn.onclick = function(){
+        elem.onclick = null
+    }
+</script>
+</html>

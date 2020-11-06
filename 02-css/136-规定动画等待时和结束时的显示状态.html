@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>136-规定动画等待时和结束时的显示状态.html</title>
+    <style>
+        .wrap{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 50px auto;
+
+            animation-name: sport;
+            animation-duration: 2s;
+            animation-delay: 2s;
+
+            /*animation-fill-mode: none;*/
+            /*animation-fill-mode: backwards;*/
+            /*animation-fill-mode: forwards;*/
+            animation-fill-mode: both;
+        }
+        @keyframes sport{
+            0%{
+                transform: rotate(30deg);
+            }
+            50%{
+                transform: rotate(60deg);
+            }
+            80%{
+                transform: rotate(75deg);
+            }
+            100%{
+                transform: rotate(80deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

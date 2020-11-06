@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度注册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 600px;
+            margin: 50px auto;
+        }
+        .err-input{
+            border-color: red;
+        }
+        .msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div>
+            <div>
+            <span>用户名</span><input type="text" id="username" >
+            </div>
+            <div class="msg" style="display: none;">
+                此用户名太受欢迎,请更换一个
+            </div>
+        </div>
+        <div>
+            <span>手机号</span><input type="text" id="phone">
+        </div>        
+    </div>
+</body>
+<!--ajax封装函数-->
+<script src="js/ajax.js"></script>
+<script>
+    var usernameElem = document.getElementById('username')
+    var msgElem = document.querySelector('.msg')
+    usernameElem.onblur = function(){
+        var val = this.value
+        if(val){
+            ajax({
+                url:'http://127.0.0.1:3000/checkUsername',
+                data:{
+                    username:val
+                },
+                success:function(data){
+                    var exist = data.data.exist
+                    if(exist == 1){
+                        //DOM操作
+                        usernameElem.className = 'err-input'
+                        msgElem.style.display = 'block'
+                    }
+                }
+            })
+        }
+    }
+    usernameElem.onfocus = function(){
+        usernameElem.className = ''
+        msgElem.style.display = 'none'
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>072-浮动元素脱标后的在浮动流中的特点-水平居中.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 400px;
+            height: 400px;
+            background-color: purple;
+            border: 1px solid #000;
+            margin:100px auto;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /*margin: 0 auto;*/
+            float: left;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

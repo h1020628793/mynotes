@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>235-ajax</title>
+</head>
+<body>
+    <button id="btn1">Ajax POST添加数据</button>
+    <button id="btn2">Ajax GET获取数据</button>
+    <button id="btn3">Ajax PUT修改数据</button>
+    <button id="btn4">Ajax DELETE删除数据</button>
+</body>
+<script src="js/ajax.js"></script>
+<script>
+  
+var btn1 = document.getElementById('btn1')
+    
+btn1.onclick = function(){
+    ajax({
+        method:'POST',
+        url:'http://127.0.0.1:3000/addData',
+        data:{
+            name:"Tom",
+            age:18,
+            city:"北京"
+        },
+        success:function(data){
+            console.log(data)
+        },
+        error:function(status,e){
+            console.log(status,e)
+        }
+    })
+    console.log('do something....')
+}
+
+btn2.onclick = function(){
+    ajax({
+        method:'GET',
+        url:'http://127.0.0.1:3000/getData',
+        data:{
+            name:"Tom",
+            age:18,
+            city:"北京"
+        },
+        success:function(data){
+            console.log(data)
+        },
+        error:function(status,e){
+            console.log(status,e)
+        }
+    })
+    console.log('do something....')
+}
+btn3.onclick = function(){
+    ajax({
+        method:'PUT',
+        url:'http://127.0.0.1:3000/editData',
+        data:{
+            name:"Tom",
+            age:18,
+            city:"北京"
+        },
+        success:function(data){
+            console.log(data)
+        },
+        error:function(status,e){
+            console.log(status,e)
+        }
+    })
+    console.log('do something....')
+}
+
+btn4.onclick = function(){
+    ajax({
+        method:'DELETE',
+        url:'http://127.0.0.1:3000/deleteData',
+        data:{
+            name:"Tom",
+            age:18,
+            city:"北京"
+        },
+        success:function(data){
+            console.log(data)
+        },
+        error:function(status,e){
+            console.log(status,e)
+        }
+    })
+    console.log('do something....')
+}     
+</script>
+</html>

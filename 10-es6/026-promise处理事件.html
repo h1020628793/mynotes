@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    let img = new Image()
+    img.onload = function(){
+        console.log('loaded success...');
+    }
+
+    img.onerror = function(){
+        console.log('loaded error...');
+    }
+    img.src = './images/1.jpg'
+    */
+    const getImagePromise = src => new Promise((resolve,reject)=>{
+        let img = new Image()
+        img.onload = function () {
+            resolve(src+' loaded success...')
+        }
+        img.onerror = function () {
+            reject(src + ' loaded error...')
+        }
+        img.src = src
+    })
+
+    getImagePromise('./images/1.jpg')
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(data=>{
+        console.log(data);
+    })
+</script>
+</html>

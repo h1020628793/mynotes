@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>052-递归调用-阶乘函数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //5! = 5 * 4 * 3 * 2 * 1 = 5 * 4! 
+    function fact(n){
+    
+        if(n == 1){
+            return 1
+        }else{
+           // return n * fact(n - 1) 
+           return n * arguments.callee(n - 1) 
+        }
+        
+       
+    }
+
+    var result = fact(5)
+    
+    var a = 1
+    var b = a
+
+    var fn = fact
+    fact = null
+
+    /*
+    function test(){
+        console.log(arguments)
+    }
+    
+    // test()
+    */
+
+
+    console.log(fn(6))
+
+
+
+
+
+
+
+</script>
+</html>

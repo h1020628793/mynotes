@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>051-匿名函数.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    (function(arg1){
+        console.log('fn...',arg1)
+    })(123)
+    */
+    function getFn(){
+        return function(n1,n2){
+            console.log(n1+n2)
+        }
+    }
+
+    var fn = getFn()
+    fn(30,40)
+
+</script>
+</html>

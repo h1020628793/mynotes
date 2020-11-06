@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>134-创建动画.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: width 0.3s;
+        }
+        .box1:hover{
+            width: 500px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: blue;
+            animation-name: sport;
+            animation-duration: 0.3s;
+        }
+        /*
+        @keyframes sport{
+            from {
+                width: 100px;
+            }
+            to{
+                width: 500px;
+            }
+        }
+        */
+       @keyframes sport{
+            0%{
+                width: 100px;
+            }
+            50%{
+                width: 200px;
+            }
+            100%{
+                width: 500px;
+            }
+       }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

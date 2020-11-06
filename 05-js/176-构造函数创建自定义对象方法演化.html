@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>176-构造函数创建自定义对象方法演化.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+//我想开发一个构造函数(类) 类似于我要开发一个Date/Array/Math   
+//现在假设我们开发一个人的类
+
+function Person(name,age){
+    //this -> {}
+    this.name = name
+    this.age = age
+    if(!this.LEGS){
+        Person.prototype.LEGS = 2
+    }
+    if(!this.sayHi){
+        Person.prototype.sayHi = function(){
+            console.log('Hello, I am ' + this.name+ ', I am '+this.age+' years old, and '+'I have '+this.LEGS+' legs')
+        }
+    }
+    //return this
+}
+console.log(Person.prototype)
+/*
+Person.prototype.LEGS = 2
+Person.prototype.sayHi = function(){
+    console.log('Hello, I am ' + this.name+ ', I am '+this.age+' years old, and '+'I have '+this.LEGS+' legs')
+}
+*/
+/*
+Person.prototype = {
+    constructor:Person,
+    LEGS:2,
+    sayHi:function(){
+         console.log('Hello, I am ' + this.name+ ', I am '+this.age+' years old, and '+'I have '+this.LEGS+' legs')
+    }
+}
+*/
+
+//console.log(Person.prototype)//Person.prototype的作用是: 所有的实例都可以方法他上面的属性
+
+var p1 = new Person('Tom',18)
+/*
+{
+    name:'Tom',
+    age:18
+}
+*/
+p1.sayHi()
+
+
+var p2 = new Person()
+
+
+</script>
+</html>

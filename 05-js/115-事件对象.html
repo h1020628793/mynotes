@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>115-事件对象.html</title>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    /*
+    btn.onclick = function(event){
+        console.log(event.type)
+    }
+    */
+    /*
+    btn.addEventListener('click',function(ev){
+        console.log(ev)
+    },false)
+    */
+    btn.onclick = function(ev){
+        var ev = event || ev
+        console.log(ev.type)
+    }   
+
+</script>
+</html>

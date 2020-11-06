@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 400
+    canvas.height = 300
+
+    var ctx = canvas.getContext('2d')
+
+    ctx.beginPath()
+
+    ctx.strokeStyle = '#f00';
+    ctx.strokeRect(100, 100, 200, 100)
+
+</script>
+
+</html>

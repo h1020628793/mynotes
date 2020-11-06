@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqXHR对象</title>
+</head>
+<body>
+    <button>GET请求</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('button').eq(0).on('click', function () {
+        var jqXHR = $.ajax({
+            url:'/getData',
+            data:{
+                name:'Tom',
+                age:18
+            }
+        })
+        //jqXHR.abort()
+        jqXHR.done(function(data,textStatus,jqXHR){
+            console.log('----done----');
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        })
+        .fail(function(jqXHR,textStatus){
+            console.log('----fail----');
+            console.log(jqXHR);
+            console.log(textStatus);            
+        })
+        .always(function(arg1,arg2,arg3){
+            console.log('----always----');
+            console.log(arg1);
+            console.log(arg2);     
+            console.log(arg3);     
+        })
+    })
+</script>
+
+</html>

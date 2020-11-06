@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>241-proxy</title>
+   
+</head>
+<body>
+   <button id="btn">Ajax请求数据</button>
+</body>
+<!--ajax封装函数-->
+<script>
+    function ajax(options){
+    
+    var method = options.method || 'GET'
+    method = method.toUpperCase()
+
+    var url = options.url || ''
+
+    var data = options.data || {}
+
+    var mime;
+
+    if(method == 'GET' || method == 'DELETE'){
+        mime = 'application/x-www-form-urlencoded'
+        var query = ''
+        for(var key in data){
+            query += key + '=' + data[key] + '&'
+        }
+        query = '?' + query.slice(0,-1)
+        
+        url = url + query
+
+        data = ''
+
+    }else if(method == 'POST' || method == 'PUT'){
+        mime = 'application/json'
+        data = JSON.stringify(data)
+    }
+
+
+
+    var xhr = new XMLHttpRequest()
+    
+    //携带cookie
+    xhr.withCredentials = true
+    
+    xhr.open(method,url,true)
+    
+    mime ? xhr.setRequestHeader('Content-Type',mime) : null
+    
+    //设置一个自定义的请求头用来测试
+    xhr.setRequestHeader('Test-Req-Header','Test-Req-Header-Content');
+    xhr.setRequestHeader('proxy','proxy')
+    xhr.send(data)
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            //测试获取响应头
+            console.log(xhr.getResponseHeader('Content-Type'))
+            console.log(xhr.getResponseHeader('Date'))
+            console.log(xhr.getResponseHeader('Test-Res-Header'))
+
+            if(xhr.status == 200){
+                try{
+                    var obj = JSON.parse(xhr.responseText)
+                    typeof options.success == 'function' ? options.success(obj) : null 
+                }catch(e){
+                    typeof options.error == 'function' ? options.error(xhr.status,e) : null 
+                }
+
+            }else{
+                typeof options.error == 'function' ? options.error(xhr.status) : null
+            }
+        }
+    }        
+}
+</script>
+<script>
+   var btn = document.getElementById('btn')
+   btn.onclick = function(){
+        ajax({
+            method:"GET",
+            url:'http://127.0.0.1:3000',
+            success:function(data){
+                console.log('http://127.0.0.1:3001:',data)
+            }
+        })
+   }
+</script>
+</html>

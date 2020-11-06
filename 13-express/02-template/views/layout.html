@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <link rel="stylesheet" href="css/common.css">
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+    <nav>我是导航</nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+    <footer>我是底部</footer>
+</body>
+
+<!--包含模版-->
+{% include "./script.html" %}
+
+{% block script %}{% endblock %}
+
+</html>

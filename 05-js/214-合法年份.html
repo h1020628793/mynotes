@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>214-合法年份.html</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">检查年份</button>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+    var txt = document.getElementById('txt')
+    btn.onclick = function(){
+        var val = txt.value
+        //合法年份(公元1000年至公元2999年)
+        //2020009
+        var reg = /^[12]\d{3}$/
+
+        if(reg.test(val)){
+            alert('合法')
+        }else{
+            alert('不合法')
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin-left: auto;
+            margin-right: auto;
+
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+<script>
+    ;(function(w,d){
+        var container = d.querySelector('.container')
+
+        function setWidth(){
+            var width = d.documentElement.clientWidth || d.body.clientWidth
+            if(width >= 1200 ){
+                container.style.width = '1170px'
+            }
+            else if(width >= 992){
+                container.style.width = '970px'
+            }
+            else if(width >= 768){
+                container.style.width = '750px'
+            }else{
+                container.style.width = '100%'
+            }
+        }
+        w.addEventListener('resize', setWidth, false);
+        w.addEventListener('DOMContentLoaded', setWidth, false);
+    })(window,document)
+</script>
+</html>

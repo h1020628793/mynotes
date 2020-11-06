@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            border: 1px solid #000;
+            width: 500px;
+            height: 600px;
+            position: relative;
+        }
+        img{
+            position: absolute;
+            top:0;
+            left:0;
+            filter:blur(30px);
+        }
+        canvas{
+            position: absolute;
+            top:0;
+            left:0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="./img/g.jpg" alt="">
+        <canvas id="canvas"></canvas>
+    </div>
+    <button id="btn">show</button>
+</body>
+<script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 500
+    canvas.height = 600
+    var ctx = canvas.getContext('2d');
+    
+    var img1 = new Image();
+    img1.onload = function () {
+        ctx.drawImage(img1, 0, 0);
+    }
+    img1.src = './img/g.jpg';
+    ctx.save();
+    ctx.beginPath();
+    var x = Math.random()*400 + 50
+    var y = Math.random()*500 + 50
+    ctx.arc(x, y, 50, 0, Math.PI * 2, true)
+    ctx.clip()
+
+    function show(){
+        ctx.restore();
+        ctx.beginPath();
+        ctx.drawImage(img1, 0, 0);
+        ctx.arc(x, y, 1100, 0, Math.PI * 2, true)
+        ctx.clip()
+    }
+    document.getElementById('btn').onclick = function(){
+        show()
+    }
+</script>
+
+</html>

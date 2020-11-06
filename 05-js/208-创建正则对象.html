@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>208-创建正则对象.html</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = 'a good day,have a big dog '
+    
+    var reg1 = new RegExp('a','g')
+
+    console.log(str.replace(reg1,'*'))
+
+    var reg2 = /a/g
+
+    console.log(str.replace(reg2,'*'))
+
+    function getReg(rule){
+        return new RegExp(rule,'g')
+    }
+
+
+    var r = getReg('a')
+    console.log(r)
+
+</script>
+</html>

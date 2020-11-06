@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>099-打开窗口练习-运行代码.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .wrap{
+            margin-top: 50px;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <textarea id="txt" cols="30" rows="10"></textarea>
+        <input type="button" value="运行代码" id="btn">
+    </div>
+</body>
+<script>
+    var txt = document.getElementById('txt')
+    var btn = document.getElementById('btn')
+    btn.onclick = function(){
+        var val = txt.value
+        var win = window.open()
+        win.document.write(val)
+    }
+</script>
+</html>

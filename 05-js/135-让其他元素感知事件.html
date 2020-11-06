@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义事件练习-让其他元素感知事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div id="box1">box1</div>
+   <div id="box2">box2</div>
+   <div id="box3">box3</div>
+</body>
+<script>
+    var box1 = document.querySelector('#box1')
+    var box2 = document.querySelector('#box2')
+    var box3 = document.querySelector('#box3')
+
+
+    var clickEvent = new Event('myclick')
+
+    box2.addEventListener('myclick',function(ev){
+        //ev.target.style.color = 'red'
+        this.style.color = 'red'
+    },false)
+
+    box3.addEventListener('myclick',function(){
+        this.style.color = 'red'
+    },false)
+
+    box1.addEventListener('click',function(){
+        this.style.color = 'red'
+        box2.dispatchEvent(clickEvent)
+        box3.dispatchEvent(clickEvent)
+    },false)
+
+
+
+
+
+
+
+</script>
+</html>

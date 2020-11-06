@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$.get('https://api.github.com/users/kuazhu',(data)=>{
+    $.get(data.followers_url,(data)=>{
+        $.get(data[0].followers_url,(data)=>{
+            console.log(data);
+        })
+    })
+})
+</script>
+</html>
