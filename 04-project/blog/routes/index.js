@@ -36,12 +36,20 @@ router.get("/", async (req, res) => {
 //显示列表页面
 router.get("/list/:id", async (req, res) => {
     const { id } = req.params
-    const { categories, topArticles } = await getCommonData()
+    const commonDataPromise = getCommonData()
+    const articlesPromise = Article.findPaginationArticles(req, { category:id})
+    const { categories, topArticles } = await commonDataPromise
+    const result = await articlesPromise
+    console.log(result);
     res.render('main/list', {
         userInfo: req.userInfo,
         categories,
         currentCategory:id,
-        topArticles
+        topArticles,
+        articles: result.docs,
+        list: result.list,
+        pages: result.pages,
+        page: result.page,          
     })
 })
 

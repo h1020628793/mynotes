@@ -1,94 +1,67 @@
 {% extends './layout.html' %}
-{% block title %}我的个人博客-首页{% endblock %}
-{% block style %}
-<link rel="stylesheet" href="css/index.css">
-{% endblock %}
+{% block title %}文章列表{% endblock %}
 {% block content %}
-<div class="panel panel-default custom-panel article-panel">
-    <div class="panel-heading">
-        <a href="./detail.html">
-            <h3 class="panel-title">移动设备优先</h3>
-        </a>
+<div id='article-wrap'>
+    {% for article in articles %}
+    <div class="panel panel-default custom-panel article-panel">
+        <div class="panel-heading">
+            <a href="/detail/{{ article._id.toString() }}">
+                <h3 class="panel-title">{{ article.title }}</h3>
+            </a>
+        </div>
+        <div class="panel-body">{{article.intro}}</div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.user.username }}</span>
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.category.name }}</span>
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.createdTime }}</span>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <span class="footer-text text-muted"><span class="view-num">{{ article.click }}</span>已阅读</span>
+        </div>
     </div>
-    <div class="panel-body">
-        在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3
-        中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap
-        是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
-    </div>
-    <div class="panel-footer">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        <span class="footer-text text-muted">Tom</span>
-        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-        <span class="footer-text text-muted">JavaScript</span>
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-        <span class="footer-text text-muted">2018-07-01</span>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <span class="footer-text text-muted"><span class="view-num">1000</span>已阅读</span>
-    </div>
+    {% endfor %}
 </div>
-<div class="panel panel-default custom-panel article-panel">
-    <div class="panel-heading">
-        <a href="./detail.html">
-            <h3 class="panel-title">移动设备优先</h3>
-        </a>
-    </div>
-    <div class="panel-body">
-        在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3
-        中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap
-        是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
-    </div>
-    <div class="panel-footer">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        <span class="footer-text text-muted">Tom</span>
-        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-        <span class="footer-text text-muted">JavaScript</span>
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-        <span class="footer-text text-muted">2018-07-01</span>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <span class="footer-text text-muted"><span class="view-num">1000</span>已阅读</span>
-    </div>
-</div>
-<div class="panel panel-default custom-panel article-panel">
-    <div class="panel-heading">
-        <a href="./detail.html">
-            <h3 class="panel-title">移动设备优先</h3>
-        </a>
-    </div>
-    <div class="panel-body">
-        在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3
-        中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap
-        是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
-    </div>
-    <div class="panel-footer">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        <span class="footer-text text-muted">Tom</span>
-        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-        <span class="footer-text text-muted">JavaScript</span>
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-        <span class="footer-text text-muted">2018-07-01</span>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <span class="footer-text text-muted"><span class="view-num">1000</span>已阅读</span>
-    </div>
-</div>
-<nav aria-label="Page navigation">
-    <ul class="pagination" id="pagination">
-        <li>
-            <a href="#" aria-label="Previous">
+{% if pages>1 %}
+<nav aria-label="Page navigation" id="article-page">
+    <ul class="pagination">
+        {% if page==1 %}
+        <li class="disabled">
+            <a href="javascript:;" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
+        {% else %}
         <li>
-            <a href="#" aria-label="Next">
+            <a href="javascript:;" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% endif %}
+        {% for i in list %}
+        {% if i == page %}
+        <li class="active"><a href="javascript:;">{{i}}</a></li>
+        {% else %}
+        <li><a href="javascript:;">{{i}}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if page==pages %}
+        <li class="disabled">
+            <a href="javascript:;" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
+        {% else %}
+        <li>
+            <a href="javascript:;" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        {% endif %}
     </ul>
 </nav>
+{% endif %}
 {% endblock %}
 {% block script %}
 <script src="/js/index.js"></script>

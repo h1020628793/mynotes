@@ -13,7 +13,7 @@
 module.exports = async(options)=>{
     
     let { page, limit: limit = 2, query: query = {}, projection: projection = "", sort: sort = { _id: -1 }, model, populates } = options
-    
+    console.log(query);
     page = parseInt(page)
 
     if (isNaN(page)) {
@@ -23,7 +23,7 @@ module.exports = async(options)=>{
         page = 1
     }
     //计算总页数
-    const total = await model.estimatedDocumentCount(query)
+    const total = await model.countDocuments(query)
     const pages = Math.ceil(total / limit)
     //没有数据的处理
     if (pages == 0){
