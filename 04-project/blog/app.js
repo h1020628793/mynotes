@@ -11,6 +11,9 @@ const MongoStore = require("connect-mongo")(session)
 
 const app = express()
 
+//避免使用findOneAndUpdate方法出现警告
+mongoose.set('useFindAndModify', false)
+
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection

@@ -15,3 +15,6 @@
 .detail-panel .panel-body{
     background-color: transparent;
 }
+.detail-panel .panel-body{
+    overflow: hidden;
+}

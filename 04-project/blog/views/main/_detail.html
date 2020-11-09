@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客-详情页面</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="custom-navbar">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">我的个人博客</a>
+            </div>
+            <!-- Collect the nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="./index.html">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li>
+                        <a href="./list.html">HTML/CSS</a>
+                    </li>
+                    <li>
+                        <a href="./list.html">JavaScript</a>
+                    </li>
+                    <li>
+                        <a href="./list.html">学无止境</a>
+                    </li>
+                    <li>
+                        <a href="./list.html">我的足迹</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default custom-panel detail-panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">深入了解 Bootstrap 底层结构的关键部分</h3>
+                            <p class="sub-title text-muted">
+                                <span>HTML/CSS</span>
+                                <span>2018-06-18</span>
+                                <span class="view-num">1461</span>
+                                <span>人已阅读</span>
+                            </p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="well">
+                                <strong>简介:</strong>
+                                深入了解 Bootstrap 底层结构的关键部分，包括我们让 web 开发变得更好、更快、更强壮的最佳实践。HTML5 文档类型 Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5
+                                文档类型。在你项目中的每个页面都要参照下面的格式进行设置
+                            </div>
+                            <p>移动设备优先 在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3
+                            中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap
+                            是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="user-panel" id="user-info-wrap">
+                        <p>欢迎<span>Tom</span></p>
+                        <div>
+                            <a href="#">进入个人中心</a>
+                        </div>
+                        <div>
+                            <a href="javascript:;" id="logout">退出</a>
+                        </div>
+                    </div>
+                    <div class="user-panel" id="register-wrap">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputUsername" class="col-sm-4 control-label">用户名</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputUsername" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-4 control-label">密码</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputRepPassword" class="col-sm-4 control-label">重复密码</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" id="inputRepPassword"
+                                        placeholder="请再次输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-6">
+                                    <button type="submit" class="btn btn-primary" id="sub-register">提交</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-6 switch-link">
+                                    <a href="javascript:;" id="goto-login">已有账号,去登录</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10 text-danger">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="user-panel" id="login-wrap">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputUsername" class="col-sm-4 control-label">用户名</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputUsername" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-4 control-label">密码</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-6">
+                                    <button type="submit" class="btn btn-primary" id="sub-login">提交</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-6 switch-link">
+                                    <a href="javascript:;" id="goto-register">免费注册</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10 text-danger">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="ad hidden-xs hidden-md">
+                        <a href="#" class="thumbnail">
+                            <img src="images/ad/ad1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="ad hidden-xs hidden-md">
+                        <a href="#" class="thumbnail">
+                            <img src="images/ad/ad2.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="panel panel-default custom-panel intro-panel hidden-xs hidden-md">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">博主介绍</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="media">
+                                <div class="media-left media-middle">
+                                    <a href="#">
+                                        <img class="media-object img-circle" src="images/me.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tom</h4>
+                                    80后草根！07年入行。一直潜心研究web技术，一边工作一边积累经验，分享一些个人心得。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel host-list-panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">点击排行</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item text-ellipsis">Dapibus ac facilisis in apibus ac
+                                    facilisis inapibus ac facilisis inapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item text-ellipsis">Morbi leo risus</a>
+                                <a href="#" class="list-group-item text-ellipsis">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item text-ellipsis">Vestibulum at eros</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default custom-panel qr-panel hidden-xs hidden-md">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">关注我</h3>
+                        </div>
+                        <div class="panel-body">
+                            <img src="./images/wechat.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Blog Design by <a href="http://wwww.chenniantao.com">chenniantao.com</a> <a href="#">豫ICP备11002373号-1.</a>
+    </footer>
+</body>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+</html>
