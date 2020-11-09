@@ -103,4 +103,80 @@
             }
         })
     })    
+    //分页处理
+
+    //构建文件列表的html
+    function buildArticleHtml(docs){
+        var html = ''
+        for(var i = 0,len = docs.length;i<len;i++){
+            html += `<div class="panel panel-default custom-panel article-panel">
+                        <div class="panel-heading">
+                            <a href="/detail/${docs[i]._id}">
+                                <h3 class="panel-title">${docs[i].title}</h3>
+                            </a>
+                        </div>
+                        <div class="panel-body">${docs[i].intro}</div>
+                        <div class="panel-footer">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <span class="footer-text text-muted">${docs[i].user.username}</span>
+                            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                            <span class="footer-text text-muted">${docs[i].category.name}</span>
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                            <span class="footer-text text-muted">${docs[i].createdTime}</span>
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            <span class="footer-text text-muted"><span class="view-num">${docs[i].click}</span>已阅读</span>
+                        </div>
+                    </div>`
+        }
+        return html
+    }
+
+    function buildPaginationHtml(list,page,pages){
+        var html = ''
+        if(page == 1){
+            html += `<li class="disabled">`
+        }else{
+            html += `<li>`
+        }
+        html += `   <a href="javascript:;" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>`
+        for(var i = 0,len = list.length;i<len;i++){
+            if (list[i] == page){
+                html += `<li class="active">`
+            }else{
+                html += `<li>`
+            }
+            html += `<a href="javascript:;">${list[i]}</a></li>`
+        }
+        if(page == pages){
+            html += `<li class="disabled">`
+        }else{
+            html += `<li>`
+        }
+        html += `   <a href="javascript:;" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>`  
+        return html;
+    }
+
+    var $articlePage = $('#article-page')
+    $articlePage.on('get-data',function(ev,data){
+        //构建文章列表html并且渲染
+        var aritlceHtml = buildArticleHtml(data.docs)
+        $('#article-wrap').html(aritlceHtml)
+        //构建分页器html并且渲染
+        if(data.pages <= 1){
+            $articlePage.html('')
+        }else{
+            var paginationHtml = buildPaginationHtml(data.list,data.page,data.pages)
+            $articlePage.find('.pagination').html(paginationHtml)
+        }
+
+    })
+    $articlePage.pagination({
+        url:"/articlesList"
+    })
 })(jQuery)

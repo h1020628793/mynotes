@@ -45,4 +45,14 @@ router.get("/list/:id", async (req, res) => {
     })
 })
 
+//获取前台文章分页数据
+router.get("/articlesList", async (req, res) => {
+    //获取分类
+    const result = await Article.findPaginationArticles(req)
+    res.json({
+        code:0,
+        message:'获取分页数据成功',
+        data: result
+    })
+})
 module.exports = router

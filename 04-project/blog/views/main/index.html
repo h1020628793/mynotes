@@ -30,6 +30,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<div id='article-wrap'>
 {% for article in articles %}
 <div class="panel panel-default custom-panel article-panel">
     <div class="panel-heading">
@@ -50,8 +51,9 @@
     </div>
 </div>
 {% endfor %}
+</div>
 {% if pages>1 %}
-<nav aria-label="Page navigation">
+<nav aria-label="Page navigation" id="article-page">
     <ul class="pagination">
         {% if page==1 %}
         <li class="disabled">
@@ -61,16 +63,16 @@
         </li>
         {% else %}
         <li>
-            <a href="{{url}}?page={{ page - 1 }}" aria-label="Previous">
+            <a href="javascript:;" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         {% endif %}
         {% for i in list %}
         {% if i == page %}
-        <li><a href="javascript:;">{{i}}</a></li>
+        <li class="active"><a href="javascript:;">{{i}}</a></li>
         {% else %}
-        <li><a href="{{url}}?page={{ i }}">{{i}}</a></li>
+        <li><a href="javascript:;">{{i}}</a></li>
         {% endif %}
         {% endfor %}
         {% if page==pages %}
@@ -81,7 +83,7 @@
         </li>
         {% else %}
         <li>
-            <a href="{{url}}?page={{ page + 1 }}" aria-label="Next">
+            <a href="javascript:;" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>

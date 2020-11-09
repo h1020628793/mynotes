@@ -80,6 +80,9 @@ a:hover{
 .custom-panel.article-panel .panel-body{
     background-color: transparent;
 }
+#article-wrap{
+    min-height: 360px;
+}
 .article-panel .panel-footer{
     background-color:transparent; 
     border: none;
@@ -100,12 +103,6 @@ a:hover{
 }
 .article-panel .view-num{
     font-style: italic;
-}
-#pagination a{
-    color: #777;
-}
-#pagination a:hover{
-    background-color: #fff;
 }
 footer{
     text-align: center;
