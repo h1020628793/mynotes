@@ -1,0 +1,27 @@
+<div id='article-wrap'>
+    {% for article in articles %}
+    <div class="panel panel-default custom-panel article-panel">
+        <div class="panel-heading">
+            <a href="/detail/{{ article._id.toString() }}">
+                <h3 class="panel-title">{{ article.title }}</h3>
+            </a>
+        </div>
+        <div class="panel-body">{{article.intro}}</div>
+        <div class="panel-footer">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.user.username }}</span>
+            <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.category.name }}</span>
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            <span class="footer-text text-muted">{{ article.createdTime }}</span>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <span class="footer-text text-muted"><span class="view-num">{{ article.click }}</span>已阅读</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% if pages>1 %}
+<nav aria-label="Page navigation" id="article-page" data-id="{{currentCategory}}">
+{% include './pagination.html' %}
+</nav>
+{% endif %}

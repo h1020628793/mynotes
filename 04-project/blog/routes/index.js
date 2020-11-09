@@ -40,7 +40,6 @@ router.get("/list/:id", async (req, res) => {
     const articlesPromise = Article.findPaginationArticles(req, { category:id})
     const { categories, topArticles } = await commonDataPromise
     const result = await articlesPromise
-    console.log(result);
     res.render('main/list', {
         userInfo: req.userInfo,
         categories,
@@ -55,8 +54,13 @@ router.get("/list/:id", async (req, res) => {
 
 //获取前台文章分页数据
 router.get("/articlesList", async (req, res) => {
+    let query = {}
+    let id = req.query.id
+    if(id){
+        query.category = id
+    }
     //获取分类
-    const result = await Article.findPaginationArticles(req)
+    const result = await Article.findPaginationArticles(req, query)
     res.json({
         code:0,
         message:'获取分页数据成功',

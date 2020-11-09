@@ -29,12 +29,17 @@
                     if (currentPage == page){
                         return false
                     }
+                    var data = {
+                        page:page
+                    }
+                    var id = $this.data('id')
+                    if(id){
+                        data.id = id
+                    }
                     //发送ajax请求获取数据
                     $.ajax({
                         url:options.url,
-                        data:{
-                            page:page
-                        },
+                        data:data,
                         dataType:'json',
                         success:function(result){
                             if(result.code == 0){

@@ -13,7 +13,6 @@
 module.exports = async(options)=>{
     
     let { page, limit: limit = 2, query: query = {}, projection: projection = "", sort: sort = { _id: -1 }, model, populates } = options
-    console.log(query);
     page = parseInt(page)
 
     if (isNaN(page)) {
