@@ -33,5 +33,7 @@
         <p>{{key}} : {{val}}</p>
     {% endfor %}
     
+    <p>时间: {{ createdAt | date('Y年m月d日 H:m:s',-8*60) }}</p>
+    <p>HTML代码: {{ desc | safe }}</p>
 </body>
 </html>

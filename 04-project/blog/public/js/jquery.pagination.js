@@ -1,3 +1,4 @@
+// /public/js/jquery.pagination.js
 ;(function($){
     $.fn.extend({
         pagination:function(options){

@@ -105,7 +105,7 @@
     })    
     //分页处理
 
-    //构建文件列表的html
+    //构建文章列表的html
     function buildArticleHtml(docs){
         var html = ''
         for(var i = 0,len = docs.length;i<len;i++){
@@ -130,7 +130,7 @@
         }
         return html
     }
-
+    //构建分页器html
     function buildPaginationHtml(list,page,pages){
         var html = ''
         if(page == 1){
@@ -176,6 +176,7 @@
         }
 
     })
+    //调用分页jquery插件
     $articlePage.pagination({
         url:"/articlesList"
     })

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+//避免使用findOneAndUpdate方法出现警告
+mongoose.set('useFindAndModify', false)
 mongoose.connect('mongodb://localhost/shop', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', () => {
@@ -20,11 +22,10 @@ db.once('open', async () => {
 
     //3.使用模型或者模型对象进行文档的操作
     try {
-
         //const result = await User.updateMany({ age: { $gt: 120 } }, {score:100})
         //const result = await User.updateMany({ age: { $gt: 150 } }, { score: 100 }, { upsert:true})
-
-        const result = await User.updateOne({ age: { $gt: 120 } }, { score: 150 })
+        //const result = await User.updateOne({ age: { $gt: 120 } }, { score: 150 })
+        const result = await User.findOneAndUpdate({ age: { $gt: 100 } }, { score: 150 },{new:true})
         console.log(result)
     } catch (e) {
         console.log(e);

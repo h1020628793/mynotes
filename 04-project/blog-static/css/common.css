@@ -101,12 +101,12 @@ a:hover{
 .article-panel .view-num{
     font-style: italic;
 }
-#pagination a{
-    color: #777;
+.pagination>li.active>a,.pagination>li.active>a:hover{
+    background-color: #eee;
+    border-color: #ddd;
+    color: #f65a8a !important;
 }
-#pagination a:hover{
-    background-color: #fff;
-}
+
 footer{
     text-align: center;
     padding: 20px 0;

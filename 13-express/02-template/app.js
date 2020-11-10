@@ -44,7 +44,9 @@ app.get('/test',(req,res)=>{
         },
         type:2, //1 管理员 2 普通用户
         level:3, //1: vip 2:svip 其他:普通会员
-        friends:['Amy','Leo','Jack']
+        friends:['Amy','Leo','Jack'],
+        createdAt:new Date(),
+        desc:'<h1>我是标题</h1>'
     })
 })
 

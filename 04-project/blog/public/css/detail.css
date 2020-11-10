@@ -14,7 +14,21 @@
 }
 .detail-panel .panel-body{
     background-color: transparent;
+    overflow: hidden;    
 }
-.detail-panel .panel-body{
-    overflow: hidden;
+#comment-textarea{
+    resize: none;
+}
+#btn-sub-comment{
+    line-height: 58px;
+    width: 100%;
+    font-size: 26px;
+}
+.comment-item{
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+}
+.login-tips{
+    padding: 15px;
 }
