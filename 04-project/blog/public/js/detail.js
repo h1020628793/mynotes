@@ -29,6 +29,7 @@
             success:function(result){
                 if(result.code == 0){
                     $('#comment-textarea').val('')
+                    $('#comment-page').trigger('get-data', result.data)
                 }
             }
         })

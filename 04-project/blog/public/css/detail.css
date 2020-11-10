@@ -16,6 +16,9 @@
     background-color: transparent;
     overflow: hidden;    
 }
+#comment-wrap{
+    min-height: 200px;
+}
 #comment-textarea{
     resize: none;
 }
@@ -29,6 +32,6 @@
     padding: 10px;
     margin: 10px 0;
 }
-.login-tips{
+.comment-login-tips{
     padding: 15px;
 }

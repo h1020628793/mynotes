@@ -24,9 +24,12 @@ router.post("/", async (req, res) => {
             article,
             user,  
         })
+        //获取最新评论
+        const result = await Comment.findPaginationComments(req, { article: article })
         res.json({
             code:0,
-            message:'新增评论成功'
+            message:'新增评论成功',
+            data: result
         })
     } catch (e) {
         res.json({

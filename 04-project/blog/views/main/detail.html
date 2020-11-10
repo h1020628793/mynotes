@@ -33,37 +33,32 @@
     <div class="col-md-12 text-danger"></div>
     {% else %}
     <div class="col-md-12">
-        <p class="bg-success login-tips">请求登录后提交评论</p>
+        <p class="bg-success comment-login-tips">请求登录后提交评论</p>
     </div>
     {% endif %}
 </div>
-<div class="row">
+<div class="row" id="comment-wrap">
+    {% for comment in comments %}
     <div class="col-md-12">
         <div class="text-muted comment-item">
-            <p>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</p>
+            <p>{{ comment.content }}</p>
             <p>
-               <span>Tom</span> 发表于
-                <span>2020-11-06 07:41:58</span>
+               <span>{{ comment.user.username }}</span> 发表于
+                <span>{{ comment.createdTime }}</span>
             </p>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="text-muted comment-item">
-            <p>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</p>
-            <p>
-                <span>Tom</span> 发表于
-                <span>2020-11-06 07:41:58</span>
-            </p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
+
 <div class="row">
     <div class="col-md-12">
-        <nav aria-label="Page navigation" id="article-page" data-id="{{currentCategory}}">
+        <nav aria-label="Page navigation" id="comment-page" data-id="{{article._id.toString()}}">
             {% include './pagination.html' %}
         </nav>
     </div>
 </div>
+
 {% endblock %}
 {% block script %}
 <script src="/js/detail.js"></script>
