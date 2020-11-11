@@ -50,7 +50,7 @@ articleSchema.statics.findPaginationArticles = async function (req,query) {
         populates: [{ path: 'user', select: 'username' }, { path: 'category', select: 'name' }]
     }
     const result = await pagination(options)
-    //格式化时间
+    //格式化时间,解决ajax请求格式化的时间获取不到的问题
     const docs = result.docs.map(item => {
         const obj = JSON.parse(JSON.stringify(item))
         obj.createdTime = moment(item.createdAt).format('YYYY-MM-DD HH:mm:ss')

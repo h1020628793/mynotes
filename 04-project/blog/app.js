@@ -85,6 +85,7 @@ app.use('/admins', require('./routes/admins'))
 app.use('/categories', require('./routes/categories'))
 app.use('/articles', require('./routes/articles'))
 app.use('/comments', require('./routes/comments'))
+app.use('/homes', require('./routes/homes'))
 
 app.listen(3000,()=>{
     console.log('server is running at http://127.0.0.1:3000')

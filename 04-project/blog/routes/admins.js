@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 const User = require('../models/user')
+const Comment = require('../models/comment')
 const pagination = require('../utils/pagination')
 const hmac = require('../utils/hmac')
 
@@ -67,6 +68,36 @@ router.post("/password", async (req, res) => {
             userInfo: req.userInfo,
             message: '服务器端错误',
             nextUrl: '/admins/password'
+        })
+    }
+})
+//渲染评论列表
+router.get('/comments', async (req, res) => {
+    const result = await Comment.findPaginationComments(req)
+    res.render('admin/comment_list', {
+        userInfo: req.userInfo,
+        comments: result.docs,
+        list: result.list,
+        pages: result.pages,
+        page: result.page,
+        url: '/admins/comments'
+    })
+})
+//删除评论
+router.get('/comments/delete/:id', async (req, res) => {
+    const { id } = req.params
+    try {
+        await Comment.deleteOne({ _id: id })
+        res.render('admin/success', {
+            userInfo: req.userInfo,
+            message: '删除评论成功',
+            nextUrl: '/admins/comments'
+        })
+    } catch (e) {
+        res.render('admin/error', {
+            userInfo: req.userInfo,
+            message: '服务器端错误',
+            nextUrl: '/admins/comments'
         })
     }
 })

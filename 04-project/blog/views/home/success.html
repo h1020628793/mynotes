@@ -1,0 +1,12 @@
+{% extends './layout.html' %}
+{% block title %}
+操作成功
+{% endblock %}
+{% block content %}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{% if nextUrl %}
+    <a href="{{nextUrl}}">下一步</a>
+{% else %}
+    <a href="javascript:window.history.back()">返回</a>
+{% endif %}
+{% endblock %}
