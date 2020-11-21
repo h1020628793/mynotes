@@ -82,7 +82,7 @@ function createDomForComponentInstance(instance){
  * @param {属性名称} key 
  * @param {属性值} value 
  */
-function setProperty(dom,key,value){
+export function setProperty(dom,key,value){
     key.startsWith('on') && (key = key.toLowerCase())
     //针对属性是style的处理
     if (key == 'style' && value){
