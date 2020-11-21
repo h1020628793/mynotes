@@ -1,0 +1,35 @@
+.set(@attr,@val){
+    @{attr}:unit(@val * 2,px);
+}
+/*
+首先设计搞的设备是固定的,那么就是说设计稿的根元素的font-size是固定的
+
+36px
+
+在设计搞的设备上设计出来的盒子的宽度 72px
+
+107px
+
+推算除对应的rem是? 72 / 36 = 2rem
+
+*/
+
+@rem:36;
+
+.rem(@attr,@px1){
+    @{attr}:unit(@px1 / @rem,rem)
+}
+.rem(@attr,@px1,@px2){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem)
+}
+.rem(@attr,@px1,@px2,@px3){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem)
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+    @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem) unit(@px4 / @rem,rem)
+}
+
+.box1{
+    .rem(padding-top,10);
+    .rem(margin,10,20,30,40);
+}

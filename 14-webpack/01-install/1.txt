@@ -1,0 +1,23 @@
+.
+├── 1.txt
+├── dist
+│   ├── about-2799e51c049137c590a9-efb6de650d95b69f5541.bundle.js
+│   ├── contact-2799e51c049137c590a9-057fe13f6eefb9acc3a6.bundle.js
+│   ├── index-2799e51c049137c590a9-27641216cc8c40e3960d.bundle.js
+│   ├── index.html
+│   └── resource
+│       └── index.2799e51c049137c590a9.css
+├── package-lock.json
+├── package.json
+├── src
+│   ├── about.js
+│   ├── contact.js
+│   ├── icon.png
+│   ├── index.css
+│   ├── index.html
+│   └── index.js
+├── webpack.common.js
+├── webpack.dev.js
+└── webpack.prod.js
+
+3 directories, 17 files
