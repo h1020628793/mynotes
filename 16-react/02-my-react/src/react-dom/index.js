@@ -5,8 +5,7 @@ import {Component} from '../react'
  * 根据虚拟DOM生成一个真实的DOM节点并且返回
  * @param {虚拟DOM} vdom
  */
-function createDom(vdom){
-    console.log(vdom);
+export function createDom(vdom){
     // 如果没有虚拟DOM则直接返回
     if (vdom == undefined) return
     
@@ -37,10 +36,10 @@ function createDom(vdom){
     else if(typeof vdom.tag == 'function'){
         //生成组件的实例
         const instance = createComponentInstance(vdom.tag,vdom.props)
-        console.log(instance);
         //生成实例对应的DOM节点
-
+        createDomForComponentInstance(instance)
         //返回组件对应的DOM节点
+        return instance.dom
     }  
 }
 /**
@@ -63,6 +62,19 @@ function createComponentInstance(comp, props){
         }
     }
     return instance
+}
+
+/**
+ * 根据组件的实例生成真实的DOM节点
+ * @param {组件的实例} instance 
+ */
+function createDomForComponentInstance(instance){
+    //获取到虚拟DOM并且挂载到组件实例上
+    instance.vdom = instance.render()
+
+    //生成真实的DOM节点
+    instance.dom = createDom(instance.vdom)
+
 }
 /**
  * 给DOM节点添加属性

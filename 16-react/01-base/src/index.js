@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component} from 'react'
 import ReactDOM from 'react-dom'
 /*
 const elem = (
@@ -11,4 +11,27 @@ const elem = (
 console.log(elem);
 */
 
-ReactDOM.render(123,document.getElementById('root'))
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            num: 0
+        }
+    }
+    handleChange() {
+        this.setState({
+            num: this.state.num + 1
+        })
+    }
+    render() {
+        return (
+            <div className="App">
+                <p>{this.state.num}</p>
+                <button onClick={this.handleChange.bind(this)}>修改</button>
+            </div>
+        )
+    }
+}
+
+//ReactDOM.render 根据虚拟DOM挂载DOM节点
+ReactDOM.render(<App title="app" />, document.getElementById('root'))

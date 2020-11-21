@@ -1,4 +1,4 @@
-
+import { createDom } from '../react-dom'
 //虚拟DOM的类
 class Element{
     constructor(tag, props, children){
@@ -13,9 +13,23 @@ function createElement(tag,props,...children){
 }
 
 class Component{
-    constructor(props){
+    constructor(props = {}){
         this.props = props
         this.state = {}
+    }
+    setState(updatedState){
+        //生成新的state
+        Object.assign(this.state,updatedState)
+        //生成新的虚拟DOM
+        const newVdom = this.render()
+        //生成新的DOM
+        const newDom = createDom(newVdom)
+        //用新的DOM替换原有的DOM
+        if(this.dom.parentNode){
+            this.dom.parentNode.replaceChild(newDom,this.dom)
+            this.dom = newDom
+        }
+
     }
 }
 const React = {
