@@ -15,18 +15,26 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            num: 0
+            num: 0,
+            scrore:100
         }
     }
     handleChange() {
         this.setState({
             num: this.state.num + 1
         })
+        this.setState({
+            scrore: this.state.scrore + 1
+        })        
+        console.log(this.state.num);
     }
+    componentDidUpdate(state, props) {
+        console.log('componentDidUpdate(state,props)', state, props);
+    }    
     render() {
         return (
             <div className="App">
-                <p>{this.state.num}</p>
+                <p>{this.state.num}---{this.state.scrore}</p>
                 <button onClick={this.handleChange.bind(this)}>修改</button>
             </div>
         )

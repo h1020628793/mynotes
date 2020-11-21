@@ -23,28 +23,36 @@ function App(props){
 */
 //类组件
 
-class App extends Component{
-    constructor(props){
+class App extends Component {
+    constructor(props) {
         super(props)
         this.state = {
-            num:0
+            num: 0,
+            scrore: 100
         }
     }
-    handleChange(){
+    handleChange() {
         this.setState({
-            num:this.state.num + 1
+            num: this.state.num + 1
         })
+        this.setState({
+            scrore: this.state.scrore + 1
+        })
+        console.log(this.state.num);
     }
-    render(){
+    componentDidUpdate(state, props) {
+        console.log('componentDidUpdate(state,props)', state, props);
+    }
+    render() {
         return (
             <div className="App">
-                <p>{this.state.num}</p>
-                <button onClick = {this.handleChange.bind(this)}>修改</button>
+                <p>{this.state.num}---{this.state.scrore}</p>
+                <button onClick={this.handleChange.bind(this)}>修改</button>
             </div>
         )
     }
 }
 
 //ReactDOM.render 根据虚拟DOM挂载DOM节点
-ReactDOM.render(<App title="app" />,document.getElementById('root'))
+ReactDOM.render(<App title="app" />, document.getElementById('root'))
 

@@ -71,7 +71,10 @@ function createComponentInstance(comp, props){
 function createDomForComponentInstance(instance){
     //获取到虚拟DOM并且挂载到组件实例上
     instance.vdom = instance.render()
-
+    //如果实例上还没有挂载DOM节点说明是创建
+    if (!instance.dom){
+        typeof instance.componentDidMount == 'function' && instance.componentDidMount()
+    }
     //生成真实的DOM节点
     instance.dom = createDom(instance.vdom)
 
