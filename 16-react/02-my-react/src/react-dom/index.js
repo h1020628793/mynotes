@@ -21,10 +21,12 @@ function createDom(vdom){
         //创建DOM
         const dom = document.createElement(vdom.tag)
         //设置DOM的属性
-        for (let key in vdom.props){
-            setProperty(dom, key,vdom.props[key])
+        if (vdom.props){
+            for (let key in vdom.props) {
+                setProperty(dom, key, vdom.props[key])
+            }
         }
-        //处理子节点
+        //递归处理子节点
         if (vdom.children && vdom.children.length > 0){
             vdom.children.forEach(child=>render(child,dom))
         }
@@ -36,13 +38,16 @@ function createDom(vdom){
         //生成组件的实例
         const instance = createComponentInstance(vdom.tag,vdom.props)
         console.log(instance);
-        //处理属性生成DOM节点
+        //生成实例对应的DOM节点
 
         //返回组件对应的DOM节点
     }  
-
 }
-
+/**
+ * 创建组件的实例并且返回
+ * @param {函数/组件的类} comp 
+ * @param {属性} props 
+ */
 function createComponentInstance(comp, props){
     let instance
     //如果是类组件
@@ -54,7 +59,7 @@ function createComponentInstance(comp, props){
         instance = new Component(props)
         instance.constructor = comp
         instance.render = function(){
-            return comp()
+            return comp(props)
         }
     }
     return instance
@@ -92,7 +97,9 @@ function setProperty(dom,key,value){
  * @param {挂载的容器} container 
  */
 function render(vdom,container){
+    //把虚拟DOM转换为真实的DOM节点
     const dom = createDom(vdom)
+    //把虚拟DOM对应的真实DOM节点挂载到容器上
     container.appendChild(dom)
 }
 
