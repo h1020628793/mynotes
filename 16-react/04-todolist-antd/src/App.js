@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
-import { Input } from 'antd'
+import { Row, Col, Input, Button, List } from 'antd'
 
-import Item from './Item'
 //import 'antd/dist/antd.css';//引入所有的css
+
+import './index.css'
 
 class App extends Component {
     constructor(props){
@@ -53,16 +54,22 @@ class App extends Component {
         })
     }
     render() {
-        const items = this.state.list.map(item => <Item key={item.id} task={item.task} handleDel={this.handleDel.bind(this, item.id)} /> )
         return (
             <div className="App">
-                <div className="head">
-                    <Input />
-                    <button onClick={this.handleSubmit}>提交</button>
-                </div>
-                <ul className="list">
-                    {items}
-                </ul>
+                <Row>
+                    <Col span={18}><Input onChange={this.handleChage} value={this.state.task} /></Col>
+                    <Col span={6}><Button type="primary" onClick={this.handleSubmit}>提交</Button></Col>
+                </Row>
+                <List 
+                    style={{marginTop:'30px'}}
+                    bordered
+                    dataSource={this.state.list}
+                    renderItem={item => (
+                        <List.Item onClick={this.handleDel.bind(this, item.id)}>
+                           {item.task}
+                        </List.Item>
+                    )}
+                />
             </div>
         )
     }
