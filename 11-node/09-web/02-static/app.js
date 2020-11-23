@@ -13,6 +13,7 @@ const { get, del, add } = require('./model/item.js')
 
 const server = http.createServer(async (req, res) => {
     console.log(req.url);
+    res.setHeader('Access-Control-Allow-Origin', "*")
     const parseUrl = url.parse(req.url,true)
     const pathname = parseUrl.pathname
     //首页html

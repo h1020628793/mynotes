@@ -1,17 +1,16 @@
 import { Element } from '../react'
-import { setProperty } from './index'
+import { setProperty, createDom } from './index'
 import { PATCHES_TYPE } from './patches-type'
 
 export function patch(node, patches) {
     let patchHelper = {
         Index: 0
     }
-    dfsPatch(node,patches,patchHelper);
+    dfsPatch(node, patches, patchHelper);
 }
 
 function dfsPatch(node, patches, patchHelper) {
     let currentPatch = patches[patchHelper.Index];
-
     node.childNodes.forEach(child => {
         patchHelper.Index++
         dfsPatch(child, patches, patchHelper);
@@ -37,7 +36,7 @@ function doPatch(node, patches) {
                 node.textContent = patch.text;
                 break;
             case PATCHES_TYPE.REPLACE:
-                let newNode = patch.node instanceof Element ? render(patch.node) : document.createTextNode(patch.node);
+                let newNode = patch.node instanceof Element ? createDom(patch.node) : document.createTextNode(patch.node);
                 node.parentNode.replaceChild(newNode, node);
                 break;
             case PATCHES_TYPE.REMOVE:
@@ -45,7 +44,7 @@ function doPatch(node, patches) {
                 break;
             case PATCHES_TYPE.ADD:
                 patch.nodeList.forEach(newNode => {
-                    let n = newNode instanceof Element ? render(newNode) : document.createTextNode(newNode);
+                    let n = newNode instanceof Element ? createDom(newNode) : document.createTextNode(newNode);
                     node.appendChild(n);
                 });
                 break;
