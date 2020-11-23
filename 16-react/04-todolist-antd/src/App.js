@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
+import { Input } from 'antd'
 
 import Item from './Item'
-import './index.css'
+//import 'antd/dist/antd.css';//引入所有的css
 
 class App extends Component {
     constructor(props){
@@ -56,7 +57,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="head">
-                    <input value={this.state.task} onChange={this.handleChage} />
+                    <Input />
                     <button onClick={this.handleSubmit}>提交</button>
                 </div>
                 <ul className="list">
