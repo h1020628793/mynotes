@@ -5,43 +5,18 @@ import { Row, Col, Input, Button, List } from 'antd'
 //import 'antd/dist/antd.css';//引入所有的css
 import './index.css'
 
+import store from './store'
 
-import { createStore } from 'redux'
-
-//定义一个初始化的state
-const defaultState = { list: [], task: '' }
-
-/**
- * 1. reducer必须要返回一个state的对象
- */
-function reducer(state = defaultState, action) {
-
-    let newState = JSON.parse(JSON.stringify(state))
-    
-    if (action.type == 'LOAD_DATA'){//初始化加载网络数据
-        newState.list = action.payload
-    }
-    return newState
-}
-
-/**
- * 1. 给store指定reducer,今后store派发的action就会被转发到这个reducer里面
- * 2. 初始化store里面的state,会转发一个初始化的action(随机每次都会变化)到reducer,reducer会返回一个默认的state
- */
-let store = createStore(reducer)
+import { getLoadDataAction, getChangeItemAction, getAddItemAction, getDelItemAction } from './store/actionCreator'
 
 class App extends Component {
     constructor(props){
         super(props)
-        /*
-        this.state = {
-            list:[],
-            task:''
-        }
-        */
+
         //使用Redux后初始化数据来自于store
         this.state = store.getState()
-
+       
+        //监听state的变化,store里面的state一旦有变化,就会执行subscribe里面指定的函数
         store.subscribe(() => {
             this.setState(store.getState())
         })
@@ -50,44 +25,17 @@ class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleChage(ev){
-        this.setState({
-            task:ev.target.value
-        })
+        store.dispatch(getChangeItemAction(ev.target.value))
     }
     handleSubmit(){
-        const list = [...this.state.list]
-        list.push({
-            id:Date.now(),
-            task:this.state.task
-        })
-        this.setState({
-            list,
-            task:''
-        })
+        store.dispatch(getAddItemAction(Date.now()))
     }
     handleDel(id){
-        const list = this.state.list.filter(item=>id!=item.id)
-        this.setState({
-            list
-        })
+        store.dispatch(getDelItemAction(id))
     }
     async componentDidMount(){
-        /*
-        axios.get('http://127.0.0.1:3000')
-        .then(result=>{
-            this.setState({
-                list:result.data
-            })
-        })
-        */
-        /*
         const result = await axios.get('http://127.0.0.1:3000')
-        this.setState({
-            list: result.data
-        })
-        */
-        const result = await axios.get('http://127.0.0.1:3000')
-        store.dispatch({ type: 'LOAD_DATA', payload: result.data})
+        store.dispatch(getLoadDataAction(result.data))
     }
     render() {
         return (
