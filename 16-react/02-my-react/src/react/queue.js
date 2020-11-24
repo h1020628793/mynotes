@@ -7,7 +7,7 @@ const compQueue  = [] //去除重复保存需要更新的组件实例
  * @param {需要更新的组件对象} comp 
  */
 export function enqueue(updatedState,comp){
-    
+    //第一次或者队列清空后添加异步执行
     if(stateQueue.length == 0){
         setTimeout(flush,0)
     }
@@ -25,7 +25,6 @@ export function enqueue(updatedState,comp){
 
 //清空队列
 function flush(){
-    
     let item,comp
     //统一合并需要更改的state
     while (item = stateQueue.shift()) {

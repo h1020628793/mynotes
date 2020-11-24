@@ -15,7 +15,7 @@ function createElement(tag,props,...children){
     return new Element(tag, props, children)
 
 }
-
+//组件的父类
 class Component{
     constructor(props = {}){
         this.props = props
