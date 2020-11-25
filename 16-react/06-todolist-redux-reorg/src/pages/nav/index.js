@@ -34,7 +34,7 @@ const mapStateToProps = (state)=>{
 }
 */
 //该方法和上面的方法等价
-const mapStateToProps = (state) => ({name: state.nav.name})
+const mapStateToProps = (state) => ({name: state.get('nav').get('name')})
 /**
  * 映射方法函数
  * 1. 该函数作为connect方法的第二个参数

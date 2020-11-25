@@ -1,20 +1,22 @@
-import { LOAD_DATA, CHANGE_ITEM, ADD_ITEM, DEL_ITEM } from './actionTypes'
+//import { LOAD_DATA, CHANGE_ITEM, ADD_ITEM, DEL_ITEM } from './actionTypes'
+
+import * as types  from './actionTypes'
 import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
 
 export const getChangeItemAction = (payload) => ({
-    type: CHANGE_ITEM,
+    type: types.CHANGE_ITEM,
     payload: payload
 })
 
 export const getAddItemAction = (payload) => ({
-    type: ADD_ITEM,
+    type: types.ADD_ITEM,
     payload: payload
 })
 
 
 export const getDelItemAction = (payload) => ({
-    type: DEL_ITEM,
+    type: types.DEL_ITEM,
     payload: payload
 })
 /**
@@ -27,7 +29,7 @@ export const getLoadDataAction = () => {
     return async function (dispatch) {
         const result = await axios.get('http://127.0.0.1:3000')
         dispatch({
-            type: LOAD_DATA,
+            type: types.LOAD_DATA,
             payload: result.data
         })
     }

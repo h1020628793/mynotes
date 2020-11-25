@@ -1,8 +1,9 @@
-import { combineReducers} from 'redux'
+// import { combineReducers} from 'redux'
+import { combineReducers } from 'redux-immutable'
 
 
-import todolist from '../pages/todolist/store/reducer'
-import nav  from '../pages/nav/store/reducer'
+import {reducer as todolist} from '../pages/todolist/store'
+import { reducer as nav }  from '../pages/nav/store'
 
 //合并所有组件的reduer
 export default combineReducers({

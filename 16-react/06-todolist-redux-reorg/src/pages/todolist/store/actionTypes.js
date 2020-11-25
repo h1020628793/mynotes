@@ -1,4 +1,4 @@
-export const LOAD_DATA = 'LOAD_DATA'
-export const CHANGE_ITEM = 'CHANGE_ITEM'
-export const ADD_ITEM = 'ADD_ITEM'
-export const DEL_ITEM = 'DEL_ITEM'
+export const LOAD_DATA = 'todolist@load_date'
+export const CHANGE_ITEM = 'todolist@change_item'
+export const ADD_ITEM = 'todolist@add_item'
+export const DEL_ITEM = 'todolist@del_item'

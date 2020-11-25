@@ -1,5 +1,6 @@
+import { fromJS } from 'immutable'
 //定义一个初始化的state
-const defaultState = { name: 'TodoList Project' }
+const defaultState = fromJS({ name: 'TodoList Project' })
 
 /**
  * 1. reducer是一个纯函数(固定的输入必须是一个固定的输出),保证有固定输出的方法是不要在函数中使用Date.now或者Math.random这些方法生成数据
@@ -10,9 +11,10 @@ const defaultState = { name: 'TodoList Project' }
  */
 function reducer(state = defaultState, action) {
     //复制一个新的state
-    let newState = JSON.parse(JSON.stringify(state))
+    //let newState = JSON.parse(JSON.stringify(state))
     //返回一个新的state 
-    return newState
+    //return newState
+    return state
 }
 
 export default reducer

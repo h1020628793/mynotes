@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import UI from './UI'
 
-import { getLoadDataAction, getChangeItemAction, getAddItemAction, getDelItemAction } from './store/actionCreator'
-
+//import { getLoadDataAction, getChangeItemAction, getAddItemAction, getDelItemAction } from './store/actionCreator'
+import { actionCreator } from './store'
 //容器组件
 class TodoList extends Component {
     constructor(props) {
@@ -37,16 +37,17 @@ class TodoList extends Component {
 const mapStateToProps = (state)=>{
     console.log(state)
     return {
-        task:state.task,
-        list:state.list
+        task: state.todolist.task,
+        list: state.todolist.list
     }
 }
 */
 //该方法和上面的方法等价
 const mapStateToProps = (state) => ({
-    task: state.todolist.task,
-    list: state.todolist.list
+    task: state.get('todolist').get('task'),
+    list: state.get('todolist').get('list')
 })
+
 /**
  * 映射方法函数
  * 1. 该函数作为connect方法的第二个参数
@@ -55,16 +56,16 @@ const mapStateToProps = (state) => ({
  */
 const mapDispatchToProps = (dispatch) => ({
     handleChange: (ev) => {
-        dispatch(getChangeItemAction(ev.target.value))
+        dispatch(actionCreator.getChangeItemAction(ev.target.value))
     },
     handleSubmit: () => {
-        dispatch(getAddItemAction(Date.now()))
+        dispatch(actionCreator.getAddItemAction(Date.now()))
     },
     handleDel: (id) => {
-        dispatch(getDelItemAction(id))
+        dispatch(actionCreator.getDelItemAction(id))
     },
     handleLoadData: () => {
-        dispatch(getLoadDataAction())
+        dispatch(actionCreator.getLoadDataAction())
     }
 })
 /**
