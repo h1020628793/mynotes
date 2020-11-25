@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.App{
+    width: 800px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
