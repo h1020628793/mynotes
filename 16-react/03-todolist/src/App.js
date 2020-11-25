@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+//发送ajax的库
 import axios from 'axios'
+//使用async函数的运行时
 import regeneratorRuntime from "regenerator-runtime"
 
 import Item from './Item'
@@ -12,10 +14,10 @@ class App extends Component {
             list:[],
             task:''
         }
-        this.handleChage = this.handleChage.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleChage(ev){
+    handleChange(ev){
         this.setState({
             task:ev.target.value
         })
@@ -56,7 +58,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="head">
-                    <input value={this.state.task} onChange={this.handleChage} />
+                    <input value={this.state.task} onChange={this.handleChange} />
                     <button onClick={this.handleSubmit}>提交</button>
                 </div>
                 <ul className="list">

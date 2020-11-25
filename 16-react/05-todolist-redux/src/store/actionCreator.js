@@ -18,9 +18,10 @@ export const getDelItemAction = (payload) => ({
     payload: payload
 })
 /**
- * 默认的action只能是一个对象,不能是处理异步请求的函数, 如果是异步请求的函数会报错:
+ * 1. 默认的action只能是一个对象,不能是处理异步请求的函数, 如果是异步请求的函数会报错:
  * Actions must be plain objects. Use custom middleware for async actions.
- * 如果添加了redux-thunk中间件,action就可以是一个处理异步请求的函数了
+ * 2. 如果添加了redux-thunk中间件,action就可以是一个处理异步请求的函数了
+ * 3. 返回的异步处理函数接收一个dispatch函数,在异步处理结束后再根据请求结果使用这个dispatch函数派发一个对象类型的action
  */
 export const getLoadDataAction = () => {
     return async function (dispatch){

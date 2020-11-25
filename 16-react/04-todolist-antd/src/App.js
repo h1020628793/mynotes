@@ -14,10 +14,10 @@ class App extends Component {
             list:[],
             task:''
         }
-        this.handleChage = this.handleChage.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleChage(ev){
+    handleChange(ev){
         this.setState({
             task:ev.target.value
         })
@@ -40,14 +40,6 @@ class App extends Component {
         })
     }
     async componentDidMount(){
-        /*
-        axios.get('http://127.0.0.1:3000')
-        .then(result=>{
-            this.setState({
-                list:result.data
-            })
-        })
-        */
         const result = await axios.get('http://127.0.0.1:3000')
         this.setState({
             list: result.data
@@ -57,7 +49,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Row>
-                    <Col span={18}><Input onChange={this.handleChage} value={this.state.task} /></Col>
+                    <Col span={18}><Input onChange={this.handleChange} value={this.state.task} /></Col>
                     <Col span={6}><Button type="primary" onClick={this.handleSubmit}>提交</Button></Col>
                 </Row>
                 <List 

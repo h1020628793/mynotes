@@ -8,7 +8,7 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',//内容的目录,将dist目录下的文件serve到localhost:8080下运行
-        port: 8088,//服务运行的端口
+        port: 8080,//服务运行的端口
         open: true//自动打开浏览器窗口
     }
 })

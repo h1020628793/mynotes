@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
 import { Row, Col, Input, Button, List } from 'antd'
-//import 'antd/dist/antd.css';//引入所有的css
 import './index.css'
 
 
@@ -46,10 +45,10 @@ function reducer(state = defaultState, action) {
 
 /**
  * createStore的主要作用:
- * 1. 给store指定reducer,今后派发的action就会被转发到这个reducer里面
- * 2. 初始化store里面的state,会派发一个初始化的action(随机每次都会变化)到reducer,reducer会返回一个默认的初始化state
+ * 1. 初始化store里面的state,在创建时调用一次reducer,action的类型时一个随机每次都会变化的字符串,reducer会返回一个默认的初始化state
+ * 2. 给store指定reducer,今后一旦有action派发到store,store就会调用这个reducer
  */
-let store = createStore(reducer)
+const store = createStore(reducer)
 
 class App extends Component {
     constructor(props){
@@ -69,10 +68,10 @@ class App extends Component {
             this.setState(store.getState())
         })
 
-        this.handleChage = this.handleChage.bind(this)
+        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleChage(ev){
+    handleChange(ev){
         /*
         this.setState({
             task:ev.target.value
@@ -125,7 +124,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Row>
-                    <Col span={18}><Input onChange={this.handleChage} value={this.state.task} /></Col>
+                    <Col span={18}><Input onChange={this.handleChange} value={this.state.task} /></Col>
                     <Col span={6}><Button type="primary" onClick={this.handleSubmit}>提交</Button></Col>
                 </Row>
                 <List 
