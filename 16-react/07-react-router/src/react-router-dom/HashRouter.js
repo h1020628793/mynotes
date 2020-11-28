@@ -27,7 +27,12 @@ class HashRouter extends Component{
     }
     render(){
         const value = {
-            location:this.state.location
+            location:this.state.location,
+            history:{
+                push(to){
+                    window.location.hash = to
+                }
+            }
         }
         return (<Provider value={value}>{this.props.children}</Provider>)
     }

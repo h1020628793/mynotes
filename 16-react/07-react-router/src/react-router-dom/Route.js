@@ -33,6 +33,7 @@ class Route extends Component{
                         })
                         const props = {
                             location: value.location,
+                            history:value.history,
                             match:{
                                 params,
                                 path,
