@@ -27,10 +27,7 @@ class HashRouter extends Component{
     }
     render(){
         const value = {
-            location:{
-                ...this.state.location,
-                pathname: this.state.location.pathname
-            }
+            location:this.state.location
         }
         return (<Provider value={value}>{this.props.children}</Provider>)
     }

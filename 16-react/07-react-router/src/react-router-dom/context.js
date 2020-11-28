@@ -5,6 +5,6 @@ const Context = React.createContext()
 const { Provider, Consumer } = Context
 
 export {
-    Provider,
-    Consumer
+    Provider,//提供数据的组件
+    Consumer//消费数据的组件
 }

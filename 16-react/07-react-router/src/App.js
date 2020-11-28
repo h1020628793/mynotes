@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Route } from './react-router-dom'
 class Home extends Component{
     render(){
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <div className="Home">
                 Home page
@@ -25,9 +25,10 @@ class About extends Component {
 }
 class User extends Component{
     render() {
+        console.log(this.props);
         return (
             <div className="UserProfile">
-                User  page
+                User  page {this.props.match.params.id}
             </div>
         )
     }
@@ -59,7 +60,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
-                    <Route path="/home" />
+                    <Route exact={true} path="/" component={Home} />
+                    <Route path="/home" component={Home} />
+                    <Route path="/user/:id/:name" component={User} />
                 </Router>
             </div>
         )
