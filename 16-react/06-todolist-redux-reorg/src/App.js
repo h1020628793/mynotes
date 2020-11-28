@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './index.css'
 
 import TodoList from './pages/todolist'
-import Nav from './pages/nav'
+import Head from './pages/head'
 
 class App extends Component {
     constructor(props){
@@ -12,7 +12,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Nav />
+                <Head />
                 <TodoList />
             </div>
         )

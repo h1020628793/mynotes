@@ -8,5 +8,4 @@ const UI = (props) => {
         </div>
     )
 }
-
 export default UI
