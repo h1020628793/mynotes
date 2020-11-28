@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-//import { HashRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
+//import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom'
 
 //import { HashRouter as Router, Route, Switch, Redirect, Link} from './react-router-dom'
-import { HashRouter as Router, Route, Link, Switch, Redirect } from './react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from './react-router-dom'
 class Home extends Component{
     render(){
         // console.log(this.props);
