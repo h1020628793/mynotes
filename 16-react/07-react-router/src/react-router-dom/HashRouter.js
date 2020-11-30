@@ -26,9 +26,11 @@ class HashRouter extends Component{
         }
     }
     render(){
+        //定义所有子组件需要使用的数据
         const value = {
             location:this.state.location,
             history:{
+                //改变路由的方法
                 push(to){
                     window.location.hash = to
                 }

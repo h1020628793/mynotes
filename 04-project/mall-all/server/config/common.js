@@ -1,0 +1,65 @@
+/*
+* @Author: Tom
+* @Date:   2020-01-10 12:03:18
+* @Last Modified by:   Tom
+* @Last Modified time: 2020-02-29 13:22:33
+*/
+
+//以下为支付宝相关的配置
+exports.CHARSET     = 'UTF-8'
+exports.SIGN_TYPE   = 'RSA2'
+
+//app private key
+exports.APP_PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAxG5b58J8qz6RcS2gWWpjhbPwANpQdoZOAodhHoUU/jbgG4+F
+MIIEpAIBAAKCAQEAxG5b58J8qz6RcS2gWWpjhbPwANpQdoZOAodhHoUU/jbgG4+F
+YbV890IjBCTJK1cAcFcIhJVfWjFDSs3zJBMcA6T7ar/zu/hm5b7jV6dVvhOm1k13
+73xDyXKKnRlBiSxIaRajLDIpOWl4Tc2WTuBfmRKhIS7oYGjNHHYyI1q2prTWAICq
+CoM9fpPe2r/EMmE/tEjCWEHqteYJPm1ilQR206JqDjzwLYpAQPgvHiRiOZNn2jF1
+8upXJOgb8jaQ+ACKea3NzEbrJuvFo0xQhK5pRQIDAQABAoIBAHpC0lNbOyt+4xnV
+s0NUM6Opjo2JVKGhEHcEek97t8hOsYiV+NgBjMje2bkan1cs13pRVdU/xqstGDAR
+F/FeOcXjjGUVMC/BG5Ek+f7RbmEu7VsYCHSCeMiRUqgmmUuveCd0FGopatMBbIfn
+zhk7B6nBC3ezB+qMPsdq26fYEEcgbwN2lUI16TRqUlm1QuAXvaSLTmFUW32qYFq5
+yEAobfiLr0zflhN1wRCHxsbaJw3IPOyEaK91aC07NhWGUh8kmcNR0nUeT1MGJP6b
+yEAobfiLr0zflhN1wRCHxsbaJw3IPOyEaK91aC07NhWGUh8kmcNR0nUeT1MGJP6b
+KvZgwxUCgYEA4gKnsls8pBod22lo9ynDa/axtIOzQBtAfFd/89SwU5MB564dANtm
+yEAobfiLr0zflhN1wRCHxsbaJw3IPOyEaK91aC07NhWGUh8kmcNR0nUeT1MGJP6b
+rMvAe3z0a7JRxupUg8lZki5KzDnFRUqY1EUtTfpEmUagYU26+ikYFJsCgYEA3n7s
+yEAobfiLr0zflhN1wRCHxsbaJw3IPOyEaK91aC07NhWGUh8kmcNR0nUeT1MGJP6b
+vtgzbSLQN87OJCbiNdL5LrJYDg8vgOnF4R8wLgUGjS8IARsez7B2OnL+utQ+JCoR
+QQGwI/bZ0V/RzVyBLQ6okv8C7CDR2DYmXrUiJ58CgYEAyUUqCGi90To82pe91VaI
+5M21pZcfe3iJbfISTZdcS6EAMk1ZINlB8bzqxxs9T4h36XLWn8B9rUM2yUMIGPRT
+C4qf83vGrj6+5kn8FPbjM2Qd7SiBR9xMljeBO7ekh4Au2WD3UMFwFgFJtSPBbRqo
+jWjplqbIjmNaEi1B1OPhwP8CgYEAxZxXlJs84Go5tu9ohPnBecbVornr4ogLLDjC
+TuERbzyF4+V/OXCt7OHeMlKW2lTLw/Ehy4O8UR8NbbOo1OUQHpvtovLVUE9ecpGu
+pV6M7SKbigOOiWTr/ayNpSYDZi4hrv8J6gG0zoxtMw92iH2zYTBWuo/xqYUQu4aE
+l7MqzaMCgYBkD1Ka8OBxqcNAlpU7a+IsZaq2ySIieC3uWCVpTqo+32BYSb9c6o0e
+EopDyWg+kfN85Q9dpF2fUPBTgI6SfUHxf/r8LFNwMBYHwfpOgbjlqPAmx2mG6z72
+DgqT9IsXuYHjzm93TK/S2TRdZ2bpzfN3OdXV54OMFmwDluVR+X6HTA==
+-----END RSA PRIVATE KEY-----`
+
+//app public key
+exports.APP_PUBLIC_KEY = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxG5b58J8qz6RcS2gWWpj
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxG5b58J8qz6RcS2gWWpj
+JDONTkOZbsV5GE9Y1YCYJOKmqavWYbV890IjBCTJK1cAcFcIhJVfWjFDSs3zJBMc
+yEAobfiLr0zflhN1wRCHxsbaJw3IPOyEaK91aC07NhWGUh8kmcNR0nUeT1MGJP6b
+mRKhIS7oYGjNHHYyI1q2prTWAICqCoM9fpPe2r/EMmE/tEjCWEHqteYJPm1ilQR2
+06JqDjzwLYpAQPgvHiRiOZNn2jF18upXJOgb8jaQ+ACKea3NzEbrJuvFo0xQhK5p
+RQIDAQAB
+-----END PUBLIC KEY-----`
+
+//快递api id
+exports.kuaidiExpressApiId = 'd89f931d0a7f9dea79c754289d97de2c'
+
+//短信配置
+exports.accessKeyId = 'LTf'
+exports.secretAccessKey = 'uazeKrPRxI'
+
+//定义终端
+exports.channels = {
+    page:'page',//pc页面
+    wap:'wap',//手机端 h5
+    wxmp:'wxmp',//微信小程序
+    app:'app'//native app
+}

@@ -7,7 +7,7 @@ class Link extends Component {
         return <Consumer>
             {
                 value => {
-                    return <a href="javascript:;" onClick={() => { value.history.push(this.props.to) }}>{this.props.children }</a>
+                    return <a onClick={() => { value.history.push(this.props.to) }}>{this.props.children }</a>
                 }
             }
         </Consumer>
