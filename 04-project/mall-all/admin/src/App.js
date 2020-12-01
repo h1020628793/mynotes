@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Login from '../src/pages/login'
+import Login from 'pages/login'
 
 class App extends Component {
     constructor(props){

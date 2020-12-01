@@ -3,7 +3,9 @@ import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
 import { message } from 'antd'
 
-import { saveUsername} from '../../../util'
+import { saveUsername} from 'util'
+
+import api from  'api'
 
 const getRequestStart = ()=>({
     type: types.REQUEST_START
@@ -19,6 +21,7 @@ const setCaptcha = (captcha)=>({
 })
 
 export const getCaptchaAction = ()=>{
+    /*
     return async function (dispatch) {
         const result = await axios({
             method: 'get',
@@ -28,11 +31,19 @@ export const getCaptchaAction = ()=>{
             dispatch(setCaptcha(result.data.data))
         }
     }
+    */
+    return async function (dispatch) {
+        const result = await api.getCaptcha()
+        if (result.code == 0) {
+            dispatch(setCaptcha(result.data))
+        }
+    }
 }
 
 export const getLoginAction = (values) => {
     return async function (dispatch) {
         dispatch(getRequestStart())
+        /*
         const result = await axios({
             method: 'post',
             url: '/v1/users/login',
@@ -46,6 +57,14 @@ export const getLoginAction = (values) => {
         })
         const data = result.data
         console.log(data);
+        */
+        const data = await api.login({
+            username: values.username,
+            password: values.password,
+            role: 'admin',
+            captchaCode: values.captcha,
+            channel: 'page'
+        })
         if(data.code == 1){
             message.error(data.message,1)
         }else{

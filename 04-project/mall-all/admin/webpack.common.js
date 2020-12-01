@@ -13,6 +13,13 @@ module.exports = {
         publicPath: '/',//指定输出参考根路径
         path: path.resolve(__dirname, 'dist')//指定打包后文件的存放位置,用绝对路径
     },
+    resolve: {
+        alias: {
+            pages: path.resolve(__dirname, 'src/pages/'),
+            util: path.resolve(__dirname, 'src/util/'),
+            api: path.resolve(__dirname, 'src/api/')
+        }
+    },    
     module:{
         //配置loader
         rules: [
