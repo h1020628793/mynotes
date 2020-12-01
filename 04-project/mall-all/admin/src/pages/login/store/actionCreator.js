@@ -1,5 +1,5 @@
 import * as types  from './actionTypes'
-import axios from 'axios'
+//import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime"
 import { message } from 'antd'
 
@@ -72,6 +72,7 @@ export const getLoginAction = (values) => {
             //保存用户的登录状态
             saveUsername(data.data.username)
             //跳转到后台首页
+            window.location.href = '/'
         }
         dispatch(getRequestEnd())
     }
