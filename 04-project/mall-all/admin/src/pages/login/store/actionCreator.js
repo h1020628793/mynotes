@@ -13,6 +13,23 @@ const getRequestEnd = () => ({
     type: types.REQUEST_END
 })
 
+const setCaptcha = (captcha)=>({
+    type: types.SET_CAPTCHA,
+    payload: captcha
+})
+
+export const getCaptchaAction = ()=>{
+    return async function (dispatch) {
+        const result = await axios({
+            method: 'get',
+            url: '/v1/users/captcha',
+        })
+        if (result.data.code == 0) {
+            dispatch(setCaptcha(result.data.data))
+        }
+    }
+}
+
 export const getLoginAction = (values) => {
     return async function (dispatch) {
         dispatch(getRequestStart())

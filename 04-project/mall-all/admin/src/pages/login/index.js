@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux'
 
-import axios from 'axios'
+//import axios from 'axios'
 
 import { Form, Input, Button, Row,Col } from 'antd';
 import { UserOutlined, LockOutlined, BorderHorizontalOutlined } from '@ant-design/icons';
@@ -13,12 +13,9 @@ import './index.less'
 class Login extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            captcha:''
-        }
-        this.getCaptcha = this.getCaptcha.bind(this)
+        // this.getCaptcha = this.getCaptcha.bind(this)
     }
-
+    /*
     async getCaptcha(){
         const result = await axios({
             method: 'get',
@@ -30,11 +27,13 @@ class Login extends Component{
             })
         }
     }
+    */
     componentDidMount(){
-        this.getCaptcha()
+        // this.getCaptcha()
+        this.props.handleCaptcha()
     }
     render(){
-        const { handleFinish, isFetching} = this.props
+        const { handleFinish, isFetching, captcha, handleCaptcha} = this.props
         return(
             <div className="Login">
                 <Form
@@ -102,7 +101,7 @@ class Login extends Component{
                                 </Form.Item>
                             </Col>
                             <Col span={12}>
-                                <div onClick={this.getCaptcha} className="captcha" dangerouslySetInnerHTML={{ __html: this.state.captcha}}></div>
+                                <div onClick={handleCaptcha} className="captcha" dangerouslySetInnerHTML={{ __html: captcha}}></div>
                             </Col> 
                         </Row>
                      </Form.Item>                   
@@ -122,11 +121,15 @@ class Login extends Component{
     }
 }
 const mapStateToProps = (state)=>({
-    isFetching: state.get('login').get('isFetching')
+    isFetching: state.get('login').get('isFetching'),
+    captcha: state.get('login').get('captcha')
 })
 const mapDispatchToProps=(dispatch)=>({
     handleFinish:(values)=>{
         dispatch(actionCreator.getLoginAction(values))
+    },
+    handleCaptcha:()=>{
+        dispatch(actionCreator.getCaptchaAction())
     }
 })
 
