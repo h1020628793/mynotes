@@ -18,9 +18,7 @@ class Login extends Component{
         }
         this.getCaptcha = this.getCaptcha.bind(this)
     }
-    onFinish(values){
-        this.props.handleFinish(values)
-    }
+
     async getCaptcha(){
         const result = await axios({
             method: 'get',
@@ -36,13 +34,13 @@ class Login extends Component{
         this.getCaptcha()
     }
     render(){
-        const { handleFinish} = this.props
+        const { handleFinish, isFetching} = this.props
         return(
             <div className="Login">
                 <Form
                     name="normal_login"
                     className="login-form"
-                    onFinish={(values) => { handleFinish(values)}}
+                    onFinish={handleFinish}
                 >
                     <Form.Item
                         name="username"
@@ -109,7 +107,12 @@ class Login extends Component{
                         </Row>
                      </Form.Item>                   
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
+                        <Button 
+                            type="primary" 
+                            htmlType="submit" 
+                            className="login-form-button"
+                            loading={isFetching}
+                        >
                             登录
                         </Button>
                     </Form.Item>
@@ -118,10 +121,13 @@ class Login extends Component{
         )
     }
 }
+const mapStateToProps = (state)=>({
+    isFetching: state.get('login').get('isFetching')
+})
 const mapDispatchToProps=(dispatch)=>({
     handleFinish:(values)=>{
         dispatch(actionCreator.getLoginAction(values))
     }
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -1,4 +1,2 @@
-export const LOAD_DATA = 'todolist@load_date'
-export const CHANGE_ITEM = 'todolist@change_item'
-export const ADD_ITEM = 'todolist@add_item'
-export const DEL_ITEM = 'todolist@del_item'
+export const REQUEST_START = 'login@request_start'
+export const REQUEST_END = 'login@request_end'
