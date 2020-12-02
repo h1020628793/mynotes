@@ -6,5 +6,6 @@ export const VERSION = 'v1'
 export const API_CONFIG = {
     //方法名称:                         [请求地址,请求方法]
     login:                             ['/users/login','post'],
-    getCaptcha:                        ['/users/captcha','get']             
+    getCaptcha:                        ['/users/captcha','get'],
+    getCounts:                         ['/counts', 'get'],             
 }
