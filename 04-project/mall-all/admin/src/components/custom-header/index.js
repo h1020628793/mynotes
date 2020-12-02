@@ -5,16 +5,26 @@ import {  DownOutlined, LogoutOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
-import { getUsername } from 'util'
+import { getUsername,removeUsername,goLogin } from 'util'
+import api from 'api'
 
 import './index.less'
 
 export default class CustomHeader extends Component {
+    constructor(props){
+        super(props)
+        this.handleLogout = this.handleLogout.bind(this)
+    }
+    async handleLogout(){
+        const result = await api.logout()
+        removeUsername()
+        goLogin()
+    }
     render() {
         const menu = (
             <Menu>
                 <Menu.Item key="0">
-                    <a onClick={() => { console.log('logout...') }}><LogoutOutlined />退出</a>
+                    <a onClick={this.handleLogout}><LogoutOutlined />退出</a>
                 </Menu.Item>
             </Menu>
         )

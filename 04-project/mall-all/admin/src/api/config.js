@@ -4,8 +4,9 @@ export const SERVER =  process.env.NODE_ENV == 'production' ? 'http://api.sortma
 export const VERSION = 'v1'
 
 export const API_CONFIG = {
-    //方法名称:                         [请求地址,请求方法]
-    login:                             ['/users/login','post'],
-    getCaptcha:                        ['/users/captcha','get'],
-    getCounts:                         ['/counts', 'get'],             
+    //方法名称:                          [请求地址,请求方法]
+    login:                              ['/users/login','post'],
+    getCaptcha:                         ['/users/captcha','get'],
+    getCounts:                          ['/counts', 'get'],  
+    logout:                             ['/users/logout', 'get'],              
 }
