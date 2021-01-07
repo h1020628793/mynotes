@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="" @submit.prevent='handleSubmit'>
+            <span>用户名:</span>
+            <input type="text" v-model='username'><br>
+
+            <span>密码:</span>
+            <input type="text" v-model='pwd'><br>
+
+            <span>性别:</span>
+            <input type="radio" id="female" value="女" v-model='sex'>
+            <label for="female">女</label>
+            <input type="radio" id="male" value="男" v-model='sex'>
+            <label for="female">男</label><br>
+
+            <span>爱好:</span>
+            <input type="checkbox" value="basket"  v-model='hobbies' >篮球
+            <input type="checkbox" value="foot"  v-model='hobbies' >足球
+            <input type="checkbox" value="pp"  v-model='hobbies' >乒乓球<br>
+
+            <span>城市:</span>
+            <select v-model='cityId'>
+                <option value=""></option>
+                <option :value="city.id" v-for='(city,index) in allCities'>{{city.name}}</option>
+            </select><br>
+
+            <span>介绍:</span>
+            <input type="text"><br>
+
+            <input type="submit" value="注册">
+        </form>
+    </div>
+    
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            username:'',
+            pwd:'',
+            sex:'女',
+            hobbies:['foot'],
+            allCities:[{id:1, name:'BJ'},{id:2, name:'SH'},{id:3, name:'ZZ'}],
+            cityId:'2'
+        },
+        methods:{
+            handleSubmit(){
+                console.log(this.username, this.pwd, this.sex, this.hobbies, this.cityId)
+                alert('提交注册的ajax请求')
+            }
+        }
+    })
+</script>
+</html>

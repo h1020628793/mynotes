@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{title}}</p>
+        <div>{{message}}</div>
+        <div>{{message.toUpperCase()}}</div>
+        <a href="url">淘宝</a><br>
+        <a v-bind:href="url">1</a><br>
+        <a :href="url">2</a><br>
+        <button v-on:click='test'>点我</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                title:'1.双大括号表达式',
+                message:'i Love LOL',
+                url: 'http://www.atguigu.com'
+            },
+            methods:{
+                test(){
+                    alert('sss')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

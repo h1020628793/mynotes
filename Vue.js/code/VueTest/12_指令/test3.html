@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <p v-upper-text="msg"></p>
+        <p v-lower-text="msg"></p>
+      </div>
+      
+      <div id="test2">
+        <p v-upper-text="msg"></p>
+        <p v-lower-text="msg"></p>
+      </div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script>
+    Vue.directive('upper-text',function(el, binding){
+        el.textContent = binding.value.toUpperCase()
+    })
+    new Vue({
+        el:'#test',
+        data:{
+            msg:'I Like you'
+        },
+        directives:{
+         'lower-text'(el,binding){
+            el.textContent = binding.value.toLowerCase()
+         }   
+        }
+    })
+    new Vue({
+        el:'#test2',
+        data:{
+            msg:'I LIke You'
+        }
+    })
+</script>
+</html>

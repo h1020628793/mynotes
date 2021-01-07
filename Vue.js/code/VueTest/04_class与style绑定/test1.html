@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .aClass{
+        color: red;
+    }
+    .bClass{
+        color: blue;
+    }
+</style>
+<body>
+    <div id="app">
+        <p>class绑定: class='xxx</p>
+        <p :class='myClass'> xxx是字符串</p>
+        <button @click='change'>变色</button>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            myClass:'aClass',
+        },
+        methods:{
+            change(){
+                this.myClass = 'bClass'
+            }
+        }
+    })
+</script>
+</html>
