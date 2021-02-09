@@ -1,0 +1,71 @@
+/*首页轮播图*/
+.index-swiper swiper{
+  width: 750rpx;
+  height: 340rpx;
+}
+.index-swiper swiper image{
+  width: 100%;
+}
+/*首页分类*/
+.index-category{
+  display: flex;
+  flex-wrap: wrap;
+}
+.index-category navigator{
+  display: flex;
+  width: 20%;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
+  padding: 10rpx;
+  margin-top: 10px;
+}
+
+.index-category navigator image{
+  height: 130rpx;
+  border-radius: 50%;
+}
+/*首页楼层*/
+.floor-wrap{
+  padding: 0 20rpx;
+}
+.floor-title{
+  text-align: center;
+  font-weight: 800;
+  font-size: 36rpx;
+  margin: 20rpx 0;
+}
+.product-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.floor-product{
+  width: 49%;
+  background: #fff;
+  padding: 20rpx;
+  margin-top: 10px;
+}
+.floor-product image{
+  width: 100%;
+  height: 355rpx;
+}
+.product-name{
+  height: 80rpx;
+  max-height: 80rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  vertical-align: baseline;
+  /*显示两行*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
+}
+.product-bottom{
+  margin-top: 20rpx;
+}
+.product-bottom .product-price{
+  color: #f00;
+}

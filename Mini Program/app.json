@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/cart/index",
+    "pages/category/index",
+    "pages/list/index",
+    "pages/order/index",
+    "pages/order-confirm/index",
+    "pages/order-detail/index",
+    "pages/search/index",
+    "pages/user/index",
+    "pages/detail/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#52c41a",
+    "navigationBarTitleText": "SortMall",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color":"#cdcdcd",
+    "selectedColor":"#52c41a",
+    "backgroundColor":"#efefef",
+    "borderStyle":"white",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "icons/home.png",
+      "selectedIconPath": "icons/home-s.png"
+    },{
+      "pagePath": "pages/category/index",
+      "text": "分类",
+      "iconPath": "icons/category.png",
+      "selectedIconPath": "icons/category-s.png"
+    },{
+      "pagePath": "pages/cart/index",
+      "text": "购物车",
+      "iconPath": "icons/cart.png",
+      "selectedIconPath": "icons/cart-s.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "用户中心",
+      "iconPath": "icons/user.png",
+      "selectedIconPath": "icons/user-s.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        body {
+            font-family: "simsun";
+        }
+
+        .comment {
+            font-size: 40px;
+            color: #ff1100;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //需求1：鼠标进入哪个li，当前的和之前的所有全部变为实心五角星;
+            //需求2：鼠标移开ul, 默认全部空心，如果点击过某一个就以他为基准，之前的全部实心;
+            //需求3：鼠标点击哪个li，这个li就是参考li;
+                    //技术点，点击谁，可以记录索引值，也可以通过一个类名控制;
+
+            //空心五角星和实心五角星
+            var KX_WJX = "☆";
+            var SX_WJX = "★";
+
+            //需求1：鼠标进入哪个li，当前的和之前的所有全部变为实心五角星;
+            $(".comment>li").on("mouseenter", function () {
+                //当前的和之前的所有全部变为实心五角星;其他的变为空心;
+                $(this).text(SX_WJX).prevAll("li").text(SX_WJX);
+                $(this).nextAll("li").text(KX_WJX);
+            });
+            //需求2：鼠标移开ul, 默认全部空心，如果点击过某一个就以他为基准，之前的全部实心;
+            $(".comment").on("mouseleave", function () {
+                //如果有类名，就要以类名为参考点;
+                if($(".current").length == 0){
+                    //等于0就说明没有点击过;
+                    $(".comment>li").text(KX_WJX);
+                }else{
+                    //不等于0，肯定等于1；就说明点击过，那么就以他为参考点;
+                    $(".current").text(SX_WJX).prevAll("li").text(SX_WJX)
+                    $(".current").nextAll("li").text(KX_WJX);
+                }
+
+            });
+            //需求3：鼠标点击哪个li，这个li就是参考li;(当前的添加类，其他的删除类)
+            $(".comment>li").on("click", function () {
+                $(this).addClass("current").siblings("li").removeAttr("class");
+            })
+
+        });
+    </script>
+</head>
+<body>
+
+
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+/**app.wxss**/
+@import "./style/iconfont.wxss";
+
+/*
+初始化样式
+*/
+page,view,image {
+  margin:0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+/*
+定义主题颜色变量和默认字体大小
+*/
+page{
+  --themeColor:#52c41a;
+  font-size: 28rpx;
+  background: #fafafa;
+}
+/*
+定义图片的宽度为父元素的100%
+*/
+image{
+  width: 100%;
+}

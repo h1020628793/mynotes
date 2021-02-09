@@ -1,0 +1,41 @@
+<view>
+ <SearchInput></SearchInput>
+ <!-- 首页轮播图 -->
+ <view class='index-swiper'>
+    <swiper indicator-dots autoplay circular>
+      <swiper-item wx:for="{{swiperList}}" wx:key="_id">
+        <navigator url="/pages/detail/index?productId={{item.link}}">
+        <image mode="widthFix" src="{{item.image}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!--首页分类-->
+  <view class='index-category'>
+    <navigator 
+      wx:for="{{categoryList}}" 
+      wx:key="_id" 
+      url="/pages/list/index?categoryId={{item._id}}"
+    >
+      <image src='{{item.icon}}'></image>
+      <text>{{item.mobileName}}</text>
+    </navigator>
+  </view>
+  <!--首页楼层-->
+  <view class="index-floor">
+    <view class="floor-wrap" wx:for="{{floorList}}" wx:for-item="floor" wx:key="id">
+      <view class="floor-title">{{floor.title}}</view>
+      <view class="product-wrap">
+        <view class="floor-product" wx:for="{{floor.products}}" wx:for-item="product" wx:key="index">
+          <navigator url="/pages/detail/index?productId={{product._id}}">
+            <image src="{{product.mainImage}}"></image>
+            <view class="product-name">{{product.name}}</view>
+            <view class="product-bottom">
+              <text class="product-price">{{product.price}}</text>
+            </view>
+          </navigator>
+        </view>      
+      </view>
+    </view>
+  </view>
+</view>

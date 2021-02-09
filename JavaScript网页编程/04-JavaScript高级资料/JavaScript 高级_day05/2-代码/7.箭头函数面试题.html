@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数面试题</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var age = 100; //之后添加的
+
+        var obj = {
+            age: 20,
+            say: () => {
+                alert(this.age)
+            }
+        }
+
+        obj.say(); //首先弹出underfined：因为箭头函数没有this属性，say方法被定义在obj对象里边，对象不能产生作用域，因此此时this指向window，然后window里没有age这个属性，所以弹出underfined.
+        // 在全局作用下添加了age属性，就可以弹出100了
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>商城-首页</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="libs/mock/carousel/carousel.css">
+
+</head>
+
+<body>
+    <!-- S 顶部导航 -->
+    <div class="top">
+        <div class="container">
+            <div class="user-info">
+                <div class="not-login">
+                    <a href="#">登录</a>
+                    <a href="#">注册</a>
+                </div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item cart-box">
+                    <a href="#">
+                        <i class="iconfont icon-Cart"></i> 购物车(
+                        <span class="cart-count">0</span>)
+                    </a>
+                    <div class="cart-content">
+                        <li class="nav-item">
+                            <a href="#">个人中心</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">我的订单</a>
+                        </li>
+            </ul>
+            </div>
+        </div>
+        <!-- E 顶部导航 -->
+        <!-- S 头部导航 -->
+        <div class="header">
+            <div class="container">
+                <div class="logo col-1 col-gap">
+                    <h1>
+                        <a href="#">SortMall</a>
+                    </h1>
+                </div>
+                <div class="search-wrap">
+                    <div class="search-box clearfix">
+                        <input class="search-input" type="text" placeholder="请输入商品名称关键字">
+                        <a href="javascript:;" class="search-btn">搜索</a>
+                        <ul class="search-layer">
+                            <!-- <li class="search-item">衣服</li> -->
+                        </ul>
+                    </div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">全部商品</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">热卖商品</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- E 头部导航 -->
+        <!-- S 焦点区域 -->
+        <div class="focus">
+            <div class="container">
+                <div class="categories col-1 col-gap">
+                    <div class="parent-categories">
+                    </div>
+                    <div class="child-categories"></div>
+                </div>
+                <div class="swiper col-4" id="swiper">
+                    <!-- <ul class="img-wrap">
+                        <li class="img-item">
+                            <img src="https://api.mall.kuazhu.com/ad-images/1595244720219.jpg" alt="">
+                        </li>
+                        <li class="img-item">
+                            <img src="https://api.mall.kuazhu.com/ad-images/1587973708561.jpg" alt="">
+                        </li>
+                        <li class="img-item">
+                            <img src="https://api.mall.kuazhu.com/ad-images/1595244625313.jpg" alt="">
+                        </li>
+                    </ul> -->
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                    <ul class="btn-wrap">
+                        <li class="btn active"></li>
+                        <li class="btn"></li>
+                        <li class="btn"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- E 焦点区域 -->
+        <!-- S 热销区域 -->
+        <div class="hot">
+            <div class="container">
+                <div class="left-area col-1 col-gap">
+                    <h2 class="hot-hd">热销推荐</h2>
+                    <i></i>
+                </div>
+                <ul class="product-list col-4">
+                    <!-- <li class="product-item col-1 col-gap">
+                        <a href="#">
+                            <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1587973772260.jpg" alt="">
+                            <p class="product-name">Acer极光D606D无线鼠标 办公鼠标
+                            </p>
+                            <p class="product-price-paynum">
+                                <span class="product-price">&yen;9999</span>
+                                <span class="people">0人已购买</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="product-item col-1 col-gap">
+                        <a href="#">
+                            <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1587973772260.jpg" alt="">
+                            <p class="product-name">Acer极光D606D无线鼠标 办公鼠标
+                            </p>
+                            <p class="product-price-paynum">
+                                <span class="product-price">&yen;9999</span>
+                                <span class="people">0人已购买</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="product-item col-1 col-gap">
+                        <a href="#">
+                            <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1587973772260.jpg" alt="">
+                            <p class="product-name">Acer极光D606D无线鼠标 办公鼠标
+                            </p>
+                            <p class="product-price-paynum">
+                                <span class="product-price">&yen;9999</span>
+                                <span class="people">0人已购买</span>
+                            </p>
+                        </a>
+                    </li>
+                    <li class="product-item col-1 col-gap">
+                        <a href="#">
+                            <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1587973772260.jpg" alt="">
+                            <p class="product-name">Acer极光D606D无线鼠标 办公鼠标
+                            </p>
+                            <p class="product-price-paynum">
+                                <span class="product-price">&yen;9999</span>
+                                <span class="people">0人已购买</span>
+                            </p>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <!-- E 热销区域 -->
+        <!-- S 楼层 -->
+        <div class="floor">
+            <div class="container">
+                <div class="floor-wrap">
+                    <div class="floor-title">
+                        <a href="#">
+                            <h2>F1 电脑耗材</h2>
+                        </a>
+                    </div>
+                    <ul class="product-list clearfix">
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="floor-wrap">
+                    <div class="floor-title">
+                        <a href="#">
+                            <h2>F2 家用电器</h2>
+                        </a>
+                    </div>
+                    <ul class="product-list clearfix">
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="product-item col-1 col-gap">
+                            <a href="#">
+                                <img width="180px" height="180px" src="https://api.mall.kuazhu.com/product-images/1595243848881.jpg" alt="">
+                                <p class="product-name">惠普（HP）S1000 Plus 无线鼠标 办公鼠标 黑色</p>
+                                <p class="product-price-paynum">
+                                    <span class="product-price">&yen;9999</span>
+                                    <span class="paynum">0人已购买</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- E 楼层 -->
+        <!-- S 底部区域 -->
+        <div class="footer">
+            <div class="container">
+                <div class="promise">
+                    <span class="icon icon1">7天无理由退换货</span>
+                    <span class="icon icon2">满99元全场免邮</span>
+                    <span class="icon icon3">100%品质保证</span>
+                </div>
+                <div class="link">
+                    <a href="#">跨猪</a>
+                    <a href="#">百度</a>
+                    <a href="#">淘宝</a>
+                </div>
+                <div class="copyright">© 2019 kuazhu.com 豫ICP备15027861号-2</div>
+            </div>
+        </div>
+        <!-- E 底部区域 -->
+        <!-- S 电梯 -->
+        <div>
+            <div id="elevator" class="elevator container">
+            </div>
+        </div>
+        <!-- E 电梯 -->
+</body>
+
+<script src="js/utils.js"></script>
+<script src="libs/mock/mock.js"></script>
+<script src="mock_data/index.js"></script>
+<script src="libs/mock/carousel/carousel.js"></script>
+<script src="js/index.js"></script>
+
+</html>

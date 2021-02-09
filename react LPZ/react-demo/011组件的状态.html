@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+</body>
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script type="text/babel">
+    class MyComponent extends React.Component {
+        constructor() {
+            // 如果子类加入了constructor构造函数, 则一定要手动调用父类的构造函数super()
+            super()
+
+            this.state = {
+                message: 'hello MyComponent'
+            }
+        }
+        render() {
+            return (
+                <div>
+                    <h1>{this.state.message}</h1>
+                    <h1>{this.state.message}</h1>
+                    <h1>{this.state.message}</h1>
+                    <h1>{this.state.message}</h1>
+                    {/*
+                        事件绑定函数默认情况下内部的this指向Window
+                    */}
+                    <button onClick={this.handleClick.bind(this)}>点击改变message</button>
+                </div>
+            )
+        }
+        handleClick() {
+            // console.log('handle click');
+            // console.log(this);//默认是window
+
+            //如果要修改state中的数据并且希望得到更新，一定要使用this.setState方法
+            this.setState({
+                message: 'hello world'
+            })
+        }
+    }
+    const element = <MyComponent />
+    ReactDOM.render(element, document.getElementById('app'))
+</script>
+
+</html>

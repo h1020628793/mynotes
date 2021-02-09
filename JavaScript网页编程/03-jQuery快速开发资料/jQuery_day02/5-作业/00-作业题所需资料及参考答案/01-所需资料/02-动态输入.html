@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 410px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        td a.get {
+            text-decoration: none;
+        }
+
+        a.del:hover {
+            text-decoration: underline;
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+
+        .btnAdd {
+            width: 110px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .form-item {
+            height: 100%;
+            position: relative;
+            padding-left: 100px;
+            padding-right: 20px;
+            margin-bottom: 34px;
+            line-height: 36px;
+        }
+
+        .form-item > .lb {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100px;
+            text-align: right;
+        }
+
+        .form-item > .txt {
+            width: 300px;
+            height: 32px;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.8;
+            display: none;
+        }
+
+        .form-add {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            margin-left: -197px;
+            padding-bottom: 20px;
+            background: #fff;
+            display: none;
+        }
+
+        .form-add-title {
+            background-color: #f7f7f7;
+            border-width: 1px 1px 0 1px;
+            border-bottom: 0;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-add-title span {
+            width: auto;
+            height: 18px;
+            font-size: 16px;
+            font-family: 宋体;
+            font-weight: bold;
+            color: rgb(102, 102, 102);
+            text-indent: 12px;
+            padding: 8px 0px 10px;
+            margin-right: 10px;
+            display: block;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .form-add-title div {
+            width: 16px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 6px;
+            font-size: 30px;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .form-submit {
+            text-align: center;
+        }
+
+        .form-submit input {
+            width: 170px;
+            height: 32px;
+        }
+
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+            //需求1：点击j_btnAddData，显示mask和form表单;
+            //需求2：点击j_hideFormAdd，隐藏mask和form表单;
+            //需求3：点击j_btnAdd，添加一个tr到tbody中;
+            //需求4：点击a.get，删除他所在的tr;
+
+            //需求1：点击j_btnAddData，显示mask和form表单;
+            $("#j_btnAddData").click(showOrHide);
+            //需求2：点击j_hideFormAdd，隐藏mask和form表单;
+            $("#j_hideFormAdd").click(showOrHide);
+            //需求3：点击j_btnAdd，添加一个tr到tbody中;
+            $("#j_btnAdd").click(function () {
+                //获取两个input里面的值，往tr里面的td中设置内容;
+                var val1 = $("#j_txtLesson").val();//val()可以获取input的value属性值;
+                var val2 = $("#j_txtBelSch").val();//val()可以获取input的value属性值;
+                //bug3: 如果两个值为空字符串或者空格，不能添加;
+                if(val1.trim()=="" || val2.trim()==""){
+                    alert("内容不能为空！");
+                    $("#j_txtLesson").val("");//设置参数就是赋值，和html()一样;
+                    $("#j_txtBelSch").val("传智播客-前端中的黄埔军校");//设置参数就是赋值，和html()一样;
+                    return;
+                }
+                var tr = $("<tr></tr>");
+                var str ="<td>"+val1+"</td>"+
+                         "<td>"+val2+"</td>"+
+                         "<td><a href='javascrip:;' class='get'>GET</a></td>";
+
+                tr.html(str);
+                //添加到tbody中
+                $("#j_tb").append(tr);
+
+                //bug1: 添加完数据，隐藏两个盒子;
+                showOrHide();
+                //bug2: 初始化值，第一个清空，第二个默认值;
+                $("#j_txtLesson").val("");//设置参数就是赋值，和html()一样;
+                $("#j_txtBelSch").val("传智播客-前端中的黄埔军校");//设置参数就是赋值，和html()一样;
+
+                //bug4: 新添加的元素没有老事件;
+                    //每次创建一个，绑定一次
+                tr.find(".get").click(function () {
+                    //删除他所在的tr;
+                    $(this).parent().parent().remove();
+                });
+            });
+
+
+            //需求4：点击a.get，删除他所在的tr;
+                //新添加的元素没有老事件：1.事件委托;  2.每次创建绑定一次;  3.jQ事件绑定;
+            $(".get").click(function () {
+                //删除他所在的tr;
+                $(this).parent().parent().remove();
+            });
+
+
+            //每天讲解(以事件委托的形式进行事件绑定)
+//            $("#j_tb").on("click",".get", function () {
+//                $(this).parent().parent().remove();
+//            })
+
+
+
+
+
+            //封装,显示隐藏盒子
+            function showOrHide() {
+                $("#j_mask").toggle();
+                $("#j_formAdd").toggle();
+            }
+        });
+    </script>
+</head>
+<body>
+
+
+    <div class="wrap">
+        <div>
+            <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd"/>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <!-- <th><input type="checkbox" id="j_cbAll" /></th> -->
+                    <th>课程名称</th>
+                    <th>所属学院</th>
+                    <th>已学会</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>JavaScript</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>css</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>html</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><input type="checkbox"/></td> -->
+                    <td>jQuery</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="j_mask" class="mask"></div>
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+
+            <div id="j_hideFormAdd">x</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtLesson">课程名称：</label>
+            <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtBelSch">所属学院：</label>
+            <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端中的黄埔军校">
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd">
+        </div>
+    </div>
+
+
+</body>
+</html>

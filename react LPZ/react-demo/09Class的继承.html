@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    class Person {
+        constructor(name, age, gender) {
+            this.name = name
+            this.age = age
+            this.gender = gender
+        }
+        sayHello() {
+
+            window.alert('hello' + this.name)
+        }
+    }
+    //Class可以使用extend关键字实现对父类的继承
+    //不仅可以继承属性，还可以继承父类的原型方法
+    //这里继承的本质是使用的：原型式继承
+    class Student extends Person {
+        constructor(name, age, gender) {
+            //借用父类的构造函数,把name,age,gender初始化到Student实例中
+            super(name, age, gender)
+
+            this.id = id
+        }
+        study() {
+            console.log(this.name + '在上课');
+        }
+    }
+    const s1 = new Student('张三', 18, '男')
+
+</script>
+
+</html>

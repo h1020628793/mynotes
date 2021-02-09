@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto 0;
+        }
+
+        .wrap h1 {
+            text-align: center;
+        }
+
+        .wrap div {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            font-size: 30px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(window).ready(function () {
+            //需求：在整个页面按下键盘上的键，判断Unicode编码，设置背景和内容;
+
+            //绑定事件(keydown可以获取组合键；keyCode/charCode)
+                //keydown--keyCode;     keypress--charCode;
+            $(document).on("keydown", function (event) {
+//                alert(event.keyCode);
+                //82:r; y:89; p:80; b:66; s:83; g:71; o:79;
+
+                $("#keyCodeSpan").text(event.keyCode);
+                //按键以后，判断值
+                switch (event.keyCode){
+                    case 82:
+                        $("#bgChange").css("background","red");
+                        break;
+                    case 89:
+                        $("#bgChange").css("background","yellow");
+                        break;
+                    case 80:
+                        $("#bgChange").css("background","purple");
+                        break;
+                    case 66:
+                        $("#bgChange").css("background","blue");
+                        break;
+                    case 83:
+                        $("#bgChange").css("background","skyblue");
+                        break;
+                    case 71:
+                        $("#bgChange").css("background","green");
+                        break;
+                    case 79:
+                        $("#bgChange").css("background","orange");
+                        break;
+                    default :
+                        $("#keyCodeSpan").text("无此键位");
+                        $("#bgChange").css("background","pink");
+                }
+
+            })
+        });
+    </script>
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>按键改变颜色</h1>
+        <div id="bgChange">
+            keyCode为：
+            <span id="keyCodeSpan"></span>
+        </div>
+    </div>
+
+</body>
+</html>

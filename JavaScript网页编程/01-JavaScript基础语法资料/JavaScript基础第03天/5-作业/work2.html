@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<!-- - 在控制台一次性打印形状如下：
+
+☆
+☆☆
+☆☆☆
+☆☆☆☆
+☆☆☆☆☆
+
+- 题目提示：
+
+- 利用双重for循环 -->
+<script>
+    var str = '';
+    for (var i = 1; i <= 5; i++) { // 外层循环负责打印五行
+        for (var j = 1; j <= i; j++) { // 里层循环负责一行打印五个星星
+            str = str + '★';
+        }
+        // 如果一行打印完毕5个星星就要另起一行 加 \n
+        str = str + '\n';
+    }
+    console.log(str);
+</script>
+
+</html>

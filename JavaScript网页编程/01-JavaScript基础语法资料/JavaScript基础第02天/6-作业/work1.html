@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 用户输入的时间在6 - 12 之间 弹出“ 上午好”；
+    // 用户输入的时间在13 - 18 之间 弹出“ 下午好”；
+    // 用户输入的时间在19 - 23 之间 弹出“ 晚上好”；
+    // 用户输入的时间在0 - 5 之间 弹出“ 这是休息时间， 不要说话！”；
+
+    var time = prompt('请输入现在的时间');
+
+    if (time >= 0 && time < 6) {
+        alert('这是休息时间，不要说话！');
+    } else if (time >= 6 && time < 12) {
+        alert('上午好');
+    } else if (time >= 13 && time < 19) {
+        alert('下午好');
+    } else {
+        alert('“晚上好');
+    }
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+body{
+	font-size: 12px;
+	background-color: #eee;
+}
+.container{
+	width: 1080px;
+	margin-left: auto;
+	margin-right: auto;
+}
+a{
+	color: #333;
+	text-decoration: none;
+}
+a:hover{
+	color: #1890ff;
+}
+.col-1{
+    width: 208px;
+}
+.col-gap{
+    margin-right: 10px;
+}
+.col-4{
+    width: 862px;
+}
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom:1;
+}

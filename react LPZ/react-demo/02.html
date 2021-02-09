@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 应用入口 -->
+    <div id="app"></div>
+</body>
+<!-- 安装 npm install --save react react-dom @babel/standalone -->
+<!-- @babel/standalone是一个独立的编译工具，支持调用它的API完成ES6到ES5的转换 -->
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+<!-- 基本语法规则
+1.必须只能有一个根节点{
+    <h1> hello </h1><p>shsh</p>这样是不行的
+    除非<div>
+         <h1> hello </h1><p>shsh</p>
+    </div>包括起来
+}  或者
+ const element = (
+    <div>
+        <h1> hello </h1>
+        <p>hahaa</p>
+    </div>
+    ) 
+2.
+-->
+<script type="text/babel">
+    const element =
+    <h1>hello react!</h1>
+    ReactDOM.render( element,document.getElementById('app'))
+</script>
+
+</html>

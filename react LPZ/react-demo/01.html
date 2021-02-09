@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 应用入口 -->
+    <div id="app"></div>
+</body>
+<!-- 安装 npm install --save react react-dom @babel/standalone -->
+<!-- @babel/standalone是一个独立的编译工具，支持调用它的API完成ES6到ES5的转换 -->
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<!-- <script>
+    var input = 'const getMessage = () => "hello world";';
+    var output = Babel.transform(input, {
+        presets: ['es2015']
+    }).code
+    console.log(output);
+</script> -->
+<script type="text/babel">
+    ReactDOM.render(
+    <h1>hello,react</h1>,document.getElementById('app'))
+</script>
+
+</html>

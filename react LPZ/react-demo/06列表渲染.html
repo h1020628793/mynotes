@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+</body>
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script type="text/babel">
+    const fruits = [
+        <li key='1'>苹果</li>,
+        <li key='2'>香蕉</li>,
+        <li key='3'>橘子</li>
+    ]
+    const todos = [
+        {
+            id: 1,
+            title: '吃饭'
+        },
+        {
+            id: 2,
+            title: '吃饭'
+        },
+        {
+            id: 3,
+            title: '吃饭'
+        }
+    ]
+    // const todeLis = []
+    //这样较为麻烦
+    // 1.todos.forEach(item => {
+    //     els.push(<li>{item.title}</li>)
+    // })
+    // 2.todos.forEach(item => {
+    //     els.push(<li key={item.id}>{item.title}</li>)
+    // })
+
+
+    const element = (
+        <div>
+            {/* 在jsx中，绑定数组成员会直接把成员渲染到这里*/}
+            <ul>{fruits}</ul>
+            {/*
+            <ul>
+            直接绑定一个数据
+                {todeLis}
+            </ul>*/
+            }
+            {/*直接在列表中渲染*/}
+            <ul>
+                {
+                    //map方法遍历的返回的是一个数组，这样可以等价于在标签中动态生成了一个数组
+                    todos.map(item => {
+                        return <li key={item.id}>{item.title}</li>
+                    })
+                }
+            </ul>
+        </div>
+    )
+    ReactDOM.render(element, document.getElementById('app'))
+</script>
+
+</html>

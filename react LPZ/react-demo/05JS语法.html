@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+</body>
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script type="text/babel">
+    const user = { name: 'jack', age: 18, gender: 0 };
+    const element = (
+        <div className='box' title='{user.name}'>
+            <div>
+                <label htmlFor="name">用户名</label>
+                {/*JSX单标签必须以 /结束   */}
+                <input type="text" id="name" />
+            </div>
+            <div>
+                <input type="checkbox" defaultChecked />
+            </div>
+            <div>
+                <input type="text" defaultValue='hello' />
+            </div>
+        </div>
+    )
+    ReactDOM.render(element, document.getElementById('app'))
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="node_modules/@babel/standalone/babel.js"></script>
+<script src="node_modules/react/umd/react.development.js"></script>
+<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+<script type="text/babel">
+    const user = { name: 'jack', age: 18, gender: 0 }; const element = (
+    <div>
+        <p>{1+1}</p>
+        <p>{'hello'}</p>
+
+
+        { /* 推荐使用这种方法 这是jsx和ES6中的模板字符串混搭*/ }
+
+        <p>{'hello ${user.name'}</p>
+        <p>姓名:{user.name}</p>
+        <p>年龄:{user.age}</p>
+        <p>性别:{user.gender === 0 ? '男' : '女'}</p>
+    </div>
+    ); ReactDOM.render(element,document.getElementById('app'))
+</script>
+
+</html>

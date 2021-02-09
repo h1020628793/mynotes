@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.App{
+    width: 800px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.App .head{
+    display: flex;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.App .head input{
+    width: 700px;
+    outline: none;
+    padding: 10px;
+    font-size: 28px;
+}
+.App .head button{
+    width: 100px;
+}
+.App .item{
+    width: 100%;
+    line-height: 40px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+    cursor: pointer;
+}
+.App .item:hover{
+    background-color:#eee
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 接收用户输入的用户名和密码， 若用户名为“ admin”, 且密码为“ 123456”, 则提示用户登录成功!否则， 让用户一直输入。 -
+    //     题目提示： -
+    //     利用while循环或者do
+    // while 循环
+    do {
+        var message = prompt('请输入用户名：');
+        var pwd = prompt('请输入密码：')
+    } while (message != 'admin' && pwd != '123456')
+    alert('登陆成功')
+</script>
+
+</html>
